@@ -1,0 +1,54 @@
+<div class="wikirate-creme-box">
+  <div class="container">
+    <br>
+    <br>
+    <div class="row-cols-md-2">
+      <div class="subtitle">
+        What does supply chain transparency mean for <u>the top 100 apparel companies?</u>
+      </div>
+    </div>
+    <br>
+    <div class="row-cols-md-2">
+      <div class="main-text">
+        This case study compiles data on the top 100 Apparel companies, investors and suppliers.
+        The aim is to build a big picture of one of the largest value chains.
+      </div>
+    </div>
+    <div class="row-cols-md-2 mt-4">
+      <div class="menu-button">
+        <button class="btn btn-outline-dark m-1">Download Report<i class="bi bi-download ml-2"></i></button>
+        <button class="btn btn-showcase m-1" (click)="open(mymodal)">Explore the Data <i class="bi bi-clipboard-data ml-1"></i></button>
+        <!-- Modal -->
+        <ng-template #mymodal let-c="close" let-close="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Explore the Data!</h4>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center m-2">
+            <h1><i class="bi bi-clipboard-data"></i></h1>
+            <p>To explore more how the biggest apparel companies are behaving, you can search by company name and year from the top right menu. </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="close();onExploreMore()">OK</button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="wikirate-box">
+  <div class="container align-content-center">
+    <div class="row justify-content-md-center">
+      <div class="mini-title mt-5 mb-2 col-8">The case</div>
+      <div class="mini-text col-8">
+        Apparel is a sector that has made huge steps in terms of transparency over the past decades. It’s one of the
+        sectors that has comparatively a lot of data, but even for the largest apparel companies there is not enough
+        data.
+      </div>
+    </div>
+  </div>
+</div>

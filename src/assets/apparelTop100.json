@@ -1,0 +1,602 @@
+[
+  {
+    "id": 5590,
+    "name": "H&M",
+    "url": "https://wikirate.org/H_M",
+    "headquarters": "Sweden"
+  },
+  {
+    "id": 5505,
+    "name": "Gap inc.",
+    "url": "https://wikirate.org/Gap_inc",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 5301,
+    "name": "Inditex",
+    "url": "https://wikirate.org/Inditex",
+    "headquarters": "Spain"
+  },
+  {
+    "id": 9269,
+    "name": "Marks and Spencer Group plc",
+    "url": "https://wikirate.org/Marks_and_Spencer_Group_plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 7217,
+    "name": "Adidas AG",
+    "url": "https://wikirate.org/Adidas_AG",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 1829050,
+    "name": "Asos",
+    "url": "https://wikirate.org/Asos",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 9139,
+    "name": "Burberry Group plc",
+    "url": "https://wikirate.org/Burberry_Group_plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 8979,
+    "name": "Louis Vuitton Malletier SA (LVMH)",
+    "url": "https://wikirate.org/Louis_Vuitton_Malletier_SA_LVMH",
+    "headquarters": "France"
+  },
+  {
+    "id": 5800,
+    "name": "Nike Inc.",
+    "url": "https://wikirate.org/Nike_Inc",
+    "headquarters": "Oregon (United States)"
+  },
+  {
+    "id": 49386,
+    "name": "Tapestry Inc",
+    "url": "https://wikirate.org/Tapestry_Inc",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 18109,
+    "name": "Puma",
+    "url": "https://wikirate.org/Puma",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 776737,
+    "name": "Tiffany & Co.",
+    "url": "https://wikirate.org/Tiffany_Co",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 56584,
+    "name": "Fast Retailing",
+    "url": "https://wikirate.org/Fast_Retailing",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 61104,
+    "name": "VF",
+    "url": "https://wikirate.org/VF",
+    "headquarters": "North Carolina (United States)"
+  },
+  {
+    "id": 61050,
+    "name": "PVH",
+    "url": "https://wikirate.org/PVH",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 2608717,
+    "name": "Zalando SE",
+    "url": "https://wikirate.org/Zalando_SE",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 866194,
+    "name": "Guess? Inc",
+    "url": "https://wikirate.org/Guess_Inc",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 116498,
+    "name": "Under Armour",
+    "url": "https://wikirate.org/Under_Armour",
+    "headquarters": "Maryland (United States)"
+  },
+  {
+    "id": 8362,
+    "name": "Kering",
+    "url": "https://wikirate.org/Kering",
+    "headquarters": "France"
+  },
+  {
+    "id": 61065,
+    "name": "Prada",
+    "url": "https://wikirate.org/Prada",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 56597,
+    "name": "L Brands",
+    "url": "https://wikirate.org/L_Brands",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 42714,
+    "name": "Hugo Boss AG",
+    "url": "https://wikirate.org/Hugo_Boss_AG",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 56618,
+    "name": "Nordstrom",
+    "url": "https://wikirate.org/Nordstrom",
+    "headquarters": "Washington (United States)"
+  },
+  {
+    "id": 861862,
+    "name": "Columbia Sportswear",
+    "url": "https://wikirate.org/Columbia_Sportswear",
+    "headquarters": "Oregon (United States)"
+  },
+  {
+    "id": 859389,
+    "name": "Urban Outfitters",
+    "url": "https://wikirate.org/Urban_Outfitters",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 2265395,
+    "name": "Ralph Lauren Corporation",
+    "url": "https://wikirate.org/Ralph_Lauren_Corporation",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 858415,
+    "name": "Fossil Group, Inc.",
+    "url": "https://wikirate.org/Fossil_Group_Inc",
+    "headquarters": "Texas (United States)"
+  },
+  {
+    "id": 866417,
+    "name": "Skechers USA Inc",
+    "url": "https://wikirate.org/Skechers_USA_Inc",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 862441,
+    "name": "American Eagle Outfitters",
+    "url": "https://wikirate.org/American_Eagle_Outfitters",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 60982,
+    "name": "Hanesbrands",
+    "url": "https://wikirate.org/Hanesbrands",
+    "headquarters": "North Carolina (United States)"
+  },
+  {
+    "id": 945115,
+    "name": "Lojas Renner S.A.",
+    "url": "https://wikirate.org/Lojas_Renner_S_A",
+    "headquarters": "Brazil"
+  },
+  {
+    "id": 58500,
+    "name": "Foot Locker Inc.",
+    "url": "https://wikirate.org/Foot_Locker_Inc",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 957395,
+    "name": "TJX",
+    "url": "https://wikirate.org/TJX",
+    "headquarters": "Massachusetts (United States)"
+  },
+  {
+    "id": 776749,
+    "name": "G-III Apparel Group, LTD.",
+    "url": "https://wikirate.org/G_III_Apparel_Group_LTD",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 866117,
+    "name": "Deckers Outdoor Corporation",
+    "url": "https://wikirate.org/Deckers_Outdoor_Corporation",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 57653,
+    "name": "Ross Stores",
+    "url": "https://wikirate.org/Ross_Stores",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 861719,
+    "name": "Wolverine World Wide",
+    "url": "https://wikirate.org/Wolverine_World_Wide",
+    "headquarters": "Michigan (United States)"
+  },
+  {
+    "id": 865187,
+    "name": "Caleres Inc",
+    "url": "https://wikirate.org/Caleres_Inc",
+    "headquarters": "Missouri (United States)"
+  },
+  {
+    "id": 49209,
+    "name": "Next",
+    "url": "https://wikirate.org/Next",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 866341,
+    "name": "Oxford Industries Inc",
+    "url": "https://wikirate.org/Oxford_Industries_Inc",
+    "headquarters": "Georgia (United States)"
+  },
+  {
+    "id": 2274181,
+    "name": "Genesco Inc.",
+    "url": "https://wikirate.org/Genesco_Inc",
+    "headquarters": "Tennessee (United States)"
+  },
+  {
+    "id": 2632311,
+    "name": "Chico's FAS Inc",
+    "url": "https://wikirate.org/Chico_s_FAS_Inc",
+    "headquarters": "Florida (United States)"
+  },
+  {
+    "id": 61176,
+    "name": "Macy's",
+    "url": "https://wikirate.org/Macy_s",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 792992,
+    "name": "Moncler",
+    "url": "https://wikirate.org/Moncler",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 2241782,
+    "name": "DSW Inc.",
+    "url": "https://wikirate.org/DSW_Inc",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 60914,
+    "name": "Abercrombie & Fitch",
+    "url": "https://wikirate.org/Abercrombie_Fitch",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 57485,
+    "name": "Luxottica Group SpA",
+    "url": "https://wikirate.org/Luxottica_Group_SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 2632233,
+    "name": "Ascena Retail Group Inc",
+    "url": "https://wikirate.org/Ascena_Retail_Group_Inc",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 776665,
+    "name": "Dillard's, Inc.",
+    "url": "https://wikirate.org/Dillard_s_Inc",
+    "headquarters": "Arkansas (United States)"
+  },
+  {
+    "id": 50638,
+    "name": "Dick's Sporting Goods",
+    "url": "https://wikirate.org/Dick_s_Sporting_Goods",
+    "headquarters": "Pennsylvania (United States)"
+  },
+  {
+    "id": 2605005,
+    "name": "Carter's Inc",
+    "url": "https://wikirate.org/Carter_s_Inc",
+    "headquarters": "Georgia (United States)"
+  },
+  {
+    "id": 2632164,
+    "name": "Express Inc",
+    "url": "https://wikirate.org/Express_Inc",
+    "headquarters": "Ohio (United States)"
+  },
+  {
+    "id": 2979682,
+    "name": "Vera Bradley Inc.",
+    "url": "https://wikirate.org/Vera_Bradley_Inc",
+    "headquarters": "Indiana (United States)"
+  },
+  {
+    "id": 170564,
+    "name": "Asics Corporation",
+    "url": "https://wikirate.org/Asics_Corporation",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 116138,
+    "name": "Gildan Activewear Inc.",
+    "url": "https://wikirate.org/Gildan_Activewear_Inc",
+    "headquarters": "Canada"
+  },
+  {
+    "id": 2632287,
+    "name": "Burlington Stores Inc",
+    "url": "https://wikirate.org/Burlington_Stores_Inc",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 2980808,
+    "name": "Buckle Inc",
+    "url": "https://wikirate.org/Buckle_Inc",
+    "headquarters": "Nebraska (United States)"
+  },
+  {
+    "id": 1825510,
+    "name": "lululemon athletica",
+    "url": "https://wikirate.org/lululemon_athletica",
+    "headquarters": "Quebec (Canada)"
+  },
+  {
+    "id": 2632400,
+    "name": "Francesca's",
+    "url": "https://wikirate.org/Francesca_s",
+    "headquarters": "Texas (United States)"
+  },
+  {
+    "id": 9127,
+    "name": "Esprit Holdings Limited",
+    "url": "https://wikirate.org/Esprit_Holdings_Limited",
+    "headquarters": "Hong Kong"
+  },
+  {
+    "id": 3052157,
+    "name": "Cato Corp",
+    "url": "https://wikirate.org/Cato_Corp",
+    "headquarters": "North Carolina (United States)"
+  },
+  {
+    "id": 48305,
+    "name": "Christian Dior",
+    "url": "https://wikirate.org/Christian_Dior",
+    "headquarters": "France"
+  },
+  {
+    "id": 2931751,
+    "name": "Arvind Limited",
+    "url": "https://wikirate.org/Arvind_Limited",
+    "headquarters": "India"
+  },
+  {
+    "id": 3081310,
+    "name": "Mulberry Group Plc",
+    "url": "https://wikirate.org/Mulberry_Group_Plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3151635,
+    "name": "Ted Baker",
+    "url": "https://wikirate.org/Ted_Baker",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3152073,
+    "name": "Capri Holdings Ltd (formerly Michael Kors)",
+    "url": "https://wikirate.org/Capri_Holdings_Ltd_formerly_Michael_Kors",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 48284,
+    "name": "Hermes International",
+    "url": "https://wikirate.org/Hermes_International",
+    "headquarters": "France"
+  },
+  {
+    "id": 2608722,
+    "name": "Salvatore Ferragamo SpA",
+    "url": "https://wikirate.org/Salvatore_Ferragamo_SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 56413,
+    "name": "Richemont",
+    "url": "https://wikirate.org/Richemont",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 3075761,
+    "name": "Boot Barn Holdings Inc.",
+    "url": "https://wikirate.org/Boot_Barn_Holdings_Inc",
+    "headquarters": "California (United States)"
+  },
+  {
+    "id": 2624117,
+    "name": "Geox SpA",
+    "url": "https://wikirate.org/Geox_SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 3098198,
+    "name": "Hudson's Bay Company",
+    "url": "https://wikirate.org/Hudson_s_Bay_Company",
+    "headquarters": "Ontario, Canada"
+  },
+  {
+    "id": 57272,
+    "name": "Swatch Group",
+    "url": "https://wikirate.org/Swatch_Group",
+    "headquarters": "Switzerland"
+  },
+  {
+    "id": 3624592,
+    "name": "JD Sports Fashion plc",
+    "url": "https://wikirate.org/JD_Sports_Fashion_plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 44618,
+    "name": "Sports Direct",
+    "url": "https://wikirate.org/Sports_Direct",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3624482,
+    "name": "Superdry plc",
+    "url": "https://wikirate.org/Superdry_plc",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 2632436,
+    "name": "Children's Place Inc",
+    "url": "https://wikirate.org/Children_s_Place_Inc",
+    "headquarters": "New Jersey (United States)"
+  },
+  {
+    "id": 2623713,
+    "name": "YOOX NET-A-PORTER Group SpA",
+    "url": "https://wikirate.org/YOOX_NET_A_PORTER_Group_SpA",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 3624475,
+    "name": "Brunello Cucinelli",
+    "url": "https://wikirate.org/Brunello_Cucinelli",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 1173485,
+    "name": "Li-Ning",
+    "url": "https://wikirate.org/Li_Ning",
+    "headquarters": "Beijing (China)"
+  },
+  {
+    "id": 3624461,
+    "name": "TOD'S",
+    "url": "https://wikirate.org/TOD_S",
+    "headquarters": "Italy"
+  },
+  {
+    "id": 3624440,
+    "name": "Boohoo.com",
+    "url": "https://wikirate.org/Boohoo_com",
+    "headquarters": "United Kingdom"
+  },
+  {
+    "id": 3624468,
+    "name": "Alpargatas - Havaianas",
+    "url": "https://wikirate.org/Alpargatas_Havaianas",
+    "headquarters": "Brazil"
+  },
+  {
+    "id": 3624718,
+    "name": "Gerry Weber",
+    "url": "https://wikirate.org/Gerry_Weber",
+    "headquarters": "Germany"
+  },
+  {
+    "id": 3624454,
+    "name": "Grendene",
+    "url": "https://wikirate.org/Grendene",
+    "headquarters": "Brazil"
+  },
+  {
+    "id": 48991,
+    "name": "Chow Tai Fook",
+    "url": "https://wikirate.org/Chow_Tai_Fook",
+    "headquarters": "Hong Kong"
+  },
+  {
+    "id": 3624510,
+    "name": "Cia Hering",
+    "url": "https://wikirate.org/Cia_Hering",
+    "headquarters": "Brazil"
+  },
+  {
+    "id": 3624496,
+    "name": "United Arrows",
+    "url": "https://wikirate.org/United_Arrows",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 3624517,
+    "name": "Van de Velde",
+    "url": "https://wikirate.org/Van_de_Velde",
+    "headquarters": "Belgium"
+  },
+  {
+    "id": 2631100,
+    "name": "Vipshop Holdings",
+    "url": "https://wikirate.org/Vipshop_Holdings",
+    "headquarters": "Guangdong (China)"
+  },
+  {
+    "id": 51397,
+    "name": "JC Penney",
+    "url": "https://wikirate.org/JC_Penney",
+    "headquarters": "Texas (United States)"
+  },
+  {
+    "id": 3624433,
+    "name": "Lao Feng Xiang Jewelry",
+    "url": "https://wikirate.org/Lao_Feng_Xiang_Jewelry",
+    "headquarters": "China"
+  },
+  {
+    "id": 3624447,
+    "name": "Steve Madden",
+    "url": "https://wikirate.org/Steve_Madden",
+    "headquarters": "New York (United States)"
+  },
+  {
+    "id": 5294114,
+    "name": "Onward Holdings",
+    "url": "https://wikirate.org/Onward_Holdings",
+    "headquarters": "Japan"
+  },
+  {
+    "id": 3624503,
+    "name": "Metersbonwe",
+    "url": "https://wikirate.org/Metersbonwe",
+    "headquarters": "Shanghai (China)"
+  },
+  {
+    "id": 3624489,
+    "name": "Aditya Birla Fashion & Retail Ltd",
+    "url": "https://wikirate.org/Aditya_Birla_Fashion_Retail_Ltd",
+    "headquarters": "India"
+  },
+  {
+    "id": 3624425,
+    "name": "Semir",
+    "url": "https://wikirate.org/Semir",
+    "headquarters": "China"
+  },
+  {
+    "id": 5294189,
+    "name": "Bosideng International Holdings Limited",
+    "url": "https://wikirate.org/Bosideng_International_Holdings_Limited",
+    "headquarters": "Shanghai (China)"
+  },
+  {
+    "id": 5408890,
+    "name": "Canada Goose",
+    "url": "https://wikirate.org/Canada_Goose",
+    "headquarters": "Ontario, Canada"
+  },
+  {
+    "id": 5424735,
+    "name": "Anta Sports Products",
+    "url": "https://wikirate.org/Anta_Sports_Products",
+    "headquarters": "Fujian (China)"
+  }
+]

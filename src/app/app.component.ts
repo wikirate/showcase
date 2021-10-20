@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'apparel-top100-showcase';
+  pageYoffset = 0;
+  @HostListener('window:scroll', ['$event']) onScroll(event: any){
+    this.pageYoffset = window.pageYOffset;
+  }
+
+  constructor(private scroll: ViewportScroller) { }
+
+  scrollToTop(){
+    this.scroll.scrollToPosition([0,0]);
+  }
 }
+
