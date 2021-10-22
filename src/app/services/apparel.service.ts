@@ -4,8 +4,23 @@ import {Company} from "../models/company.model";
 
 @Injectable()
 export class ApparelService {
-  public companies: Company[] = companies;
+  // @ts-ignore
+  private companies: Company[] = companies;
   exploreMore = new EventEmitter<boolean>(false);
+
+  getCompany(id: number) {
+    console.log(this.companies)
+    const company = this.companies.find(
+      (c) => {
+        return c.id === id;
+      }
+    );
+    return company;
+  }
+
+  getCompanies() {
+    return this.companies.slice();
+  }
 
   setExploreMore() {
     // @ts-ignore
