@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Company} from './models/company.model';
+import {Company} from '../models/company.model';
 
 @Pipe({
   name: 'companyFilter'
