@@ -12,6 +12,10 @@ import embed from "vega-embed";
 export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
   paramsSubscription!: Subscription;
   report_params!: { year: number };
+  total_market_cap: string | number = 'unknown';
+  total_employees: string | number = 'Unknown';
+  number_of_suppliers: string | number = 'Unknown';
+  workers_in_supply_chain: string | number = 'Unknown';
 
   constructor(private http: HttpClient,
               private route: ActivatedRoute) {
@@ -22,10 +26,32 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
       year: this.route.snapshot.params['year']
     }
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-        this.report_params.year = params['year'];
-        this.updateChart(this.report_params.year)
-      }
-    );
+      this.report_params.year = params['year'];
+      let market_cap_answers = "https://wikirate.org/Core+Market_Cap+Answer.json?filter[not_ids]=&filter[year]=" + this.report_params.year + "&filter[company_group][]=Apparel%20100%20Companies&limit=0&view=answer_list";
+      this.http.get<any>(market_cap_answers)
+        .subscribe(response => {
+          this.total_market_cap = this.getSum(response);
+          this.updateChart(response);
+        });
+
+      let employees_metric_answers = "https://wikirate.org/Commons+Employee+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&filter[company_group][]=Apparel%20100%20Companies&limit=0&view=answer_list"
+      this.http.get<any>(employees_metric_answers)
+        .subscribe(response => {
+          this.total_employees = this.getSum(response)
+        });
+
+      let suppliers_answers = "https://wikirate.org/Commons+Supplied_By+Answers.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Apparel%20100%20Companies&filter[year]=" + this.report_params.year + "&limit=100&view=answer_list";
+      this.http.get<any>(suppliers_answers)
+        .subscribe(response => {
+          this.number_of_suppliers = this.getSum(response);
+        });
+    });
+
+    let workers_answers = "https://wikirate.org/Clean_Clothes_Campaign+Number_of_Workers+Answers.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier of Apparel 100&view=answer_list"
+    this.http.get<any>(workers_answers)
+      .subscribe(response => {
+        this.workers_in_supply_chain = this.getSum(response);
+      });
   }
 
   ngAfterViewInit(): void {
@@ -35,7 +61,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.paramsSubscription.unsubscribe();
   }
 
-  updateChart(year: number) {
+  updateChart(data: {}) {
     embed("div#vis", {
       "$schema": "https://vega.github.io/schema/vega/v5.json",
       "description": "Market Cap of Apparel Top 100 Companies",
@@ -86,7 +112,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
         },
         {
           "name": "market_cap",
-          "url": "https://wikirate.org/Core+Market_Cap+Answer.json?filter[not_ids]=&filter[year]=" + year + "&filter[company_group][]=Apparel%20100%20Companies&limit=0&view=answer_list",
+          "values": data,
           "format": {"type": "json", "parse": {"value": "number"}}
         },
         {
@@ -457,5 +483,16 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
       .catch(console.warn);
   }
 
+  private getSum(response: []) {
+    let sum = 0;
+    for (var i = 0; i < response.length; i++) {
+      if (response[i]['value'] !== "Unknown")
+        sum += Number(response[i]['value']);
+    }
+    if (sum == 0) {
+      this.workers_in_supply_chain = 'Unknown'
+    }
+    return sum;
+  }
 
 }

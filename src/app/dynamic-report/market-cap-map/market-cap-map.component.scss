@@ -2,3 +2,19 @@
   width: 900px;
   height: 600px;
 }
+.explore{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: #747485;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
