@@ -46,14 +46,17 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  navigateTo(event: Event) {
+  navigateToYear(event: Event) {
     let value = (<HTMLSelectElement>event.target).value;
     if (value) {
       if (this.report_params.id === null)
         this.report_params.id = 0;
       this.router.navigate(['/apparel_top_100/reports/' + this.report_params.id + "/" + value]);
     }
-    return false;
+  }
+
+  navigateToCompany(c: Company) {
+    this.router.navigate(['/apparel_top_100/reports/' + c.id + "/" + this.report_params.year]);
   }
 
 }
