@@ -9,7 +9,6 @@ export class ApparelService {
   exploreMore = new EventEmitter<boolean>(false);
 
   getCompany(id: number) {
-    console.log(this.companies)
     const company = this.companies.find(
       (c) => {
         return c.id === id;
