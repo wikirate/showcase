@@ -36,7 +36,7 @@ export class SupplierListsOnWikirateComponent implements OnInit {
       "data": [
         {
           "name": "supplier_lists",
-          "url": "https://wikirate.org/Commons+Supplier_List_all+Answer.json?filter[not_ids]=&filter[company_name]=&filter[value][]=Yes&filter[company_group][]=Apparel 100 Companies&limit=0&view=answer_list",
+          "url": "https://wikirate.org/Commons+Supplier_List_all+Answer.json?filter[not_ids]=&filter[company_name]=&filter[value][]=Yes&filter[company_group][]=Apparel%20100%20Companies&limit=0&view=answer_list",
           "format": {"type": "json", "property": "items"},
           "transform": [
             {
