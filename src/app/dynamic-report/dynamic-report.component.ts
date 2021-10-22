@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'dynamic-report',
@@ -9,17 +9,18 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class DynamicReportComponent implements OnInit {
 // @ts-ignore
   report_params: { year: number, id: number };
-  constructor(private route: ActivatedRoute,
-              private router: Router) { }
 
-  ngOnInit(): void {
-    this.report_params = {
-      id: this.route.snapshot.params['id'],
-      year: this.route.snapshot.params['year']
-    }
-    console.log('year' + this.report_params.year)
+  constructor(private route: ActivatedRoute) {
   }
 
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.report_params = {
+        id: +params['id'],
+        year: params['year']
+      };
+    });
+  }
 
 
 }
