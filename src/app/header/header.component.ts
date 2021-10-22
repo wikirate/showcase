@@ -1,19 +1,8 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Event, Router} from "@angular/router";
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, ParamMap, Params, Router} from "@angular/router";
 import {ApparelService} from "../services/apparel.service";
 import {Company} from "../models/company.model";
-import {NgbTypeahead} from "@ng-bootstrap/ng-bootstrap";
-import {Observable, Subject, merge, OperatorFunction} from 'rxjs';
-import {debounceTime, distinctUntilChanged, filter, map} from "rxjs/operators";
-
-const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
-  'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
-  'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
-  'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-  'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
-  'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
-  'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'header-component',
@@ -21,28 +10,50 @@ const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'C
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  title = 'Compiling the Public Picture: The Apparel Top 100 Case';
+  paramsSubscription!: Subscription;
   exploreMore: boolean = false;
   apparelTop100: Company[] = [];
   searchText: any;
+  selectedYear: string | number | null = 'latest';
+  selectedCompany!: string;
   // @ts-ignore
   @ViewChild('search_text') search_text: ElementRef;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private apparelService: ApparelService) {
-    this.apparelTop100 = apparelService.companies;
+  // @ts-ignore
+  report_params: { year: number | null | string, id: number | null | string };
+
+  constructor(private route: ActivatedRoute, private router: Router, private apparelService: ApparelService) {
+    this.apparelTop100 = apparelService.getCompanies();
   }
 
   ngOnInit(): void {
+    this.report_params = {
+      id: 0,
+      year: 'latest'
+    }
     this.apparelService.exploreMore.subscribe((explore: boolean) => {
       this.exploreMore = explore;
     })
   }
 
+
   setValue(company: Company) {
     this.search_text.nativeElement.value = company.name
+    this.report_params.id = company.id;
+    if (company === null) {
+      this.search_text.nativeElement.value = 'overview'
+      this.report_params.id = 0;
+    }
+  }
+
+  navigateTo(event: Event) {
+    let value = (<HTMLSelectElement>event.target).value;
+    if (value) {
+      if (this.report_params.id === null)
+        this.report_params.id = 0;
+      this.router.navigate(['/apparel_top_100/reports/' + this.report_params.id + "/" + value]);
+    }
+    return false;
   }
 
 }

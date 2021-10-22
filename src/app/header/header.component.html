@@ -25,7 +25,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <!-- results of ngFor is passed to appFilter with argument searchText -->
           <a class="dropdown-item" *ngFor="let c of apparelTop100 | companyFilter: searchText" textHighlight
-             [routerLink]="'apparel_top_100/reports/'+c.id+'/latest'"
+             [routerLink]="'apparel_top_100/reports/'+c.id+'/'+report_params.year"
              [id]="c.id"
              [searchedWord]="searchText"
              [content]="c.name"
@@ -39,11 +39,12 @@
       </div>
     </div>
     <div class="m-2">
-      <select class="form-control" [class.highlight]="exploreMore">
-        <option value="latest" routerLink="apparel_top_100/reports/0/latest" selected>latest</option>
-        <option value="2020" routerLink="apparel_top_100/reports/0/2020">2020</option>
-        <option value="2019" routerLink="apparel_top_100/reports/0/2019">2019</option>
-        <option value="2018" routerLink="apparel_top_100/reports/0/2018">2018</option>
+      <select class="form-control" [class.highlight]="exploreMore" [(ngModel)]="report_params.year"
+              (change)="navigateTo($event)">
+        <option value="latest" selected>latest</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
       </select>
     </div>
   </div>
