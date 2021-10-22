@@ -13,6 +13,8 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
 
   paramsSubscription!: Subscription;
   report_params!: { year: number };
+  number_of_reporting_companies: number | string = 'Unknown'
+  unique_suppliers: number | string = 'Unknown'
 
   constructor(private http: HttpClient,
               private route: ActivatedRoute) {
@@ -24,7 +26,24 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
     }
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
         this.report_params.year = params['year'];
-        this.updateChart(this.report_params.year)
+
+        let url = "https://wikirate.org/Commons+Supplied_By+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0&filter[year]=" + this.report_params.year;
+        this.http.get<any>(url)
+          .subscribe(response => {
+            this.number_of_reporting_companies = 0;
+            for (var i = 0; i < response.length; i++) {
+              if (response[i]['value'] !== "Unknown") {
+                this.number_of_reporting_companies++;
+              }
+            }
+            this.updateChart(response, this.report_params.year)
+          });
+
+        let num_of_suppliers_url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier%20of%20Apparel%20100&filter[year]=" + this.report_params.year + "&view=answer_list&limit=0"
+        this.http.get<any>(num_of_suppliers_url)
+          .subscribe(response => {
+            this.unique_suppliers = response.length;
+          });
       }
     );
   }
@@ -36,7 +55,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
     this.paramsSubscription.unsubscribe();
   }
 
-  updateChart(year: number) {
+  updateChart(data: [], year: number) {
     embed("div#bar-chart", {
       "$schema": "https://vega.github.io/schema/vega/v5.json",
       "description": "Number of Reported Suppliers",
@@ -60,7 +79,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
         },
         {
           "name": "suppplier_info",
-          "url": "https://wikirate.org/Commons+Supplied_By+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0&filter[year]=" + year,
+          "values": data,
           "format": {"type": "json", "parse": {"value": "number"}},
           "transform": [
             {"type": "filter", "expr": "datum.year > 2016 && datum.year < 2021"},

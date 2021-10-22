@@ -5,8 +5,10 @@
         We need to go ahead and strengthen transparency.
       </div>
       <div class="showcase-main-text mt-2">
-        In {{this.report_params.year}} WikiRate's researchers managed to retrieve the supplier lists of [17] companies out of the top 100
-        companies, unveiling interesting patterns. In total, these [17] companies were supplied by [14,260] different
+        In {{this.report_params.year}} WikiRate's researchers managed to retrieve the supplier lists
+        of {{number_of_reporting_companies}} companies out of the top 100 companies, unveiling interesting patterns. In
+        total, these {{number_of_reporting_companies}} companies were supplied by {{unique_suppliers | numFormat}}
+        different
         suppliers.
       </div>
     </div>
