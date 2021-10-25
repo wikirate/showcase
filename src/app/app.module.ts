@@ -24,6 +24,7 @@ import { TextHighlightDirective } from './directives/text-highlight.directive';
 import {CompanyResolver} from "./services/company-resolver.service";
 import {BigNumberFormatPipe} from "./pipes/big-number-format.pipe";
 import {NumFormatPipe} from "./pipes/num-format.pipe";
+import { EsgPerformanceComponent } from './dynamic-report/esg-performance/esg-performance.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {NumFormatPipe} from "./pipes/num-format.pipe";
     FilterPipe,
     BigNumberFormatPipe,
     NumFormatPipe,
-    TextHighlightDirective
+    TextHighlightDirective,
+    EsgPerformanceComponent
   ],
   imports: [
     FormsModule,
