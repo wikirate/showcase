@@ -231,9 +231,9 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
               "lng": -80.205892
             },
             {
-              "company": "Michael Kors Holdings Limited",
-              "lat": 51.3974034,
-              "lng": -0.231377044
+              "company": "Capri Holdings Ltd (formerly Michael Kors)",
+              "lat": 51.514140,
+              "lng": -0.118280
             },
             {"company": "Buckle Inc", "lat": 40.699424, "lng": -99.105033},
             {"company": "TOD'S", "lat": 43.2627, "lng": 13.7203},
