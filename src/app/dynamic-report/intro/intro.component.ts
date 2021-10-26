@@ -2,7 +2,8 @@ import {Component, ElementRef, ViewChild} from "@angular/core";
 import {ApparelService} from "../../services/apparel.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {animate, group, query, stagger, state, style, transition, trigger} from "@angular/animations";
-import {delay} from "rxjs/operators";
+// @ts-ignore
+import logosjson from "../../../assets/logos.json";
 
 @Component({
   selector: 'intro',
@@ -43,12 +44,22 @@ import {delay} from "rxjs/operators";
   ]
 })
 export class IntroComponent {
+  logos: string[] = logosjson['logos'];
+  selectedLogos: string[] = [];
 
   // @ts-ignore
   constructor(private apparelService: ApparelService, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
+    this.selectedLogos = [];
+    for (var i = 0; i <= 5; i++) {
+      let randomLogo = "";
+      do {
+        randomLogo = this.logos[this.getRandomInt(20)];
+      } while (this.selectedLogos.includes(randomLogo))
+      this.selectedLogos.push(randomLogo)
+    }
   }
 
   open(content: any) {
@@ -57,6 +68,10 @@ export class IntroComponent {
 
   onExploreMore() {
     this.apparelService.setExploreMore();
+  }
+
+  getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
   }
 }
 
