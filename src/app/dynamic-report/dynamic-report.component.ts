@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'dynamic-report',
@@ -10,7 +11,7 @@ export class DynamicReportComponent implements OnInit {
 // @ts-ignore
   report_params: { year: number, id: number };
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private scroll: ViewportScroller) {
   }
 
   ngOnInit(): void {
@@ -20,6 +21,11 @@ export class DynamicReportComponent implements OnInit {
         year: params['year']
       };
     });
+    this.scrollToTop();
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 
 
