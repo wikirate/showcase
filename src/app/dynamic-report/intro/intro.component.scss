@@ -14,13 +14,13 @@
   color: #34343B;
 }
 
-.corporate-logo-xl{
+.corporate-logo-xl {
   height: 5.25rem;
   width: 5.25rem;
   position: relative;
 }
 
-.corporate-logo-sm{
+.corporate-logo-sm {
   height: 4.25rem;
   width: 4.25rem;
   position: relative;
@@ -33,4 +33,36 @@
   object-fit: cover;
   border-radius: .5rem;
   vertical-align: middle;
+}
+
+.logo-1 {
+  position: absolute;
+  left: 79.58%;
+  right: 13.47%;
+  top: 14.9%;
+  bottom: 93.43%;
+}
+
+.logo-2 {
+  position: absolute;
+  left: 68.07%;
+  right: 27.99%;
+  top: 31.43%;
+  bottom: 90.9%;
+}
+
+.logo-3 {
+  position: absolute;
+  left: 80.62%;
+  right: 8.43%;
+  top: 43.72%;
+  bottom: 88.6%;
+}
+
+.logo-4 {
+  position: absolute;
+  left: 73.03%;
+  right: 29.03%;
+  top: 59.17%;
+  bottom: 86.15%;
 }
