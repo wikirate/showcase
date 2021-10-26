@@ -165,7 +165,7 @@ export class EsgPerformanceComponent implements OnInit {
             "type": "linear",
             "nice": true,
             "domain": {"data": "suppplier_info", "field": "value"},
-            "range": ["#eeeef7", "#171832"]
+            "range": ["#dadbeb", "#484C9D"]
           }
         ],
         "axes": [
@@ -241,7 +241,7 @@ export class EsgPerformanceComponent implements OnInit {
             "name": "color",
             "type": "ordinal",
             "domain": {"data": "table", "field": "category"},
-            "range": ["#171832", "#171832"]
+            "range": ["#484C9D", "#484C9D"]
           }
         ],
         "encode": {"enter": {"x": {"signal": "radius"}, "y": {"signal": "radius"}}},

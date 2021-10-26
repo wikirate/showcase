@@ -2,17 +2,17 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 @font-face {
-  font-family: "Roboto";
-  src: local("Roboto"), url(./assets/fonts/Roboto-Regular.ttf) format("truetype");
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans"), url(./assets/fonts/IBMPlexSans-Regular.ttf) format("truetype");
 }
 
 * {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
 }
 
 @import "~bootstrap";
 /* ------- customize primary buttons -------- */
-$showcasecolor: #171832;
+$showcasecolor: #484C9D;
 
 .btn-showcase {
   @include button-variant($showcasecolor, darken($showcasecolor, 7.5%), #fff, lighten($showcasecolor, 5%), lighten($showcasecolor, 10%), darken(#fff, 15%));
@@ -31,48 +31,60 @@ $showcasecolor: #171832;
 }
 
 .form-select:focus {
-  border-color: #171832;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 24, 50, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 24, 50, 1);
+  border-color: #484C9D;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
 }
 
 .form-control:focus {
-  border-color: #171832;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 24, 50, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 24, 50, 1);
+  border-color: #484C9D;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
 }
 
 .highlight {
-  border-color: #171832;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 24, 50, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 24, 50, 1);
+  border-color: #484C9D;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
 }
 
 .wikirate-creme-box {
   background-color: #F7F7F8;
 }
 
+.wikirate-creme-purple-box {
+  background-color: #EDEEF7;
+}
+
+.wikirate-creme-tile-box{
+  background-color: #E3F7F4;
+}
+
+.container{
+  padding: 3em;
+}
+
 .mini-title {
   text-transform: uppercase;
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   text-align: center;
-  color: #747485;
+  color: rgba(61, 62, 70, 0.85);
 }
 
 .mini-text {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   text-align: center;
-  color: #34343C;
+  color: #34343B;
 }
 
 .showcase-title {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: normal;
   font-size: 30px;
@@ -80,12 +92,12 @@ $showcasecolor: #171832;
 }
 
 .showcase-main-text {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 500 !important;
   font-size: 16px;
   line-height: 160%;
-  color: #34343C;
+  color: #34343B;
 }
 
 .btn-circle {
@@ -117,7 +129,7 @@ $showcasecolor: #171832;
 }
 
 .note {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -126,7 +138,7 @@ $showcasecolor: #171832;
 }
 
 .showcase-note {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -140,17 +152,17 @@ $showcasecolor: #171832;
 }
 
 .primary-info {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: bold;
   font-size: 42px;
   text-align: center;
   letter-spacing: -1px;
-  color: #171832;
+  color: #484C9D;
 }
 
 .secondary-info {
-  font-family: Roboto;
+  font-family: IBMPlexSans;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
