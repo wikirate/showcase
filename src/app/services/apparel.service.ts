@@ -18,7 +18,17 @@ export class ApparelService {
   }
 
   getCompanies() {
-    return this.companies.slice();
+    return this.companies.slice().sort((c1, c2) => this.compare(c1, c2));
+  }
+
+  private compare(c1: Company, c2: Company) {
+    if (c1.name == 'overview') {
+      return -1;
+    } else if (c2.name == 'overview') {
+      return 1;
+    } else {
+      return c1.name.localeCompare(c2.name)
+    }
   }
 
   setExploreMore() {
