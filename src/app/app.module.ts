@@ -25,6 +25,7 @@ import {CompanyResolver} from "./services/company-resolver.service";
 import {BigNumberFormatPipe} from "./pipes/big-number-format.pipe";
 import {NumFormatPipe} from "./pipes/num-format.pipe";
 import { EsgPerformanceComponent } from './dynamic-report/esg-performance/esg-performance.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { EsgPerformanceComponent } from './dynamic-report/esg-performance/esg-pe
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [ApparelService, CompanyResolver],
   bootstrap: [AppComponent]
