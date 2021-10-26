@@ -13,31 +13,31 @@ import {delay} from "rxjs/operators";
     trigger('slide-in', [
       transition(':enter', [
         style({opacity: 0, transform: 'translateY(50px)'}),
-        animate('600ms', style({opacity: 1, transform: 'translateY(0)'})),
+        animate('600ms 50ms', style({opacity: 1, transform: 'translateY(0)'})),
       ])
     ]),
     trigger('slide-in-delay-sm', [
       transition(':enter', [
         style({opacity: 0, transform: 'translateY(50px)'}),
-        animate('600ms 100ms', style({opacity: 1, transform: 'translateY(0)'})),
+        animate('600ms 150ms', style({opacity: 1, transform: 'translateY(0)'})),
       ])
     ]),
     trigger('slide-in-delay-md', [
       transition(':enter', [
         style({opacity: 0, transform: 'translateY(50px)'}),
-        animate('600ms 150ms', style({opacity: 1, transform: 'translateY(0)'})),
+        animate('600ms 250ms', style({opacity: 1, transform: 'translateY(0)'})),
       ])
     ]),
     trigger('slide-in-delay-lg', [
       transition(':enter', [
         style({opacity: 0, transform: 'translateY(50px)'}),
-        animate('600ms 200ms', style({opacity: 1, transform: 'translateY(0)'})),
+        animate('600ms 350ms', style({opacity: 1, transform: 'translateY(0)'})),
       ])
     ]),
     trigger('slide-in-delay-xl', [
       transition(':enter', [
         style({opacity: 0, transform: 'translateY(50px)'}),
-        animate('600ms 250ms', style({opacity: 1, transform: 'translateY(0)'})),
+        animate('600ms 450ms', style({opacity: 1, transform: 'translateY(0)'})),
       ])
     ])
   ]
