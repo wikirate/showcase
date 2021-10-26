@@ -2,38 +2,73 @@
   <div class="container">
     <br>
     <br>
-    <div class="row-cols-md-2">
-      <div class="subtitle">
-        What does supply chain transparency mean for <u>the top 100 apparel companies?</u>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="subtitle">
+          What does supply chain transparency mean for <u>the top 100 apparel companies?</u>
+        </div>
+        <br>
+        <div class="main-text">
+          This case study compiles data on the top 100 Apparel companies, investors and suppliers.
+          The aim is to build a big picture of one of the largest value chains.
+        </div>
+        <div class="menu-button mt-4">
+          <button class="btn btn-outline-dark m-1">Download Report<i class="bi bi-download ml-2"></i></button>
+          <button class="btn btn-showcase m-1" (click)="open(mymodal)">Explore the Data <i
+            class="bi bi-clipboard-data ml-1"></i></button>
+          <!-- Modal -->
+          <ng-template #mymodal let-c="close" let-close="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Explore the Data!</h4>
+              <button type="button" class="close" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center m-2">
+              <h1><i class="bi bi-clipboard-data"></i></h1>
+              <p>To explore more how the biggest apparel companies are behaving, you can search by company name and year
+                from the top right menu. </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="close();onExploreMore()">OK</button>
+            </div>
+          </ng-template>
+        </div>
       </div>
-    </div>
-    <br>
-    <div class="row-cols-md-2">
-      <div class="main-text">
-        This case study compiles data on the top 100 Apparel companies, investors and suppliers.
-        The aim is to build a big picture of one of the largest value chains.
-      </div>
-    </div>
-    <div class="row-cols-md-2 mt-4">
-      <div class="menu-button">
-        <button class="btn btn-outline-dark m-1">Download Report<i class="bi bi-download ml-2"></i></button>
-        <button class="btn btn-showcase m-1" (click)="open(mymodal)">Explore the Data <i class="bi bi-clipboard-data ml-1"></i></button>
-        <!-- Modal -->
-        <ng-template #mymodal let-c="close" let-close="dismiss">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Explore the Data!</h4>
-            <button type="button" class="close" aria-label="Close" (click)="close()">
-              <span aria-hidden="true">&times;</span>
-            </button>
+      <div class="col-md-5">
+        <div class="row justify-content-end mt-2">
+          <div class="col-3 mb-3">
+            <div class="d-block corporate-logo-sm rounded-circle p-3 bg-white shadow-sm ml-auto" @slide-in>
+              <img class="logo-img" src="assets/logos/adidas.png">
+            </div>
           </div>
-          <div class="modal-body text-center m-2">
-            <h1><i class="bi bi-clipboard-data"></i></h1>
-            <p>To explore more how the biggest apparel companies are behaving, you can search by company name and year from the top right menu. </p>
+          <div class="col-4 mb-1 mt-1">
+            <div class="d-block corporate-logo-xl rounded-circle p-3 bg-white shadow-sm mt-5 ml-auto"
+                 @slide-in-delay-sm>
+              <img class="logo-img" src="assets/logos/asos.png">
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-dark" (click)="close();onExploreMore()">OK</button>
+          <div class="col-3 mb-1">
+            <div class="d-block corporate-logo-sm rounded-circle p-3 bg-white shadow-sm mt-3 ml-auto"
+                 @slide-in-delay-md>
+              <img class="logo-img" src="assets/logos/asics.png">
+            </div>
           </div>
-        </ng-template>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 offset-2 my-4">
+            <div class="d-block corporate-logo-sm bg-white rounded-circle shadow-sm p-3 ms-auto" @slide-in-delay-lg>
+              <img class="logo-img" src="assets/logos/gap.png">
+            </div>
+          </div>
+          <div class="col-3 offset-3 my-4">
+            <div class="d-block corporate-logo-xl bg-white rounded-circle shadow-sm p-3 ms-auto ml-2"
+                 @slide-in-delay-xl>
+              <img class="logo-img" src="assets/logos/canada-goose.png">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     <br>

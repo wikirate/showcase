@@ -13,3 +13,24 @@
   font-size: 22px;
   color: #747485;
 }
+
+.corporate-logo-xl{
+  height: 5.25rem;
+  width: 5.25rem;
+  position: relative;
+}
+
+.corporate-logo-sm{
+  height: 4.25rem;
+  width: 4.25rem;
+  position: relative;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: .5rem;
+  vertical-align: middle;
+}
