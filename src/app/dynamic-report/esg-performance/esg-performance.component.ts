@@ -50,21 +50,21 @@ export class EsgPerformanceComponent implements OnInit {
           .subscribe(response => {
             this.environmental_disclosure_rate = 0;
             for (var i = 0; i < response.length; i++) {
-              this.environmental_disclosure_rate += response[i]['value'];
+              this.environmental_disclosure_rate += +response[i]['value'];
             }
             this.environmental_disclosure_rate = this.environmental_disclosure_rate / response.length;
             this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
               .subscribe(response => {
                 this.social_disclosure_rate = 0;
                 for (var i = 0; i < response.length; i++) {
-                  this.social_disclosure_rate += response[i]['value'];
+                  this.social_disclosure_rate += +response[i]['value'];
                 }
                 this.social_disclosure_rate = this.social_disclosure_rate / response.length;
                 this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
                   .subscribe(response => {
                     this.governance_disclosure_rate = 0;
                     for (var i = 0; i < response.length; i++) {
-                      this.governance_disclosure_rate += response[i]['value'];
+                      this.governance_disclosure_rate += +response[i]['value'];
                     }
                     this.governance_disclosure_rate = this.governance_disclosure_rate / response.length;
                     this.createRadarChart("of Apparel Top 100 (avg Rating)");
