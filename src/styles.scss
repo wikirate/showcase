@@ -56,12 +56,21 @@ $showcasecolor: #484C9D;
   background-color: #EDEEF7;
 }
 
-.wikirate-creme-tile-box{
+.wikirate-purple-box {
+  background-color: #484C9D;
+}
+
+.wikirate-creme-tile-box {
   background-color: #E3F7F4;
 }
 
-.container{
+.container {
   padding: 3em;
+}
+
+.footer-container {
+  @extend .container;
+  padding: 0.5em !important;
 }
 
 .mini-title {
