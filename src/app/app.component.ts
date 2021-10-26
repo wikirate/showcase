@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
 import {ViewportScroller} from "@angular/common";
 
 @Component({
@@ -8,14 +8,16 @@ import {ViewportScroller} from "@angular/common";
 })
 export class AppComponent {
   pageYoffset = 0;
-  @HostListener('window:scroll', ['$event']) onScroll(event: any){
+
+  @HostListener('window:scroll', ['$event']) onScroll(event: any) {
     this.pageYoffset = window.pageYOffset;
   }
 
-  constructor(private scroll: ViewportScroller) { }
+  constructor(private scroll: ViewportScroller) {
+  }
 
-  scrollToTop(){
-    this.scroll.scrollToPosition([0,0]);
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 }
 
