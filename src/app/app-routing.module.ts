@@ -21,8 +21,7 @@ const routes: Routes = [
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(
-      routes,
-      {scrollPositionRestoration: 'enabled'}
+      routes
     )],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   exports: [RouterModule]
