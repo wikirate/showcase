@@ -93,9 +93,24 @@
 /* ------- customize primary buttons -------- */
 $showcasecolor: #484C9D;
 $navyblue: #1D1E3F;
+$highlightcolor: #F7733D;
+
 
 .btn-showcase {
-  @include button-variant($showcasecolor, darken($showcasecolor, 7.5%), #fff, lighten($showcasecolor, 5%), lighten($showcasecolor, 10%), darken(#fff, 15%));
+  @include button-variant($showcasecolor, $showcasecolor, $showcasecolor, lighten($showcasecolor, 5%), lighten($showcasecolor, 10%), darken(#fff, 15%));
+  letter-spacing: 0.3px !important;
+}
+
+.btn-highlight {
+  @include button-variant($highlightcolor, $highlightcolor, darken($highlightcolor, 10%), lighten($highlightcolor, 5%), lighten($highlightcolor, 10%), darken(#fff, 15%));
+  letter-spacing: 0.3px !important;
+}
+
+.btn-lg {
+  padding: 0.8rem 2rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  border-radius: 0.3rem;
 }
 
 .btn-outline-dark {
@@ -154,6 +169,10 @@ $navyblue: #1D1E3F;
 
 .container {
   padding: 3em;
+  min-height: 10em;
+  //display: table-cell;
+  vertical-align: middle;
+
 }
 
 .footer-container {
@@ -169,6 +188,7 @@ $navyblue: #1D1E3F;
   font-size: 16px;
   text-align: center;
   color: rgba(61, 62, 70, 0.85);
+  line-height: 135%;
 }
 
 .mini-text {
@@ -178,6 +198,7 @@ $navyblue: #1D1E3F;
   font-size: 16px;
   text-align: center;
   color: #34343B;
+  line-height: 160%;
 }
 
 .showcase-title {
@@ -185,7 +206,8 @@ $navyblue: #1D1E3F;
   font-style: normal;
   font-weight: 500 !important;
   font-size: 30px;
-  color: #171832;
+  color: #1D1E3F;
+  line-height: 135%;
 }
 
 .map-title {
@@ -193,7 +215,7 @@ $navyblue: #1D1E3F;
   font-style: normal;
   font-weight: 500 !important;
   font-size: 26px;
-  color: #171832;
+  color: #1D1E3F;
 }
 
 .showcase-main-text {
@@ -203,6 +225,7 @@ $navyblue: #1D1E3F;
   font-size: 16px;
   line-height: 160%;
   color: #34343B;
+  line-height: 160%;
 }
 
 .showcase-main-text-white {
@@ -242,6 +265,10 @@ $navyblue: #1D1E3F;
   border-radius: 35px;
 }
 
+.btn{
+  border-radius: 5px !important;
+}
+
 .note {
   font-family: IBMPlexSans;
   font-style: normal;
@@ -250,6 +277,42 @@ $navyblue: #1D1E3F;
   line-height: 160%;
   color: #747485;
 }
+
+.title{
+  font-weight: 700 !important;
+  letter-spacing: 0.3px !important;
+  text-align: left !important;
+  color: #1D1E3F !important;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.5em;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #1D1E3F;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+  color: #484C9D;
+}
+
+.form-control {
+  min-width: 165px;
+  color: #484C9D;
+  border: 1px solid #484C9D;
+  border-radius: 5px;
+}
+
 
 .showcase-note {
   font-family: IBMPlexSans;
@@ -282,7 +345,7 @@ $navyblue: #1D1E3F;
   font-size: 16px;
   line-height: 160%;
   text-align: center;
-  color: #171832;
+  color: #1D1E3F;
   text-transform: uppercase;
 }
 

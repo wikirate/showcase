@@ -1,15 +1,25 @@
+.intro{
+  min-height: 700px;
+  //display: table-cell;
+  vertical-align: middle !important; }
+
 .subtitle {
   font-style: normal;
   font-weight: 500;
-  font-size: 44px;
-  color: #171832;
+  font-size: 48px;
+  line-height: 135%;
+  color: #484C9D;
 }
 
 .main-text {
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
-  color: #34343B;
+  color: #34343b;
+  font-weight: 100;
+  line-height: 160%;
+  margin-bottom: 50px;
+
 }
 
 .corporate-logo-xl {
