@@ -56,11 +56,13 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateChart(year: number, company: Company) {
-    let url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + year + "&filter[company_group][]=Supplier%20of%20Apparel%20100&limit=0&view=answer_list";
-    let param_name = 'company';
+    let url = "https://staging.wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + year;
     if (company.id != 0) {
-      url = 'https://wikirate.org/Commons+Supplied_by+' + company.name.replace(" ", "_").replace('\.', ' ').replace(',', '') + '+' + year + '.json?limit=1000';
-      param_name = 'object_company_id';
+      url = 'https://staging.wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_id]=' + company.id + '&filter[year]=' + year;
+    }
+    this.suppliers = [];
+    if (this.suppliers_map != null) {
+      this.renderer.removeChild(this.mapElement.nativeElement, this.suppliers_map)
     }
 
     this.http.get<any>(url)
@@ -135,7 +137,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                       "type": "lookup",
                       "from": "suppliers_country",
                       "key": "company",
-                      "fields": [param_name],
+                      "fields": ["object_company"],
                       "values": ["value"],
                       "as": ["country"]
                     }
@@ -967,19 +969,20 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
                   ]
                 }
+              ],
+              "legends": [
+                {
+                  "fill": "color",
+                  "orient": "bottom-left",
+                  "title": "No. of Suppliers"
+                }
               ]
             });
-          } else {
-            if (this.suppliers_map != null)
-              this.renderer.removeChild(this.mapElement.nativeElement, this.suppliers_map)
           }
         },
-        //@ts-ignore
         error => {
-          this.suppliers = [];
-          if (this.suppliers_map != null)
-            this.renderer.removeChild(this.mapElement.nativeElement, this.suppliers_map)
-        })
+        }
+      )
 
 
   }
