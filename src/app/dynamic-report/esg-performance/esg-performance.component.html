@@ -1,4 +1,4 @@
-<div class="wikirate-box">
+<div class="wikirate-creme-tile-box">
   <hr>
   <div class="container align-content-center">
     <div class="row justify-content-md-center">
@@ -9,13 +9,13 @@
       </div>
     </div>
   </div>
-</div>
-<div class="wikirate-creme-tile-box">
   <hr>
+</div>
+<div class="wikirate-box">
   <div class="container">
     <div class="row">
       <div class="col-md">
-        <div class="wikirate-creme-tile-box bar-chart-container">
+        <div class="bar-chart-container">
           <div id="esg-overall-wikirating" class="m-2"></div>
         </div>
       </div>
@@ -44,20 +44,22 @@
       </div>
     </div>
   </div>
+</div>
+<div class="wikirate-navy-box">
   <hr>
   <div class="container">
     <div class="row">
       <div class="col-md">
-        <div class="showcase-title">
+        <div class="showcase-title text-white">
           Explore ESG data disclosure rates
         </div>
-        <div class="showcase-main-text mt-2">
+        <div class="showcase-main-text mt-2 showcase-main-text-white">
           <p>Discover a company’s’ environmental, social and governance disclosure rate scores.</p>
           <p>Explore a company’s ESG disclosure scores using the filter</p>
         </div>
       </div>
       <div class="col-md">
-        <div class="wikirate-creme-tile-box" #radarChartContainer>
+        <div #radarChartContainer>
           <div id="no_data" class="text-center" *ngIf="nodata">
             <img class="mb-1" src="assets/sad_face_grey.svg" width="60px">
             <p class="mt-2 showcase-main-text">No enough data available for this year to calculate the disclosure
@@ -67,5 +69,4 @@
       </div>
     </div>
   </div>
-  <hr>
 </div>

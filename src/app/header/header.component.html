@@ -1,13 +1,13 @@
 <nav class="navbar sticky-top background-white drop-shadow nav navbar-light navbar-expand pl-5 pr-5">
-  <a class="navbar-brand title" routerLink="apparel_top_100/reports/0/2020">Apparel 100</a>
+  <a class="navbar-brand title mr-4" routerLink="apparel_top_100/reports/0/2020">Apparel 100</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link" routerLink="apparel_top_100/about">About</a>
-      <a class="nav-link" href="#">Share <i class="bi bi-arrow-up-right"></i></a>
+      <a class="nav-link ml-4 mr-4" routerLink="apparel_top_100/about">ABOUT</a>
+      <a class="nav-link ml-4 mr-4" href="#">SHARE <i class="bi bi-arrow-up-right"></i></a>
     </div>
   </div>
   <div class="navbar-collapse collapse">
@@ -30,8 +30,7 @@
              [content]="c.name"
              [classToApply]="'font-weight-bold'"
              [setTitle]="true"
-             (click)="setValue(c);navigateToCompany(c);"
-          >
+             (click)="setValue(c);navigateToCompany(c);">
             {{c.name}}
           </a>
         </div>

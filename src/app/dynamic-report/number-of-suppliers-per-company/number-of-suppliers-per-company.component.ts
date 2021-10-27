@@ -69,7 +69,9 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
         "subtitleFontStyle": "italic",
         "subtitlePadding": 5,
         "anchor": "start",
-        "frame": "group"
+        "frame": "group",
+        "color": "#F7F7F8",
+        "subtitleColor": "#F7F7F8"
       },
       "data": [
         {
@@ -113,7 +115,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
               "cornerRadiusTopRight": {"value": 5},
               "cornerRadiusBottomRight": {"value": 5}
             },
-            "hover": {"fill": {"value": "#171832"}}
+            "hover": {"fill": {"value": "#d9daed"}}
           }
         }
       ],
@@ -141,12 +143,19 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "type": "linear",
           "nice": true,
           "domain": {"data": "suppplier_info", "field": "value"},
-          "range": ["#d3d4eb", "#4f52ab"]
+          "range": ["#fef1eb", "#F7733D"]
         }
       ],
       "axes": [
-        {"scale": "x", "orient": "bottom", "format": ",d", "tickCount": 5},
-        {"scale": "y", "orient": "left"}
+        {
+          "scale": "x",
+          "orient": "bottom",
+          "format": ",d",
+          "tickCount": 5,
+          "tickColor": "#F7F7F8",
+          "labelColor": "#F7F7F8"
+        },
+        {"scale": "y", "orient": "left", "tickColor": "#F7F7F8", "labelColor": "#F7F7F8"}
       ]
     })
   }

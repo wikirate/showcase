@@ -56,9 +56,9 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateChart(year: number, company: Company) {
-    let url = "https://staging.wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + year;
+    let url = "https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + year;
     if (company.id != 0) {
-      url = 'https://staging.wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_id]=' + company.id + '&filter[year]=' + year;
+      url = 'https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_id]=' + company.id + '&filter[year]=' + year;
     }
     this.suppliers = [];
     if (this.suppliers_map != null) {
@@ -910,7 +910,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                   "type": "linear",
                   "nice": true,
                   "domain": {"data": "suppliers_per_country", "field": "companies"},
-                  "range": ["#feefde", "#DC7763"]
+                  "range": ["#fef1eb", "#F7733D"]
                 }
               ],
               "marks": [
@@ -952,7 +952,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                       "fill": {"scale": "color", "field": "companies"},
                       "stroke": {"value": "#171832"}
                     },
-                    "hover": {"fill": {"value": "#ebe988"}, "stroke": {"value": "#ebe988"}}
+                    "hover": {"fill": {"value": "#d9daed"}, "stroke": {"value": "#171832"}}
                   },
                   "transform": [
                     {

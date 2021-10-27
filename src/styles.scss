@@ -92,6 +92,7 @@
 @import "~bootstrap";
 /* ------- customize primary buttons -------- */
 $showcasecolor: #484C9D;
+$navyblue: #1D1E3F;
 
 .btn-showcase {
   @include button-variant($showcasecolor, darken($showcasecolor, 7.5%), #fff, lighten($showcasecolor, 5%), lighten($showcasecolor, 10%), darken(#fff, 15%));
@@ -136,11 +137,19 @@ $showcasecolor: #484C9D;
 }
 
 .wikirate-purple-box {
-  background-color: #484C9D;
+  background-color: #8285C6;
+}
+
+.wikirate-navy-box {
+  background-color: $navyblue;
 }
 
 .wikirate-creme-tile-box {
   background-color: #E3F7F4;
+}
+
+.wikirate-gradient-showcase-box {
+  background: linear-gradient(45deg, rgba(72, 76, 157, 0.5) 0%, rgba(9, 171, 144, 0.5) 25%, rgba(227, 247, 244, 0.5) 100%);
 }
 
 .container {
@@ -179,6 +188,14 @@ $showcasecolor: #484C9D;
   color: #171832;
 }
 
+.map-title {
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 26px;
+  color: #171832;
+}
+
 .showcase-main-text {
   font-family: IBMPlexSans;
   font-style: normal;
@@ -186,6 +203,15 @@ $showcasecolor: #484C9D;
   font-size: 16px;
   line-height: 160%;
   color: #34343B;
+}
+
+.showcase-main-text-white {
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 160%;
+  color: #F7F7F8;
 }
 
 .btn-circle {
@@ -268,3 +294,6 @@ $showcasecolor: #484C9D;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23171832' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
+.nopadding {
+  padding: 0 !important;
+}

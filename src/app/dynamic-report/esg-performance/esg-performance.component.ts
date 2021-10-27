@@ -216,7 +216,9 @@ export class EsgPerformanceComponent implements OnInit {
           "fontSize": 14,
           "dy": -8,
           "dx": {"signal": "-width/4"},
-          "subtitle": subtitle
+          "subtitle": subtitle,
+          "color": "#F7F7F8",
+          "subtitleColor": "#F7F7F8"
         },
         "signals": [{"name": "radius", "update": "width / 2.2"}],
         "data": [
@@ -267,7 +269,7 @@ export class EsgPerformanceComponent implements OnInit {
             "name": "color",
             "type": "ordinal",
             "domain": {"data": "table", "field": "category"},
-            "range": ["#484C9D", "#484C9D"]
+            "range": ["#F7733D", "#F7733D"]
           }
         ],
         "encode": {"enter": {"x": {"signal": "radius"}, "y": {"signal": "radius"}}},
@@ -316,7 +318,7 @@ export class EsgPerformanceComponent implements OnInit {
                     "align": {"value": "center"},
                     "baseline": {"value": "middle"},
                     "fontWeight": {"value": "bold"},
-                    "fill": {"value": "black"}
+                    "fill": {"value": "#F7F7F8"}
                   }
                 }
               }
@@ -360,7 +362,7 @@ export class EsgPerformanceComponent implements OnInit {
                   {"test": "scale('angular', datum.key) == 0", "value": "middle"},
                   {"value": "bottom"}
                 ],
-                "fill": {"value": "#171832"},
+                "fill": {"value": "#F7F7F8"},
                 "fontWeight": {"value": "bold"}
               }
             }
@@ -374,7 +376,7 @@ export class EsgPerformanceComponent implements OnInit {
                 "interpolate": {"value": "linear-closed"},
                 "x": {"field": "x2"},
                 "y": {"field": "y2"},
-                "stroke": {"value": "lightgray"},
+                "stroke": {"value": "#F7F7F8"},
                 "strokeWidth": {"value": 1}
               }
             }

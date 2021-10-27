@@ -68,7 +68,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
       "width": 900,
       "height": 560,
       "padding": {"top": 25, "left": 0, "right": 0, "bottom": 0},
-      "autosize": "none",
+      'autosize': 'none',
       "signals": [
         {"name": "type", "value": "equalEarth"},
         {"name": "rotate0", "value": -15},
@@ -401,7 +401,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
           "type": "linear",
           "nice": true,
           "domain": {"data": "apparel_top_100_companies", "field": "market_cap"},
-          "range": ["#d3d4eb", "#4f52ab"]
+          "range": ["#fef1eb", "#F7733D"]
         }
       ],
       "marks": [
@@ -418,7 +418,8 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
           "from": {"data": "world"},
           "encode": {
             "update": {
-              "stroke": {"value": "#3B413C"},
+              "fill": {"value": "#1D1E3F"},
+              "stroke": {"value": "rgba(247,247,248, 0.8)"},
               "strokeWidth": {"signal": "+borderWidth"},
               "zindex": {"value": 0}
             }
@@ -445,7 +446,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
               "fill": {"scale": "color", "field": "market_cap"},
               "stroke": {"value": "#171832"}
             },
-            "hover": {"fill": {"value": "#171832"}, "stroke": {"value": "#171832"}}
+            "hover": {"fill": {"value": "#d9daed"}, "stroke": {"value": "#171832"}}
           },
           "transform": [
             {
@@ -469,7 +470,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
             "enter": {
               "x": {"value": 895},
               "y": {"value": 550},
-              "fill": {"value": "black"},
+              "fill": {"value": "#F7F7F8"},
               "fontSize": {"value": 12},
               "align": {"value": "right"}
             },
@@ -481,7 +482,9 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
         {
           "fill": "color",
           "orient": "bottom-left",
-          "title": "Market Cap (in USD$)"
+          "title": "Market Cap (in USD$)",
+          "labelColor": "#F7F7F8",
+          "titleColor": "#F7F7F8"
         }
       ]
     })
