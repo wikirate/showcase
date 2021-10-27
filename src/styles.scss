@@ -3,7 +3,86 @@
 
 @font-face {
   font-family: "IBMPlexSans";
-  src: local("IBMPlexSans"), url(./assets/fonts/IBMPlexSans-Regular.ttf) format("truetype");
+  src: local("IBMPlexSans-Regular"), url(./assets/fonts/IBMPlexSans-Regular.ttf) format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Thin"), url(./assets/fonts/IBMPlexSans-Thin.ttf) format("truetype");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Thin"), url(./assets/fonts/IBMPlexSans-ThinItalic.ttf) format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Thin"), url(./assets/fonts/IBMPlexSans-ExtraLight.ttf) format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Light"), url(./assets/fonts/IBMPlexSans-Light.ttf) format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-LightItalic"), url(./assets/fonts/IBMPlexSans-LightItalic.ttf) format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Italic"), url(./assets/fonts/IBMPlexSans-Italic.ttf) format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Medium"), url(./assets/fonts/IBMPlexSans-Medium.ttf) format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-MediumItalic"), url(./assets/fonts/IBMPlexSans-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-SemiBold"), url(./assets/fonts/IBMPlexSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-SemiBoldItalic"), url(./assets/fonts/IBMPlexSans-SemiBoldItalic.ttf) format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-Bold"), url(./assets/fonts/IBMPlexSans-Bold.ttf) format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "IBMPlexSans";
+  src: local("IBMPlexSans-BoldItalic"), url(./assets/fonts/IBMPlexSans-BoldItalic.ttf) format("truetype");
+  font-weight: 700;
+  font-style: italic;
 }
 
 * {
@@ -95,7 +174,7 @@ $showcasecolor: #484C9D;
 .showcase-title {
   font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 500 !important;
   font-size: 30px;
   color: #171832;
 }
@@ -103,7 +182,7 @@ $showcasecolor: #484C9D;
 .showcase-main-text {
   font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: 500 !important;
+  font-weight: normal;
   font-size: 16px;
   line-height: 160%;
   color: #34343B;
