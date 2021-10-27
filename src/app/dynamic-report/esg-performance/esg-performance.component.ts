@@ -107,7 +107,7 @@ export class EsgPerformanceComponent implements OnInit {
       {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
         "description": "ESG Disclosure Rate ",
-        "width": 500,
+        "width": 560,
         "height": 1400,
         "padding": 5,
         "autosize": "fit",
