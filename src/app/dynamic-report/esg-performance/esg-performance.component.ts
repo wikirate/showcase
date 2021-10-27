@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import embed from "vega-embed";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Params} from "@angular/router";
@@ -12,13 +12,18 @@ import {ApparelService} from "../../services/apparel.service";
 })
 export class EsgPerformanceComponent implements OnInit {
   paramsSubscription!: Subscription;
-  report_params!: { year: number, id: number };
+  @ViewChild('radarChartContainer', {static: false}) radarChartContainer!: ElementRef;
+  report_params!: { year: number | string, id: number };
   environmental_disclosure_rate: number = 0;
   social_disclosure_rate: number = 0;
   governance_disclosure_rate: number = 0;
+  nodata: boolean = true;
+  radarChart: any;
 
   constructor(private http: HttpClient,
-              private route: ActivatedRoute, private apparelService: ApparelService) {
+              private route: ActivatedRoute,
+              private apparelService: ApparelService,
+              private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
@@ -26,47 +31,67 @@ export class EsgPerformanceComponent implements OnInit {
       year: this.route.snapshot.params['year'],
       id: this.route.snapshot.params['id']
     }
-    this.createBarChart();
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
       this.report_params.year = params['year'];
       this.report_params.id = params['id']
+      this.createBarChart();
+      if (this.radarChart != null) {
+        this.renderer.removeChild(this.radarChartContainer.nativeElement, this.radarChart);
+      }
+      this.nodata = true;
       if (this.report_params.id != 0) {
-        this.http.get<any>("https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
+        this.http.get<any>("https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
           .subscribe(response => {
-            this.environmental_disclosure_rate = response[0]['value']
-            this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
-              .subscribe(response => {
-                this.social_disclosure_rate = response[0]['value']
-                this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
-                  .subscribe(response => {
-                    this.governance_disclosure_rate = response[0]['value']
-                    // @ts-ignore
-                    this.createRadarChart("of " + this.apparelService.getCompany(+this.report_params.id).name);
-                  })
-              })
+            if (response.length > 0) {
+              this.environmental_disclosure_rate = response[0]['value']
+              this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+                .subscribe(response => {
+                  if (response.length > 0) {
+                    this.social_disclosure_rate = response[0]['value']
+                    this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+                      .subscribe(response => {
+                        if (response.length > 0) {
+                          this.governance_disclosure_rate = response[0]['value']
+                          this.nodata = false;
+                          this.radarChart = this.renderer.createElement('div');
+                          this.radarChart.id = "esg-performance"
+                          this.radarChart.class = "radar-chart-container m-2"
+                          this.renderer.appendChild(this.radarChartContainer.nativeElement, this.radarChart);
+                          // @ts-ignore
+                          this.createRadarChart("of " + this.apparelService.getCompany(+this.report_params.id).name);
+                        }
+                      })
+                  }
+                })
+            }
           })
       } else {
-        this.http.get<any>("https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
+        this.http.get<any>("https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
           .subscribe(response => {
             this.environmental_disclosure_rate = 0;
             for (var i = 0; i < response.length; i++) {
               this.environmental_disclosure_rate += +response[i]['value'];
             }
             this.environmental_disclosure_rate = this.environmental_disclosure_rate / response.length;
-            this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
+            this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&" + this.report_params.year + "&limit=0&view=answer_list")
               .subscribe(response => {
                 this.social_disclosure_rate = 0;
                 for (var i = 0; i < response.length; i++) {
                   this.social_disclosure_rate += +response[i]['value'];
                 }
                 this.social_disclosure_rate = this.social_disclosure_rate / response.length;
-                this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&limit=0&view=answer_list")
+                this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
                   .subscribe(response => {
                     this.governance_disclosure_rate = 0;
                     for (var i = 0; i < response.length; i++) {
                       this.governance_disclosure_rate += +response[i]['value'];
                     }
                     this.governance_disclosure_rate = this.governance_disclosure_rate / response.length;
+                    this.nodata = false;
+                    this.radarChart = this.renderer.createElement('div');
+                    this.radarChart.id = "esg-performance"
+                    this.radarChart.class = "m-2"
+                    this.renderer.appendChild(this.radarChartContainer.nativeElement, this.radarChart);
                     this.createRadarChart("of Apparel Top 100 (avg Rating)");
                   })
               })
@@ -77,6 +102,7 @@ export class EsgPerformanceComponent implements OnInit {
   }
 
   createBarChart() {
+    let title = ["ESG Disclosure Rates (" + this.report_params.year + ")"];
     embed("div#esg-overall-wikirating",
       {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -86,10 +112,10 @@ export class EsgPerformanceComponent implements OnInit {
         "padding": 5,
         "autosize": "fit",
         "title": {
-          "text": {"signal": "'ESG Disclosure Rate'"},
+          "text": title,
           "subtitle": [
-            "What is the company's score on disclosure of environmental, social",
-            "and governance indicators?"
+            "What is the company's score on disclosure of",
+            "environmental, social and governance indicators?"
           ],
           "subtitleFontStyle": "italic",
           "subtitlePadding": 5,
@@ -104,7 +130,7 @@ export class EsgPerformanceComponent implements OnInit {
           },
           {
             "name": "suppplier_info",
-            "url": "https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+Answers.json?filter[not_ids]=&filter[company_name]=&filter[year]=latest&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0",
+            "url": "https://wikirate.org/Apparel_Research_Group+ESG_Disclosure_Rate+Answers.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0",
             "format": {"type": "json", "parse": {"value": "number"}},
             "transform": [
               {
@@ -185,7 +211,7 @@ export class EsgPerformanceComponent implements OnInit {
         "padding": 40,
         "autosize": {"type": "none", "contains": "padding"},
         "title": {
-          "text": "ESG Disclosure Rate",
+          "text": "ESG Disclosure Rate (" + this.report_params.year + ")",
           "anchor": "middle",
           "fontSize": 14,
           "dy": -8,

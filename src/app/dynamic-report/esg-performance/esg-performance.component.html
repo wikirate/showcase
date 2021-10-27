@@ -31,8 +31,11 @@
         </div>
       </div>
       <div class="col-md">
-        <div class="wikirate-creme-tile-box radar-chart-container">
-          <div id="esg-performance" class="m-2"></div>
+        <div class="wikirate-creme-tile-box" #radarChartContainer>
+          <div id="no_data" class="text-center" *ngIf="nodata">
+            <img class="mb-1" src="assets/sad_face_grey.svg" width="60px">
+            <p class="mt-2 showcase-main-text">No enough data available for this year to calculate the disclosure rates!</p>
+          </div>
         </div>
       </div>
     </div>
