@@ -170,14 +170,17 @@ $highlightcolor: #F7733D;
 .container {
   padding: 3em;
   min-height: 10em;
-  //display: table-cell;
-  vertical-align: middle;
 
 }
 
 .footer-container {
   @extend .container;
   padding: 0.5em !important;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
 }
 
 .mini-title {
@@ -265,7 +268,7 @@ $highlightcolor: #F7733D;
   border-radius: 35px;
 }
 
-.btn{
+.btn {
   border-radius: 5px !important;
 }
 
@@ -278,7 +281,7 @@ $highlightcolor: #F7733D;
   color: #747485;
 }
 
-.title{
+.title {
   font-weight: 700 !important;
   letter-spacing: 0.3px !important;
   text-align: left !important;
