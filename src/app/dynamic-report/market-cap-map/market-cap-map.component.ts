@@ -476,6 +476,13 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
             "update": {"text": {"signal": "title"}}
           }
         }
+      ],
+      "legends": [
+        {
+          "fill": "color",
+          "orient": "bottom-left",
+          "title": "Market Cap (in USD$)"
+        }
       ]
     })
       // result.view provides access to the Vega View API
