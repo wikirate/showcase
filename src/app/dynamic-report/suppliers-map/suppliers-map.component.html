@@ -2,7 +2,10 @@
   <div class="wikirate-container">
     <div class="row">
       <div class="showcase-title cols-1">
-        Where {{this.title}} sourcing from in {{this.report_params.year}}?
+        Where {{this.title}} sourcing from
+        <span *ngIf="report_params.year !== 'latest'">{{'in ' + report_params.year}}</span><span
+        *ngIf="report_params.year === 'latest'">{{' based on the most recent available data'}}</span>
+        ?
       </div>
     </div>
     <div class="row justify-content-center mt-4 mb-2" #map>

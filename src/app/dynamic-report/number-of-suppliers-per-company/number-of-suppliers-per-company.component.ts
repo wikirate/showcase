@@ -12,7 +12,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewInit, OnDestroy {
 
   paramsSubscription!: Subscription;
-  report_params!: { year: number };
+  report_params!: { year: number | string };
   number_of_reporting_companies: number | string = 'Unknown'
   unique_suppliers: number | string = 'Unknown'
 

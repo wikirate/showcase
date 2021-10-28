@@ -13,9 +13,11 @@
 <div class="wikirate-box">
   <div class="wikirate-container align-content-center">
     <div class="row justify-content-md-center">
-      <div class="mini-title mb-2 col-8">The Top 100 apparel companies are huge and growing. Who are they?</div>
+      <div class="mini-title mb-2 col-8">The largest apparel companies are huge and growing.</div>
       <div class="mini-text col-8">
-        With a combined total market value of over {{total_market_cap | bigNumSuff: 2}} USD$ in {{report_params.year}},
+        With a combined total market cap of over {{total_market_cap | bigNumSuff: 2}} USD$
+        <span *ngIf="report_params.year !== 'latest'">{{'in ' + report_params.year}}</span><span
+        *ngIf="report_params.year === 'latest'">{{' for the most recent years'}}</span>,
         which is more than half of the global fashion industry – this group has tremendous
         potential for negative and positive impact.
         This potential creates a responsibility for the top 100 to share more information. Explore the top 100’s growth

@@ -7,7 +7,8 @@
             But our findings show we need to strengthen transparency.
           </div>
           <div class="mt-2 showcase-main-text-white">
-            <p>In {{this.report_params.year}} WikiRate's researchers managed to retrieve the supplier lists
+            <p><span *ngIf="report_params.year !== 'latest'">{{'For ' + report_params.year}}</span><span
+              *ngIf="report_params.year === 'latest'">{{'For the most recent years'}}</span> WikiRate's researchers managed to retrieve the supplier lists
               of {{number_of_reporting_companies}} companies out of the top 100 companies, unveiling interesting
               patterns.
               In total, these {{number_of_reporting_companies}} companies were supplied

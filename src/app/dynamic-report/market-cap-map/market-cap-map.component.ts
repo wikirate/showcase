@@ -11,7 +11,7 @@ import embed from "vega-embed";
 })
 export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
   paramsSubscription!: Subscription;
-  report_params!: { year: number };
+  report_params!: { year: number | string };
   total_market_cap: string | number = 'unknown';
   total_employees: string | number = 'Unknown';
   number_of_suppliers: string | number = 'Unknown';

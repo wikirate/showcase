@@ -17,7 +17,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
   // @ts-ignore
   @ViewChild('map', {static: false}) mapElement: ElementRef;
   title = 'were the Apparel Top 100'
-  report_params!: { year: number, id: number };
+  report_params!: { year: number | string, id: number };
   suppliers: [] = [];
   suppliers_map: any;
 
