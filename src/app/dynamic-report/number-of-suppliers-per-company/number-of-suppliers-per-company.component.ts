@@ -110,13 +110,13 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
               "y": {"scale": "y", "field": "company_name"},
               "height": {"scale": "y", "band": 1},
               "tooltip": {
-                "signal": "{'Company':datum.company_name, 'Headquarters':datum.headquarters , 'Number of Suppliers':datum.count}"
+                "signal": "{'Company':datum.company_name, 'Headquarters':datum.headquarters , 'No. of Supplier Lists':datum.count}"
               },
               "fill": {"scale": "color", "field": "count"},
               "cornerRadiusTopRight": {"value": 5},
               "cornerRadiusBottomRight": {"value": 5}
             },
-            "hover": {"fill": {"value": "#f55d1f"}}
+            "hover": {"fill": {"value": "#912E06"}}
           }
         }
       ],

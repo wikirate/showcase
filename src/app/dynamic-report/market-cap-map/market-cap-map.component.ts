@@ -446,7 +446,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
               "fill": {"scale": "color", "field": "market_cap"},
               "stroke": {"value": "#171832"}
             },
-            "hover": {"fill": {"value": "#f55d1f"}, "stroke": {"value": "#171832"}}
+            "hover": {"fill": {"value": "#912E06"}, "stroke": {"value": "#171832"}}
           },
           "transform": [
             {

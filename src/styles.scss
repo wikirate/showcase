@@ -97,13 +97,15 @@ $highlightcolor: #F7733D;
 
 
 .btn-showcase {
-  @include button-variant($showcasecolor, $showcasecolor, $showcasecolor, lighten($showcasecolor, 5%), lighten($showcasecolor, 10%), darken(#fff, 15%));
+  @include button-variant($showcasecolor, $showcasecolor, $navyblue, lighten($showcasecolor, 5%), lighten($showcasecolor, 10%), darken(#fff, 15%));
   letter-spacing: 0.3px !important;
+  border-radius: 5px !important;
 }
 
 .btn-highlight {
-  @include button-variant($highlightcolor, $highlightcolor, darken($highlightcolor, 10%), lighten($highlightcolor, 5%), lighten($highlightcolor, 10%), darken(#fff, 15%));
+  @include button-variant($highlightcolor, $highlightcolor, #912E06, lighten($highlightcolor, 5%), lighten($highlightcolor, 10%), darken(#fff, 15%));
   letter-spacing: 0.3px !important;
+  border-radius: 5px !important;
 }
 
 .btn-lg {
@@ -171,24 +173,36 @@ $highlightcolor: #F7733D;
   background: linear-gradient(45deg, rgba(72, 76, 157, 0.5) 0%, rgba(9, 171, 144, 0.5) 25%, rgba(227, 247, 244, 0.5) 100%);
 }
 
-.container {
-  padding: 3em;
-  min-height: 10em;
-
+.wikirate-container {
+  @extend .container;
+  padding: 3em !important;
+  min-height: 10em !important;
 }
 
-/* unvisited link */
-a.highlighted {
+a.highlight-link {
   color: $highlightcolor;
 }
 
-a.highlighted:active {
+a.highlight-link:active {
   color: $highlightcolor;
 }
 
 /* mouse over link */
-a.highlighted:hover {
+a.highlighted-link:hover {
   color: darken($highlightcolor, 10%);
+}
+
+a.showcase-link {
+  color: $showcasecolor;
+}
+
+a.showcase-link:active {
+  color: $showcasecolor;
+}
+
+/* mouse over link */
+a.showcase-link:hover {
+  color: $navyblue;
 }
 
 .footer-container {
@@ -232,6 +246,10 @@ a.highlighted:hover {
   line-height: 135%;
 }
 
+.call-to-action-title{
+  font-weight: 600 !important;
+}
+
 .map-title {
   font-family: IBMPlexSans;
   font-style: normal;
@@ -266,7 +284,7 @@ a.highlighted:hover {
   font-weight: bolder;
   padding: 5px 0;
   font-size: 16px;
-  border-radius: 20px;
+  border-radius: 20px!important;
 }
 
 .btn-circle.btn-lg {
@@ -275,7 +293,7 @@ a.highlighted:hover {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
-  border-radius: 25px;
+  border-radius: 25px !important;
 }
 
 .btn-circle.btn-xl {
@@ -287,14 +305,10 @@ a.highlighted:hover {
   border-radius: 35px;
 }
 
-.btn {
-  border-radius: 5px !important;
-}
-
 .btn-search {
   @extend .btn;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
 }
@@ -320,7 +334,7 @@ a.highlighted:hover {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: inherit;
   white-space: nowrap;
 }
