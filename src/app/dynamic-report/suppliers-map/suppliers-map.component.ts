@@ -67,11 +67,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.http.get<any>(url)
       .subscribe(response => {
-          if (company.id == 0) {
-            this.suppliers = response;
-          } else {
-            this.suppliers = response.items;
-          }
+          this.suppliers = response;
 
           if (this.suppliers.length > 0) {
             this.suppliers_map = this.renderer.createElement('div');
@@ -952,7 +948,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                       "fill": {"scale": "color", "field": "companies"},
                       "stroke": {"value": "#171832"}
                     },
-                    "hover": {"fill": {"value": "#d9daed"}, "stroke": {"value": "#171832"}}
+                    "hover": {"fill": {"value": "#f55d1f"}, "stroke": {"value": "#171832"}}
                   },
                   "transform": [
                     {

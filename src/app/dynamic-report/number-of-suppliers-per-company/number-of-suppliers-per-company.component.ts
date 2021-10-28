@@ -21,6 +21,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
   }
 
   ngOnInit(): void {
+    this.updateChart()
     this.report_params = {
       year: this.route.snapshot.params['year']
     }
@@ -36,7 +37,6 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
                 this.number_of_reporting_companies++;
               }
             }
-            this.updateChart(response, this.report_params.year)
           });
 
         let num_of_suppliers_url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier%20of%20Apparel%20100&filter[year]=" + this.report_params.year + "&view=answer_list&limit=0"
@@ -55,17 +55,17 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
     this.paramsSubscription.unsubscribe();
   }
 
-  updateChart(data: [], year: number) {
+  updateChart() {
     embed("div#bar-chart", {
       "$schema": "https://vega.github.io/schema/vega/v5.json",
-      "description": "Number of Reported Suppliers",
+      "description": "Number of Published Supplier Lists",
       "width": 550,
       "height": 410,
       "padding": 5,
       "autosize": "fit",
       "title": {
-        "text": {"signal": "'Number of Reported Suppliers (" + year + ")'"},
-        "subtitle": "Number of Reported Suppliers per Apparel Company",
+        "text": {"signal": "'Number of Published Supplier Lists'"},
+        "subtitle": "per company over the years (available on WikiRate)",
         "subtitleFontStyle": "italic",
         "subtitlePadding": 5,
         "anchor": "start",
@@ -80,12 +80,9 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "format": {"type": "json", "property": "items"}
         },
         {
-          "name": "suppplier_info",
-          "values": data,
-          "format": {"type": "json", "parse": {"value": "number"}},
+          "name": "published_supplier_lists",
+          "url": "https://wikirate.org/Commons+Supplier_List_all+Answers.json?filter[not_ids]=&filter[company_name]=&filter[value][]=Yes&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0",
           "transform": [
-            {"type": "filter", "expr": "datum.year > 2016 && datum.year < 2021"},
-            {"type": "filter", "expr": "datum.value > 0"},
             {
               "type": "lookup",
               "from": "companies",
@@ -94,6 +91,10 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
               "values": ["name", "headquarters"],
               "as": ["company_name", "headquarters"],
               "default": 0
+            },
+            {
+              "type": "aggregate",
+              "groupby": ["company_name", "headquarters"]
             }
           ]
         }
@@ -101,21 +102,21 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
       "marks": [
         {
           "type": "rect",
-          "from": {"data": "suppplier_info"},
+          "from": {"data": "published_supplier_lists"},
           "encode": {
             "update": {
               "x": {"scale": "x", "value": 0},
-              "x2": {"scale": "x", "field": "value"},
+              "x2": {"scale": "x", "field": "count"},
               "y": {"scale": "y", "field": "company_name"},
               "height": {"scale": "y", "band": 1},
               "tooltip": {
-                "signal": "{'title':datum.company_name, 'Headquarters':datum.headquarters , 'Number of Suppliers':datum.value}"
+                "signal": "{'Company':datum.company_name, 'Headquarters':datum.headquarters , 'Number of Suppliers':datum.count}"
               },
-              "fill": {"scale": "color", "field": "value"},
+              "fill": {"scale": "color", "field": "count"},
               "cornerRadiusTopRight": {"value": 5},
               "cornerRadiusBottomRight": {"value": 5}
             },
-            "hover": {"fill": {"value": "#d9daed"}}
+            "hover": {"fill": {"value": "#f55d1f"}}
           }
         }
       ],
@@ -123,7 +124,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
         {
           "name": "x",
           "type": "linear",
-          "domain": {"data": "suppplier_info", "field": "value"},
+          "domain": {"data": "published_supplier_lists", "field": "count"},
           "range": "width",
           "nice": true
         },
@@ -131,9 +132,9 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "name": "y",
           "type": "band",
           "domain": {
-            "data": "suppplier_info",
+            "data": "published_supplier_lists",
             "field": "company_name",
-            "sort": {"op": "max", "field": "value", "order": "descending"}
+            "sort": {"op": "max", "field": "count", "order": "descending"}
           },
           "range": "height",
           "padding": 0.1
@@ -142,7 +143,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "name": "color",
           "type": "linear",
           "nice": true,
-          "domain": {"data": "suppplier_info", "field": "value"},
+          "domain": {"data": "published_supplier_lists", "field": "count"},
           "range": ["#fef1eb", "#F7733D"]
         }
       ],
@@ -155,8 +156,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "tickColor": "#F7F7F8",
           "labelColor": "#F7F7F8"
         },
-        {"scale": "y", "orient": "left", "tickColor": "#F7F7F8", "labelColor": "#F7F7F8"}
-      ]
+        {"scale": "y", "orient": "left", "tickColor": "#F7F7F8", "labelColor": "#F7F7F8"}]
     })
   }
 
