@@ -1,65 +1,61 @@
 <div class="wikirate-creme-tile-box">
   <div class="wikirate-container align-content-center">
     <div class="row justify-content-md-center">
-      <div class="mini-title mb-2 col-8 text-left">Create your own powerful data ecosystem that paints a picture</div>
-      <div class="mini-text col-8 text-left">
+      <div class="mini-title col-8">Create your own powerful data ecosystem that paints a picture</div>
+      <div class="mini-text col-8">
         <p>
           Access to reliable and well-presented companies' ESG data or supply chain information is essential for those
-          interested in improving the world, but often it's not available or too expensive. Even if we have the data, it
-          can be hard to identify the signal among the noise or know where to focus our attention.
+          interested in improving the world, but often it's not available, too expensive or difficult to access.
         </p>
         <p>
-          We made apparel top 100 to show Wikirate.org's potential to use data to create a sector snapshot that is
-          valuable to multiple audiences. WikiRate can co-create your open data ecosystem that makes clear important
-          information with visualizations and analyses. With this, we can see how companies' operations help or harm the
-          world.
+          We made the apparel top 100 ecosystem to show Wikirate.org's potential to use data to create a sector snapshot
+          that is valuable to multiple audiences. With these insights, we can see how companies' operations help or harm
+          the world.
         </p>
-        <p>We are a community-driven platform; without the community, Apparel Top 100 would not be possible.</p>
-        <p>
-          With their support for this project, we've collected [15k] data points for [174] metrics.
-        </p>
+        <p>This research came together with the support of the WikiRate community.</p>
       </div>
     </div>
   </div>
-  <hr>
+  <hr class="nomargin">
 </div>
-<p class="mini-title text-center mt-4">
-  The project in numbers:
-</p>
-<div class="row mt-4">
-  <div class="col-4 text-center mb-4">
-    <div class="primary-info">15K</div>
-    <div class="secondary-info">DATA POINTS</div>
-  </div>
-  <div class="col-4 text-center">
-    <div class="primary-info">174</div>
-    <div class="secondary-info">METRICS</div>
-  </div>
-  <div class="col-4 text-center">
-    <div class="primary-info">15K</div>
-    <div class="secondary-info">CORPORATE RELATIONSHIPS</div>
-  </div>
-</div>
-<hr>
-<p class="mini-title text-center mt-4">
-  Our community in numbers:
-</p>
-<div class="row mt-4">
-  <div class="col-4 text-center mb-4">
-    <div class="primary-info">500</div>
-    <div class="secondary-info">RESEARCHERS, STUDENTS, VOLUNTEERS</div>
-  </div>
-  <div class="col-4 text-center">
-    <div class="primary-info">10</div>
-    <div class="secondary-info">UNIVERSITIES</div>
-  </div>
-  <div class="col-4 text-center">
-    <div class="primary-info">24</div>
-    <div class="secondary-info">NGOs</div>
+<div class="wikirate-container">
+  <p class="mini-title text-center">
+    The project in numbers:
+  </p>
+  <div class="row mt-4">
+    <div class="col-4 text-center mb-4">
+      <div class="primary-info">15K</div>
+      <div class="secondary-info">DATA POINTS</div>
+    </div>
+    <div class="col-4 text-center">
+      <div class="primary-info">174</div>
+      <div class="secondary-info">METRICS</div>
+    </div>
+    <div class="col-4 text-center">
+      <div class="primary-info">15K</div>
+      <div class="secondary-info">CORPORATE RELATIONSHIPS</div>
+    </div>
   </div>
   <hr>
+  <p class="mini-title text-center mt-4">
+    Our community in numbers:
+  </p>
+  <div class="row mt-4">
+    <div class="col-4 text-center mb-4">
+      <div class="primary-info">500</div>
+      <div class="secondary-info">RESEARCHERS, STUDENTS, VOLUNTEERS</div>
+    </div>
+    <div class="col-4 text-center">
+      <div class="primary-info">10</div>
+      <div class="secondary-info">UNIVERSITIES</div>
+    </div>
+    <div class="col-4 text-center">
+      <div class="primary-info">24</div>
+      <div class="secondary-info">NGOs</div>
+    </div>
+    <hr>
+  </div>
 </div>
-
 <div class="wikirate-creme-purple-box">
   <div class="wikirate-container">
     <div class="row">
@@ -74,7 +70,7 @@
           <p><i class="ml-3 mr-3 bi bi-check"></i>Learn how we can help you create a similar website or analyses</p>
           <p><i class="ml-3 mr-3 bi bi-check"></i>See our platform in action</p>
         </div>
-        <button class="btn btn-showcase mt-4 btn-lg">Learn more<i class="bi bi-arrow-right ml-2"></i></button>
+        <button class="btn btn-showcase mt-4">Learn more<i class="bi bi-arrow-right ml-2"></i></button>
 
       </div>
       <div class="col-6 mb-5 pl-5">
@@ -88,7 +84,7 @@
           <p><i class="ml-3 mr-3 bi bi-check"></i>Put the data into action</p>
           <p><i class="ml-3 mr-3 bi bi-check"></i>Build your own research project</p>
         </div>
-        <button class="btn btn-showcase mt-4 btn-lg">Start Contributing<i class="bi bi-arrow-right ml-2"></i></button>
+        <button class="btn btn-showcase mt-4">Start Contributing<i class="bi bi-arrow-right ml-2"></i></button>
       </div>
     </div>
   </div>
@@ -243,82 +239,128 @@
     </div>
   </div>
 </div>
-<div class="wikirate-box">
-  <div class="wikirate-container">
-    <div id="bootstrapCarousel" class="carousel slide" data-ride="carousel" #carousel>
-      <!-- Slide Indicators -->
-      <ul class="carousel-indicators">
-        <li data-target="#bootstrapCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#bootstrapCarousel" data-slide-to="1"></li>
-        <li data-target="#bootstrapCarousel" data-slide-to="2"></li>
-      </ul>
-      <!-- The slides to show -->
-      <div class="carousel-inner">
-        <div class="carousel-item mt-4 mb-4" [class.active]="currentIndex === 1" [class.slide]="currentIndex === 2">
-          <div class="row justify-content-md-center">
-            <div class="col-9">
-              <div class="row">
-                <div class="image-box col-3 d-flex justify-content-center align-items-md-center">
-                  <img src="https://dq06ugkuram52.cloudfront.net/files/564260/12604027-medium.png"/>
+<div class="wikirate-creme-tile-box wikirate-container">
+  <div id="bootstrapCarousel" class="carousel slide" data-ride="carousel" #carousel>
+    <!-- Slide Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#bootstrapCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#bootstrapCarousel" data-slide-to="1"></li>
+      <li data-target="#bootstrapCarousel" data-slide-to="2"></li>
+      <li data-target="#bootstrapCarousel" data-slide-to="3"></li>
+    </ul>
+    <!-- The slides to show -->
+    <div class="carousel-inner">
+      <div class="carousel-item mt-4 mb-4" [class.active]="currentIndex === 0" [class.slide]="currentIndex === 0">
+        <div class="row justify-content-md-center">
+          <div class="col-9">
+            <div class="row">
+              <div class="image-box col-3 d-flex justify-content-center align-items-md-center">
+                <img src="https://dq06ugkuram52.cloudfront.net/files/564260/12604027-medium.png"/>
+              </div>
+              <div class="col-9 ">
+                <div class="showcase-main-text">“With more and more civil society organizations seeing the
+                  value
+                  of
+                  using an open, structured data system for housing their research, we’ve been able to connect to
+                  the
+                  Fashion Transparency Index and use their company surveys rather than duplicating their work...”
                 </div>
-                <div class="col-9 ">
-                  <div class="showcase-main-text">“With more and more civil society organizations seeing the
-                    value
-                    of
-                    using an open, structured data system for housing their research, we’ve been able to connect to
-                    the
-                    Fashion Transparency Index and use their company surveys rather than duplicating their work...”
-                  </div>
-                  <div class="note mt-3">
-                    <b>
-                      Emily Jørgensen
-                    </b>
-                  </div>
-                  <div class="note">Clean Clothes Campaign</div>
+                <div class="note mt-3">
+                  <b>
+                    Emily Jørgensen
+                  </b>
                 </div>
+                <div class="note">Clean Clothes Campaign</div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="carousel-item mt-4 mb-4" [class.active]="currentIndex === 2" [class.slide]="currentIndex === 2">
-          <div class="row justify-content-md-center">
-            <div class="col-9">
-              <div class="row">
-                <div class="image-box col-3 d-flex justify-content-center align-items-md-center">
-                  <img src="https://dq06ugkuram52.cloudfront.net/files/564260/12604027-medium.png"/>
-                </div>
-                <div class="col-9 ">
-                  <div class="showcase-main-text">“With more and more civil society organizations seeing the
-                    value
-                    of
-                    using an open, structured data system for housing their research, we’ve been able to connect to
-                    the
-                    Fashion Transparency Index and use their company surveys rather than duplicating their work...”
-                  </div>
-                  <div class="note mt-3">
-                    <b>
-                      Vas Gat
-                    </b>
-                  </div>
-                  <div class="note">Clean Clothes Campaign</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80"
-            width="1100" height="500">
         </div>
       </div>
-      <!--  Controls (Left and right) -->
-      <a class="carousel-control-prev mt-4 mr-4" (click)="prev()" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next mt-4 mr-4" (click)="next()" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
+      <div class="carousel-item mt-4 mb-4" [class.active]="currentIndex === 1" [class.slide]="currentIndex === 1">
+        <div class="row justify-content-md-center">
+          <div class="col-9">
+            <div class="row">
+              <div class="image-box col-3 d-flex justify-content-center align-items-md-center">
+                <img src="https://dq06ugkuram52.cloudfront.net/files/564260/12604027-medium.png"/>
+              </div>
+              <div class="col-9 ">
+                <div class="showcase-main-text">“With more and more civil society organizations seeing the
+                  value
+                  of
+                  using an open, structured data system for housing their research, we’ve been able to connect to
+                  the
+                  Fashion Transparency Index and use their company surveys rather than duplicating their work...”
+                </div>
+                <div class="note mt-3">
+                  <b>
+                    Vas Gat
+                  </b>
+                </div>
+                <div class="note">Clean Clothes Campaign</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item mt-4 mb-4" [class.active]="currentIndex === 2" [class.slide]="currentIndex === 2">
+        <div class="row justify-content-md-center">
+          <div class="col-9">
+            <div class="row">
+              <div class="image-box col-3 d-flex justify-content-center align-items-md-center">
+                <img src="https://dq06ugkuram52.cloudfront.net/files/564260/12604027-medium.png"/>
+              </div>
+              <div class="col-9 ">
+                <div class="showcase-main-text">“With more and more civil society organizations seeing the
+                  value
+                  of
+                  using an open, structured data system for housing their research, we’ve been able to connect to
+                  the
+                  Fashion Transparency Index and use their company surveys rather than duplicating their work...”
+                </div>
+                <div class="note mt-3">
+                  <b>
+                    Vas Gat
+                  </b>
+                </div>
+                <div class="note">Clean Clothes Campaign</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item mt-4 mb-4" [class.active]="currentIndex === 3" [class.slide]="currentIndex === 3">
+        <div class="row justify-content-md-center">
+          <div class="col-9">
+            <div class="row">
+              <div class="image-box col-3 d-flex justify-content-center align-items-md-center">
+                <img src="https://dq06ugkuram52.cloudfront.net/files/564260/12604027-medium.png"/>
+              </div>
+              <div class="col-9 ">
+                <div class="showcase-main-text">“With more and more civil society organizations seeing the
+                  value
+                  of
+                  using an open, structured data system for housing their research, we’ve been able to connect to
+                  the
+                  Fashion Transparency Index and use their company surveys rather than duplicating their work...”
+                </div>
+                <div class="note mt-3">
+                  <b>
+                    Vas Gat
+                  </b>
+                </div>
+                <div class="note">Clean Clothes Campaign</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <!--  Controls (Left and right) -->
+    <a class="carousel-control-prev mt-4 mr-4" (click)="prev()" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next mt-4 mr-4" (click)="next()" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
   </div>
 </div>

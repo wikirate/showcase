@@ -8,6 +8,7 @@ import {ViewportScroller} from "@angular/common";
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   @ViewChild('carousel', {static: true}) carousel!: ElementRef;
   currentIndex = 1
 

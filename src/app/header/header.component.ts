@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, ParamMap, Params, Router} from "@angular/router";
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {ApparelService} from "../services/apparel.service";
 import {Company} from "../models/company.model";
 import {Subscription} from "rxjs";
