@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Network, DataSet, Node, Edge} from 'vis-network/standalone';
+import {Network, DataSet, Node, Edge} from 'vis-network/standalone/esm/vis-network.min';
 import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
@@ -28,8 +28,7 @@ export class NetworkGraphComponent implements OnInit {
     this.paramsSubscription = this.route.params.subscribe((params: Params) => {
         this.report_params.id = params['id'];
         this.report_params.year = params['year'];
-        console.log('Hello Wolrd')
-        this.http.get<any>('http://localhost:8080/widget/api/v1/aggregations/investor_supplier_network/0/' + this.report_params.year)
+        this.http.get<any>('../../assets/networks/'+this.report_params.year+'/' + this.report_params.id+'.json')
           .subscribe(response => {
             let n = response.network;
             for (let i = 0; i < n.nodes.length; i++) {
@@ -47,23 +46,6 @@ export class NetworkGraphComponent implements OnInit {
           })
       }
     );
-    this.http.get<any>('http://localhost:8080/widget/api/v1/aggregations/investor_supplier_network/0/' + this.report_params.year)
-      .subscribe(response => {
-        let n = response.network;
-        for (let i = 0; i < n.nodes.length; i++) {
-          n.nodes[i]['id'] = n.nodes[i]['_id'];
-          delete n.nodes[i]['_id'];
-        }
-        console.log(n.nodes[0])
-        for (let i = 0; i < n.edges.length; i++) {
-          n.edges[i]['id'] = n.edges[i]['_id'];
-          delete n.edges[i]['_id'];
-        }
-        console.log(n.nodes[0]['color'])
-        this.network = n;
-        this.title = response.title;
-        this.draw();
-      })
   }
 
   draw() {
@@ -83,8 +65,8 @@ export class NetworkGraphComponent implements OnInit {
       improvedLayout: false,
       edges: {
         color: {
-          color: '#F7F7F8',
-          highlight: "#171832",
+          color: '#D3D3D3',
+          highlight: "#A9A9A9",
         },
         arrows: {
           to: {
@@ -97,7 +79,7 @@ export class NetworkGraphComponent implements OnInit {
           }
         },
         font: {
-          face: 'Roboto',
+          face: 'IBMPlexSans',
           size: 10,
           color: {
             color: '#F7F7F8',
@@ -109,13 +91,29 @@ export class NetworkGraphComponent implements OnInit {
         shape: 'dot',
         size: 10,
         font: {
-          face: 'Roboto',
-          size: 10
+          face: 'IBMPlexSans',
+          size: 13
         }
       },
       physics: {
         enabled: true,
-        solver: 'forceAtlas2Based'
+        solver: 'forceAtlas2Based',
+        forceAtlas2Based: {
+          theta: 0.5,
+          gravitationalConstant: -70,
+          centralGravity: 0.01,
+          springConstant: 0.08,
+          springLength: 100,
+          damping: 0.4,
+          avoidOverlap: 0
+        },
+        stabilization: {
+          enabled: true,
+          iterations: 10,
+          updateInterval: 1000,
+          onlyDynamicEdges: false,
+          fit: true
+        }
       }
     };
     // @ts-ignore
