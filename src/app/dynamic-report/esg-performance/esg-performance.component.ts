@@ -40,15 +40,15 @@ export class EsgPerformanceComponent implements OnInit {
       }
       this.nodata = true;
       if (this.report_params.id != 0) {
-        this.http.get<any>("https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+        this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Environmental_Disclosure_Rate+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
           .subscribe(response => {
             if (response.length > 0) {
               this.environmental_disclosure_rate = response[0]['value']
-              this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+              this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Social_Disclosure_Rate+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
                 .subscribe(response => {
                   if (response.length > 0) {
                     this.social_disclosure_rate = response[0]['value']
-                    this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+                    this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Governance_Disclosure_Rate+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
                       .subscribe(response => {
                         if (response.length > 0) {
                           this.governance_disclosure_rate = response[0]['value']
@@ -66,21 +66,21 @@ export class EsgPerformanceComponent implements OnInit {
             }
           })
       } else {
-        this.http.get<any>("https://wikirate.org/Laureen_van_Breen+Environmental_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+        this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Environmental_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
           .subscribe(response => {
             this.environmental_disclosure_rate = 0;
             for (var i = 0; i < response.length; i++) {
               this.environmental_disclosure_rate += +response[i]['value'];
             }
             this.environmental_disclosure_rate = this.environmental_disclosure_rate / response.length;
-            this.http.get<any>("https://wikirate.org/theresah+Social_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&" + this.report_params.year + "&limit=0&view=answer_list")
+            this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Social_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&" + this.report_params.year + "&limit=0&view=answer_list")
               .subscribe(response => {
                 this.social_disclosure_rate = 0;
                 for (var i = 0; i < response.length; i++) {
                   this.social_disclosure_rate += +response[i]['value'];
                 }
                 this.social_disclosure_rate = this.social_disclosure_rate / response.length;
-                this.http.get<any>("https://wikirate.org/theresah+Governance_Disclosure_Rating+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
+                this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Governance_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
                   .subscribe(response => {
                     this.governance_disclosure_rate = 0;
                     for (var i = 0; i < response.length; i++) {
