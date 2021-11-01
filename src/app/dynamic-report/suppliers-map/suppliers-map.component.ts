@@ -82,7 +82,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
               "autosize": "none",
               "signals": [
                 {"name": "type", "value": "equalEarth"},
-                {"name": "scale", "value": 150},
+                {"name": "scale", "value": 200},
                 {"name": "rotate0", "value": -15},
                 {"name": "rotate1", "value": 0},
                 {"name": "rotate2", "value": 0},
@@ -893,7 +893,26 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                 },
                 {"name": "graticule", "transform": [{"type": "graticule"}]}
               ],
-              "projections": [{"name": "projection", "scale": {"signal": "scale"}}],
+              "projections": [
+                {
+                  "name": "projection",
+                  "type": {"signal": "type"},
+                  "scale": {"signal": "scale"},
+                  "rotate": [
+                    {"signal": "rotate0"},
+                    {"signal": "rotate1"},
+                    {"signal": "rotate2"}
+                  ],
+                  "center": [
+                    {"signal": "center0"},
+                    {"signal": "center1"}
+                  ],
+                  "translate": [
+                    {"signal": "translate0"},
+                    {"signal": "translate1"}
+                  ]
+                }
+              ],
               "scales": [
                 {
                   "name": "size",
@@ -914,17 +933,23 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                   "type": "shape",
                   "from": {"data": "graticule"},
                   "encode": {
-                    "update": {"strokeWidth": {"value": 1}, "fill": {"value": "null"}}
+                    "update": {
+                      "strokeWidth": {"value": 1},
+                      "stroke": {"signal": "'#ddd'"},
+                      "fill": {"value": null}
+                    }
                   },
-                  "transform": [{"type": "geoshape", "projection": "projection"}]
+                  "transform": [
+                    { "type": "geoshape", "projection": "projection" }
+                  ]
                 },
                 {
                   "type": "shape",
                   "from": {"data": "world"},
                   "encode": {
                     "update": {
-                      "fill": {"value": "#171832"},
                       "strokeWidth": {"signal": "+borderWidth"},
+                      "fill": {"value": "#171832"},
                       "zindex": {"value": 0}
                     }
                   },
