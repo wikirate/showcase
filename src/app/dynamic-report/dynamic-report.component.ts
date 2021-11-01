@@ -20,6 +20,7 @@ export class DynamicReportComponent implements OnInit {
         id: +params['id'],
         year: params['year']
       };
+      console.log(this.report_params.id)
     });
     this.scrollToTop();
   }
