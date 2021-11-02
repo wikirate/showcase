@@ -258,6 +258,24 @@ a.showcase-link:hover {
   line-height: 135%;
 }
 
+.logo-img {
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: .5rem;
+  vertical-align: middle;
+}
+
+.secondary-title{
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: 400!important;
+  font-size: 1.4rem;
+  color: #1D1E3F;
+  line-height: 135%;
+}
+
 .call-to-action-title {
   font-weight: 600 !important;
 }
@@ -407,6 +425,15 @@ a.showcase-link:hover {
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23171832' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-inner{
+  height: 250px !important;
+}
+
+.carousel-inner-logos{
+  @extend .carousel-inner;
+  height: 150px !important;
 }
 
 .nopadding {
