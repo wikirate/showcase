@@ -488,8 +488,6 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       ]
     })
-      // result.view provides access to the Vega View API
-      .then(result => console.log(result))
       .catch(console.warn);
   }
 
