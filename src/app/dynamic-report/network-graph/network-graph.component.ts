@@ -12,7 +12,7 @@ import {ApparelService} from "../../services/apparel.service";
 export class NetworkGraphComponent implements OnInit {
   @ViewChild('net', {static: false}) net!: ElementRef;
   // @ts-ignore
-  report_params: { year: number, id: number };
+  report_params: { year: number | string, id: number };
   // @ts-ignore
   paramsSubscription: Subscription;
   // @ts-ignore
