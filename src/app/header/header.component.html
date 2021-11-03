@@ -27,6 +27,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <!-- results of ngFor is passed to appFilter with argument searchText -->
               <a class="dropdown-item" *ngFor="let c of apparelTop100 | companyFilter: searchText" textHighlight
+                 style="cursor:pointer;"
                  [id]="c.id"
                  [searchedWord]="searchText"
                  [content]="c.name"
