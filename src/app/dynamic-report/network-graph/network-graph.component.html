@@ -1,13 +1,11 @@
 <div class="wikirate-box">
   <div class="wikirate-container align-content-center">
     <div class="row justify-content-md-center">
-      <div class="secondary-title mt-5 mb-2 col-8 text-center">Who funds apparel companies <span *ngIf="report_params.year == 'latest'">based on the most recent available data</span><span *ngIf="report_params.year != 'latest'">({{report_params.year}})</span>?</div>
+      <div class="secondary-title col-8 text-center">Who funds apparel companies <span *ngIf="report_params.year == 'latest'">based on the most recent available data</span><span *ngIf="report_params.year != 'latest'">({{report_params.year}})</span>?</div>
     </div>
-  </div>
-</div>
-<div class="container mt-4">
+
   <div class="row justify-content-center" #net>
-    <div id="no_data" class="mt-4 text-center" *ngIf="network.nodes.length == 0">
+    <div id="no_data" class="text-center" *ngIf="network.nodes.length == 0">
       <img class="mb-1" src="assets/moon.svg" width="60px">
       <p class="mt-2 showcase-main-text">You explored unresearched areas, no data available.</p>
     </div>
@@ -15,5 +13,6 @@
   <div class="note col-12">
     <p class="text-center">See which investors (Navy Blue) are financing which apparel companies (Orange).</p>
   </div>
+</div>
 </div>
 <hr>
