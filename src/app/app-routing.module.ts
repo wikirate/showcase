@@ -5,7 +5,7 @@ import {AboutComponent} from "./about/about.component";
 import {CompanyResolver} from "./services/company-resolver.service";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   {path: '', redirectTo: 'apparel_top_100/reports/0/latest', pathMatch: 'full'},
@@ -23,7 +23,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes
     )],
-  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
