@@ -1,8 +1,9 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, ActivationEnd, ParamMap, Router} from "@angular/router";
 import {ApparelService} from "../services/apparel.service";
 import {Company} from "../models/company.model";
 import {Subscription} from "rxjs";
+import {filter, map} from "rxjs/operators";
 
 @Component({
   selector: 'header-component',
@@ -14,7 +15,6 @@ export class HeaderComponent implements OnInit {
   exploreMore: boolean = false;
   apparelTop100: Company[] = [];
   searchText: any;
-  selectedYear: string | number | null = 'latest';
   selectedCompany!: string;
   // @ts-ignore
   @ViewChild('search_text') search_text: ElementRef;
@@ -31,6 +31,19 @@ export class HeaderComponent implements OnInit {
       id: 0,
       year: 'latest'
     }
+
+    this.router.events
+      .pipe(
+        filter(e => (e instanceof ActivationEnd) && (Object.keys(e.snapshot.params).length > 0)),
+        map(e => e instanceof ActivationEnd ? e.snapshot.params : {})
+      )
+      .subscribe(params => {
+        this.report_params['id'] = params['id']
+        this.report_params['year'] = params['year']
+        // @ts-ignore
+        this.selectedCompany = this.apparelService.getCompany(+this.report_params.id).name
+      });
+
     this.apparelService.exploreMore.subscribe((explore: boolean) => {
       this.exploreMore = explore;
     })

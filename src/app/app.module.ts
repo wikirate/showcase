@@ -20,7 +20,7 @@ import { AboutComponent } from './about/about.component';
 import {ApparelService} from "./services/apparel.service";
 import { FilterPipe } from './pipes/filter.pipe';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import { TextHighlightDirective } from './directives/text-highlight.directive';
+import {TextHighlightDirective} from './directives/text-highlight.directive';
 import {CompanyResolver} from "./services/company-resolver.service";
 import {BigNumberFormatPipe} from "./pipes/big-number-format.pipe";
 import {NumFormatPipe} from "./pipes/num-format.pipe";

@@ -19,6 +19,7 @@
                    aria-haspopup="true" aria-expanded="false" class="form-control" type="text" [(ngModel)]="searchText"
                    placeholder="Search for Company"
                    aria-label="Search"
+                   [value]="this.report_params.id !== '0' ? selectedCompany: ''"
                    #search_text/>
             <div class="input-group-append">
               <button class="btn-search btn-outline-dark" type="submit"><i class="bi bi-search"></i>
@@ -42,10 +43,10 @@
         <div class="m-2">
           <select class="form-control" [class.highlight]="exploreMore" [(ngModel)]="report_params.year"
                   (change)="navigateToYear($event)">
-            <option value="latest" selected>latest</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
+            <option value="latest" [selected]="this.report_params.year == 'latest'">latest</option>
+            <option value="2020" [selected]="this.report_params.year === 2020">2020</option>
+            <option value="2019" [selected]="this.report_params.year === 2019">2019</option>
+            <option value="2018" [selected]="this.report_params.year === 2018">2018</option>
           </select>
         </div>
       </div>
