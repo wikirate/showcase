@@ -22,3 +22,7 @@ hr {
   max-height: 280px;
   overflow-y: auto;
 }
+
+.dropdown-toggle::after {
+  content: none !important;
+}

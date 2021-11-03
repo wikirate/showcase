@@ -9,7 +9,17 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link ml-4 mr-4" routerLink="apparel_top_100/about">ABOUT</a>
-          <a class="nav-link ml-4 mr-4" href="#">SHARE <i class="bi bi-arrow-up-right"></i></a>
+          <div class="dropdown">
+            <a class="nav-link ml-4 mr-4 dropdown-toggle" type="button" id="share" data-toggle="dropdown" aria-expanded="false">
+              SHARE <i class="bi bi-arrow-up-right"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="share">
+              <a class="dropdown-item" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://showcase.wikirate.org/"><i class="bi bi-facebook ml-2 mr-2"></i>facebook</a>
+              <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?url=https://showcase.wikirate.org/&text="><i class="bi bi-twitter ml-2 mr-2"></i>twitter</a>
+              <a class="dropdown-item" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://showcase.wikirate.org/"><i class="bi bi-linkedin ml-2 mr-2"></i>linkedin</a>
+              <a class="dropdown-item" target="_blank" href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://showcase.wikirate.org/%0A"><i class="bi bi-envelope-fill ml-2 mr-2"></i>mail</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="navbar-collapse collapse">
