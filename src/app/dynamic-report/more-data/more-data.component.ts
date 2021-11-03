@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'more-data',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoreDataComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
 }

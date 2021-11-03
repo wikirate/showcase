@@ -189,7 +189,7 @@ $highlightcolor: #F7733D;
 
 .wikirate-container {
   @extend .container;
-  padding: 3em !important;
+  padding: 4em 3em !important;
   min-height: 10em !important;
 }
 
@@ -284,7 +284,7 @@ a.showcase-link:hover {
   font-family: IBMPlexSans;
   font-style: normal;
   font-weight: 500 !important;
-  font-size: 26px;
+  font-size: 1.75rem;
   color: #1D1E3F;
 }
 
@@ -402,8 +402,8 @@ a.showcase-link:hover {
 .primary-info {
   font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: bold;
-  font-size: 42px;
+  font-weight: 600;
+  font-size: 38px;
   text-align: center;
   letter-spacing: -1px;
   color: #484C9D;
