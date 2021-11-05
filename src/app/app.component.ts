@@ -35,7 +35,7 @@ export class AppComponent implements OnInit{
       .subscribe((event: NavigationEnd) => {
         gtag('config', 'G-KP6VMMHLSE',
           {
-            page_path: event.urlAfterRedirects
+            'page_path': event.urlAfterRedirects
           }
         );
       });
