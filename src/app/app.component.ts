@@ -38,7 +38,14 @@ export class AppComponent implements OnInit{
             'page_path': event.urlAfterRedirects
           }
         );
+        gtag('config', 'UA-34941429-8',
+          {
+            'page_path': event.urlAfterRedirects
+          }
+        );
       });
+
+
   }
 }
 
