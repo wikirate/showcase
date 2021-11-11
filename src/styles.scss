@@ -382,12 +382,11 @@ a.showcase-link:hover {
 }
 
 .form-control {
-  min-width: 165px;
+  max-width: 100%;
   color: #484C9D;
   border: 1px solid #484C9D;
   border-radius: 5px;
 }
-
 
 .showcase-note {
   font-family: IBMPlexSans;
@@ -446,4 +445,9 @@ a.showcase-link:hover {
 
 .nomargin {
   margin: 0 !important;
+}
+
+svg{
+  max-width: 100%;
+  height: auto;
 }

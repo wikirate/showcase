@@ -1,12 +1,11 @@
 <div class="wikirate-box bg-white sticky-top">
   <div class="container">
-    <nav class="navbar sticky-top background-white drop-shadow nav navbar-light navbar-expand">
+    <nav class="navbar sticky-top background-white drop-shadow nav navbar-light navbar-expand-lg">
       <a class="navbar-brand title mr-4" routerLink="apparel_top_100/reports/0/latest">Apparel 100</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <div class="navbar-nav">
           <a class="nav-link ml-4 mr-4" routerLink="apparel_top_100/about">ABOUT</a>
           <div class="dropdown">
@@ -21,9 +20,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="navbar-collapse collapse">
-        <div class="form-inline ml-auto m-2">
+        <div class="ml-auto">
+        <div class="form-inline m-2 ml-4">
           <div class="input-group" [class.highlight]="exploreMore">
             <input id="dropdownMenuButton" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false" class="form-control" type="text" [(ngModel)]="searchText"
@@ -50,7 +48,8 @@
             </div>
           </div>
         </div>
-        <div class="m-2">
+        </div>
+        <div class="m-2 ml-4">
           <select class="form-control" [class.highlight]="exploreMore" [(ngModel)]="report_params.year"
                   (change)="navigateToYear($event)">
             <option value="latest" [selected]="this.report_params.year == 'latest'">latest</option>
@@ -59,6 +58,7 @@
             <option value="2018" [selected]="this.report_params.year === 2018">2018</option>
           </select>
         </div>
+
       </div>
     </nav>
   </div>

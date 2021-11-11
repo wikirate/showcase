@@ -998,7 +998,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                   "title": "No. of Suppliers"
                 }
               ]
-            });
+            }, {renderer:"svg"});
           }
         },
         error => {

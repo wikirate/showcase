@@ -198,7 +198,7 @@ export class EsgPerformanceComponent implements OnInit {
           {"scale": "x", "orient": "bottom", "format": ",d", "tickCount": 5},
           {"scale": "y", "orient": "left"}
         ]
-      });
+      }, {renderer:"svg"});
   }
 
   createRadarChart(subtitle: string) {
@@ -382,7 +382,7 @@ export class EsgPerformanceComponent implements OnInit {
             }
           }
         ]
-      })
+      }, {renderer:"svg"})
 
   }
 }

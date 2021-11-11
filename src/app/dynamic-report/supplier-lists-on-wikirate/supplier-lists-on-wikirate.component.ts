@@ -132,7 +132,7 @@ export class SupplierListsOnWikirateComponent implements OnInit {
           }
         }
       ]
-    });
+    }, {renderer:"svg"});
   }
 
 }

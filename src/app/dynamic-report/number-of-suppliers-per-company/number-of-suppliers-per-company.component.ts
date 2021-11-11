@@ -157,7 +157,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "labelColor": "#F7F7F8"
         },
         {"scale": "y", "orient": "left", "tickColor": "#F7F7F8", "labelColor": "#F7F7F8"}]
-    })
+    }, {renderer:"svg"})
   }
 
 }
