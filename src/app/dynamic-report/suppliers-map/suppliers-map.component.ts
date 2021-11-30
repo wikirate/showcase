@@ -122,7 +122,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                 },
                 {
                   "name": "suppliers_country",
-                  "url": "https://wikirate.org/Core+Country+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier%20of%20Apparel%20100&view=answer_list&limit=0",
+                  "url": "../../assets/content/Core+Country+Answer.json",
                   "format": {"type": "json", "parse": "auto"}
                 },
                 {

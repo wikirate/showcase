@@ -125,7 +125,7 @@ export class EsgPerformanceComponent implements OnInit {
         "data": [
           {
             "name": "companies",
-            "url": "https://wikirate.org/Company+browse_company_filter.json?filter[company_group][]=Apparel%20100%20Companies&limit=0",
+            "url": "../../assets/content/Apparel-100-Companies.json",
             "format": {"type": "json", "property": "items"}
           },
           {
