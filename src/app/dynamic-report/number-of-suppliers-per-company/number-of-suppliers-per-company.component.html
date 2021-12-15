@@ -1,11 +1,12 @@
 <div class="wikirate-navy-box">
   <div class="wikirate-container">
     <div class="row">
-      <div class="col-md vertical-center">
+      <div class="col-lg-4 vertical-center">
         <div class="content-container">
           <div class="showcase-title text-white">
-            But our findings show we need to strengthen transparency
+            Punlished supplier lists
           </div>
+          <div class="showcase-subtitle-white">Number of published supplier lists per company</div>
           <div class="mt-2 showcase-main-text-white">
             <p><span *ngIf="report_params.year !== 'latest'">{{'For ' + report_params.year}}</span><span
               *ngIf="report_params.year === 'latest'">{{'For the most recent years'}}</span> WikiRate's researchers managed to retrieve the supplier lists
@@ -14,13 +15,11 @@
               In total, these {{number_of_reporting_companies}} companies were supplied
               by {{unique_suppliers | numFormat}}
               different suppliers.</p>
-            <p>Explore the most sourced from countries below, and go to WikiRate to see the top 100 apparel suppliers.
-            </p>
             <button class="btn btn-highlight m-1" onclick="window.open('https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Supplied%20By&filter%5Byear%5D=latest','_blank')">Explore the Analysis</button>
           </div>
         </div>
       </div>
-      <div class="col-md">
+      <div class="col-lg-8 vertical-center">
         <div class="wikirate-box chart-container">
           <div id="bar-chart" class="m-2"></div>
         </div>

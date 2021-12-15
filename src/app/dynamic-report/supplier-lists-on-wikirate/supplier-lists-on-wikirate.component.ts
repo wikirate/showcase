@@ -19,20 +19,10 @@ export class SupplierListsOnWikirateComponent implements OnInit {
     embed("div#line-chart", {
       "$schema": "https://vega.github.io/schema/vega/v5.json",
       "description": "Apparel Top 100 Companies Reporting their Suppliers.",
-      "width": 400,
+      "width": 500,
       "height": 200,
       "padding": 5,
       "signals": [{"name": "interpolate", "value": "cardinal"}],
-      "title": {
-        "text": "Apparel Top 100 Companies Reporting their Suppliers.",
-        "subtitle": ["Number of Apparel Top 100 Companies making their list of suppliers publicly", "available over the years."],
-        "subtitleFontStyle": "italic",
-        "subtitlePadding": 5,
-        "frame": "bounds",
-        "anchor": "start",
-        "offset": 12,
-        "zindex": 0
-      },
       "data": [
         {
           "name": "supplier_lists",
@@ -132,7 +122,12 @@ export class SupplierListsOnWikirateComponent implements OnInit {
           }
         }
       ]
-    }, {renderer:"svg"});
+    }, {
+      renderer: "svg", actions: {
+        source: false,
+        editor: false
+      }
+    });
   }
 
 }

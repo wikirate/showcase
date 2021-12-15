@@ -63,16 +63,6 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
       "height": 410,
       "padding": 5,
       "autosize": "fit",
-      "title": {
-        "text": {"signal": "'Number of Published Supplier Lists'"},
-        "subtitle": "per company over the years (available on WikiRate)",
-        "subtitleFontStyle": "italic",
-        "subtitlePadding": 5,
-        "anchor": "start",
-        "frame": "group",
-        "color": "#F7F7F8",
-        "subtitleColor": "#F7F7F8"
-      },
       "data": [
         {
           "name": "companies",
@@ -92,10 +82,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
               "as": ["company_name", "headquarters"],
               "default": 0
             },
-            {
-              "type": "aggregate",
-              "groupby": ["company_name", "headquarters"]
-            }
+            {"type": "aggregate", "groupby": ["company_name", "headquarters"]}
           ]
         }
       ],
@@ -105,16 +92,16 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "from": {"data": "published_supplier_lists"},
           "encode": {
             "update": {
-              "x": {"scale": "x", "value": 0},
-              "x2": {"scale": "x", "field": "count"},
-              "y": {"scale": "y", "field": "company_name"},
-              "height": {"scale": "y", "band": 1},
+              "y": {"scale": "y", "value": 0},
+              "y2": {"scale": "y", "field": "count"},
+              "x": {"scale": "x", "field": "company_name"},
+              "width": {"scale": "x", "band": 1},
               "tooltip": {
                 "signal": "{'Company':datum.company_name, 'Headquarters':datum.headquarters , 'No. of Supplier Lists':datum.count}"
               },
               "fill": {"scale": "color", "field": "count"},
               "cornerRadiusTopRight": {"value": 5},
-              "cornerRadiusBottomRight": {"value": 5}
+              "cornerRadiusTopLeft": {"value": 5}
             },
             "hover": {"fill": {"value": "#912E06"}}
           }
@@ -122,21 +109,21 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
       ],
       "scales": [
         {
-          "name": "x",
+          "name": "y",
           "type": "linear",
           "domain": {"data": "published_supplier_lists", "field": "count"},
-          "range": "width",
+          "range": "height",
           "nice": true
         },
         {
-          "name": "y",
+          "name": "x",
           "type": "band",
           "domain": {
             "data": "published_supplier_lists",
             "field": "company_name",
             "sort": {"op": "max", "field": "count", "order": "descending"}
           },
-          "range": "height",
+          "range": "width",
           "padding": 0.1
         },
         {
@@ -149,14 +136,27 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
       ],
       "axes": [
         {
-          "scale": "x",
-          "orient": "bottom",
+          "scale": "y",
+          "orient": "left",
           "format": ",d",
           "tickCount": 5,
+          "labelFontSize":14,
           "tickColor": "#F7F7F8",
-          "labelColor": "#F7F7F8"
+          "labelColor": "#F7F7F8",
+          "domainColor":"#F7F7F8"
         },
-        {"scale": "y", "orient": "left", "tickColor": "#F7F7F8", "labelColor": "#F7F7F8"}]
+        {
+          "scale": "x",
+          "orient": "bottom",
+          "labelAngle": 90,
+          "labelAlign": "left",
+          "labelLimit": 90,
+          "labelFontSize":14,
+          "tickColor": "#F7F7F8",
+          "labelColor": "#F7F7F8",
+          "domainColor":"#F7F7F8"
+        }
+      ]
     }, {renderer:"svg"})
   }
 

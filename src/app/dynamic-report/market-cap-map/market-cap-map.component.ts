@@ -487,7 +487,12 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit, OnDestroy {
           "titleColor": "#F7F7F8"
         }
       ]
-    }, {renderer:"svg"})
+    }, {
+      renderer: "svg", actions: {
+        source: false,
+        editor: false
+      }
+    })
       .catch(console.warn);
   }
 

@@ -106,25 +106,21 @@ export class EsgPerformanceComponent implements OnInit {
     embed("div#esg-overall-wikirating",
       {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
-        "description": "ESG Disclosure Rate ",
-        "width": 560,
-        "height": 1400,
+        "description": "ESG Disclosure Rate",
+        "width": 1080,
+        "height": 400,
         "padding": 5,
-        "autosize": "fit",
-        "title": {
-          "text": title,
-          "subtitle": [
-            "What is the company's score on disclosure of",
-            "environmental, social and governance indicators?"
-          ],
-          "subtitleFontStyle": "italic",
-          "subtitlePadding": 5,
-          "anchor": "start",
-          "frame": "group"
+        "signals": [{
+          "name": "companies", "value": 40,
+          "bind": {"input": "range", "min": 20, "max": 100, "step": 1}
         },
+          {
+            "name": "order", "value": "descending",
+            "bind": {"input": "select", "options": ["ascending", "descending"]}
+          }],
         "data": [
           {
-            "name": "companies",
+            "name": "apparel_companies",
             "url": "../../assets/content/Apparel-100-Companies.json",
             "format": {"type": "json", "property": "items"}
           },
@@ -135,12 +131,21 @@ export class EsgPerformanceComponent implements OnInit {
             "transform": [
               {
                 "type": "lookup",
-                "from": "companies",
+                "from": "apparel_companies",
                 "key": "id",
                 "fields": ["company"],
                 "values": ["name", "headquarters"],
                 "as": ["company_name", "headquarters"],
                 "default": 0
+              },
+              {
+                "type": "window",
+                "sort": {"field": "value", "order": {"signal": "order"}},
+                "ops": ["row_number"], "as": ["rank"]
+              },
+              {
+                "type": "filter",
+                "expr": "datum.rank <= companies"
               },
               {"type": "formula", "as": "rate", "expr": "format(datum.value,',.2f')"}
             ]
@@ -152,16 +157,16 @@ export class EsgPerformanceComponent implements OnInit {
             "from": {"data": "suppplier_info"},
             "encode": {
               "update": {
-                "x": {"scale": "x", "value": 0},
-                "x2": {"scale": "x", "field": "value"},
-                "y": {"scale": "y", "field": "company_name"},
-                "height": {"scale": "y", "band": 1},
+                "y": {"scale": "y", "value": 0},
+                "y2": {"scale": "y", "field": "value"},
+                "x": {"scale": "x", "field": "company_name"},
+                "width": {"scale": "x", "band": 1},
                 "tooltip": {
                   "signal": "{'Company':datum.company_name, 'Headquarters':datum.headquarters , 'ESG Disclosure Rate':datum.rate}"
                 },
                 "fill": {"scale": "color", "field": "value"},
-                "cornerRadiusTopRight": {"value": 5},
-                "cornerRadiusBottomRight": {"value": 5}
+                "cornerRadiusTopRight": {"value": 3},
+                "cornerRadiusTopLeft": {"value": 3}
               },
               "hover": {"fill": {"value": "black"}}
             }
@@ -169,21 +174,21 @@ export class EsgPerformanceComponent implements OnInit {
         ],
         "scales": [
           {
-            "name": "x",
+            "name": "y",
             "type": "linear",
             "domain": {"data": "suppplier_info", "field": "value"},
-            "range": "width",
+            "range": "height",
             "nice": true
           },
           {
-            "name": "y",
+            "name": "x",
             "type": "band",
             "domain": {
               "data": "suppplier_info",
               "field": "company_name",
-              "sort": {"op": "max", "field": "value", "order": "descending"}
+              "sort": {"op": "max", "field": "value", "order": {"signal": "order"}}
             },
-            "range": "height",
+            "range": "width",
             "padding": 0.1
           },
           {
@@ -191,14 +196,32 @@ export class EsgPerformanceComponent implements OnInit {
             "type": "linear",
             "nice": true,
             "domain": {"data": "suppplier_info", "field": "value"},
-            "range": ["#dadbeb", "#484C9D"]
+            "range": ["#fef1eb", "#F7733D"]
           }
         ],
         "axes": [
-          {"scale": "x", "orient": "bottom", "format": ",d", "tickCount": 5},
-          {"scale": "y", "orient": "left"}
+          {
+            "scale": "y",
+            "orient": "left",
+            "format": ",d",
+            "tickCount": 5,
+            "labelFontSize": {"signal": "10 + 250 / companies"}
+          },
+          {
+            "scale": "x",
+            "orient": "bottom",
+            "labelAngle": 90,
+            "labelAlign": "left",
+            "labelLimit": 90,
+            "labelFontSize": {"signal": "10 + 250 / companies"}
+          }
         ]
-      }, {renderer:"svg"});
+      }, {
+        renderer: "svg", actions: {
+          source: false,
+          editor: false
+        }
+      });
   }
 
   createRadarChart(subtitle: string) {
@@ -213,7 +236,6 @@ export class EsgPerformanceComponent implements OnInit {
         "title": {
           "text": "ESG Disclosure Rate (" + this.report_params.year + ")",
           "anchor": "middle",
-          "fontSize": 14,
           "dy": -8,
           "dx": {"signal": "-width/4"},
           "subtitle": subtitle,
@@ -382,7 +404,12 @@ export class EsgPerformanceComponent implements OnInit {
             }
           }
         ]
-      }, {renderer:"svg"})
+      }, {
+        renderer: "svg", actions: {
+          source: false,
+          editor: false
+        }
+      })
 
   }
 }

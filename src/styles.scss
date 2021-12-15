@@ -225,7 +225,8 @@ a.showcase-link:hover {
 
 .footer-container {
   @extend .container;
-  padding: 0.5em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
   min-height: auto;
 }
 
@@ -259,6 +260,35 @@ a.showcase-link:hover {
   font-weight: 400!important;
   font-size: 1.75rem;
   color: #1D1E3F;
+  line-height: 135%;
+}
+
+.showcase-title-white {
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: 400!important;
+  font-size: 1.75rem;
+  color: #fff;
+  line-height: 135%;
+}
+
+.showcase-subtitle {
+  font-family: IBMPlexSans;
+  font-style: italic;
+  font-weight: 400!important;
+  font-size: 1rem;
+  color: #1D1E3F;
+  font-weight: 400!important;
+  line-height: 135%;
+}
+
+.showcase-subtitle-white {
+  font-family: IBMPlexSans;
+  font-style: italic;
+  font-weight: 400!important;
+  font-size: 1rem;
+  color: #F7F7F8;
+  font-weight: 400!important;
   line-height: 135%;
 }
 
@@ -406,13 +436,35 @@ a.showcase-link:hover {
   font-family: IBMPlexSans;
   font-style: normal;
   font-weight: 600;
-  font-size: 38px;
+  font-size: 1.75rem;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #F7F7F8;
+  //color: #484C9D;
+}
+
+.primary-info-navy {
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.75rem;
   text-align: center;
   letter-spacing: -1px;
   color: #484C9D;
 }
 
 .secondary-info {
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 160%;
+  text-align: center;
+  color: #F7F7F8;
+  //color: #1D1E3F;
+  text-transform: uppercase;
+}
+
+.secondary-info-navy {
   font-family: IBMPlexSans;
   font-style: normal;
   font-weight: normal;
@@ -450,4 +502,17 @@ a.showcase-link:hover {
 svg{
   max-width: 100%;
   height: auto;
+}
+
+.vega-bindings span{
+  margin: 0.5rem;
+}
+
+.vega-bindings input{
+  margin-top: 1.7rem;
+  margin-bottom: 0;
+}
+
+.vega-bindings{
+  text-align: center;
 }

@@ -1,54 +1,52 @@
 <div class="wikirate-navy-box">
   <div class="wikirate-container">
     <div class="row">
-      <div class="map-title cols-1 text-white">
-        Discover who the top 100 apparel companies are by market cap
+      <div class="showcase-title-white cols-1">
+        The top 100 apparel companies
+      </div>
+    </div>
+    <div class="row">
+      <div class="showcase-subtitle-white">
+        Companies selected by their market cap.
       </div>
     </div>
     <div class="row justify-content-center mt-4 mb-2">
-      <div id="vis">
+      <div id="vis"class="mt-3">
+      </div>
+    </div>
+    <div class="row align-items-end">
+      <div class="mt-5 col-md text-center">
+        <div class="primary-info">USD$ {{total_market_cap | bigNumSuff: 1}}+</div>
+        <div class="secondary-info mt-1">Total Market Cap</div>
+        <div class="explore mt-1"><a target="_blank"
+                                     href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Market%20Cap&filter%5Byear%5D={{this.report_params.year}}">Explore
+          More<i class="bi bi-arrow-right ml-1"></i></a></div>
+      </div>
+      <div class="mt-5 col-md text-center">
+        <div class="primary-info">{{total_employees | bigNumSuff: 2}}+</div>
+        <div class="secondary-info mt-1">Employees</div>
+        <div class="explore mt-1"><a target="_blank"
+                                     href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Employees&filter%5Byear%5D={{this.report_params.year}}">Explore
+          More<i class="bi bi-arrow-right ml-1"></i></a></div>
+
+      </div>
+      <div class="mt-5 col-md text-center">
+        <div class="primary-info">{{number_of_suppliers | bigNumSuff:2}}+</div>
+        <div class="secondary-info mt-1">Suppliers</div>
+        <div class="explore mt-1"><a target="_blank"
+                                     href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Supplied%20by&filter%5Byear%5D={{this.report_params.year}}">Explore
+          More<i class="bi bi-arrow-right ml-1"></i></a></div>
+      </div>
+      <div class="mt-5 col-md text-center">
+        <div class="primary-info">{{workers_in_supply_chain | bigNumSuff: 2}}+</div>
+        <div class="secondary-info mt-1">
+          Employees in Supply Chain
+        </div>
+        <div class="explore mt-1"><a target="_blank"
+                                     href="https://wikirate.org/Clean_Clothes_Campaign+Number_of_Workers?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bcompany_group%5D%5B%5D=Supplier%20of%20Apparel%20100&filter%5Byear%5D={{this.report_params.year}}">Explore
+          More<i class="bi bi-arrow-right ml-1"></i></a></div>
       </div>
     </div>
   </div>
 </div>
-<div class="wikirate-box">
-  <div class="wikirate-container align-content-center">
-    <div class="row justify-content-md-center">
-      <div class="mini-title mb-2 col-8">The largest apparel companies are huge and growing.</div>
-      <div class="mini-text col-8">
-        With a combined total market cap of over {{total_market_cap | bigNumSuff: 2}} USD$
-        <span *ngIf="report_params.year !== 'latest'">{{'in ' + report_params.year}}</span><span
-        *ngIf="report_params.year === 'latest'">{{' for the most recent years'}}</span>,
-        which is more than half of the global fashion industry – this group has tremendous
-        potential for negative and positive impact.
-        This potential creates a responsibility for the top 100 to share more information. Explore the top 100’s growth
-        by filtering the year in the menu bar:
-      </div>
-    </div>
-    <div class="row align-content-center">
-      <div class="primary-info mt-5 col-md text-center">
-        USD$ {{total_market_cap | bigNumSuff: 1}}+
-      </div>
-      <div class="primary-info mt-5 col-md text-center">{{total_employees | bigNumSuff: 2}}+</div>
-      <div class="primary-info mt-5 col-md text-center">{{number_of_suppliers | bigNumSuff:2}}+</div>
-      <div class="primary-info mt-5 col-md text-center">{{workers_in_supply_chain | bigNumSuff: 2}}+</div>
-    </div>
-    <div class="row align-content-center">
-
-      <div class="secondary-info mt-1 col-md">Total Market Cap</div>
-      <div class="secondary-info mt-1 col-md">Employees</div>
-      <div class="secondary-info mt-1 col-md">Suppliers</div>
-      <div class="secondary-info mt-1 col-md">
-        Employees in Supply Chain
-      </div>
-    </div>
-    <div class="row align-content-center">
-      <div class="explore mt-1 col-md"><a target="_blank" href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Market%20Cap&filter%5Byear%5D={{this.report_params.year}}">Explore More<i class="bi bi-arrow-right ml-1"></i></a></div>
-      <div class="explore mt-1 col-md"><a target="_blank" href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Employees&filter%5Byear%5D={{this.report_params.year}}">Explore More<i class="bi bi-arrow-right ml-1"></i></a></div>
-      <div class="explore mt-1 col-md"><a target="_blank" href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Supplied%20by&filter%5Byear%5D={{this.report_params.year}}">Explore More<i class="bi bi-arrow-right ml-1"></i></a></div>
-      <div class="explore mt-1 col-md"><a target="_blank" href="https://wikirate.org/Clean_Clothes_Campaign+Number_of_Workers?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bcompany_group%5D%5B%5D=Supplier%20of%20Apparel%20100&filter%5Byear%5D={{this.report_params.year}}">Explore More<i class="bi bi-arrow-right ml-1"></i></a></div>
-    </div>
-  </div>
-</div>
-
 
