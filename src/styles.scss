@@ -146,21 +146,21 @@ $highlightcolor: #F7733D;
 }
 
 .form-select:focus {
-  border-color: #484C9D;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
+  border-color: $navyblue;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $navyblue;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $navyblue;
 }
 
 .form-control:focus {
-  border-color: #484C9D;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
+  border-color: $navyblue;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $navyblue;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $navyblue;
 }
 
 .highlight {
-  border-color: #484C9D;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(72, 76, 157, 1);
+  border-color: $navyblue;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $navyblue;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $navyblue;
 }
 
 .highlight-orange {
@@ -413,8 +413,8 @@ a.showcase-link:hover {
 
 .form-control {
   max-width: 100%;
-  color: #484C9D;
-  border: 1px solid #484C9D;
+  color: $navyblue;
+  border: 1px solid $navyblue;
   border-radius: 5px;
 }
 
@@ -515,4 +515,8 @@ svg{
 
 .vega-bindings{
   text-align: center;
+}
+
+.filter{
+  padding:0;
 }

@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subscription} from "rxjs";
 import {ApparelService} from "../../services/apparel.service";
+import {Company} from "../../models/company.model";
 
 @Component({
   selector: 'app-esg-performance',
@@ -13,218 +14,92 @@ import {ApparelService} from "../../services/apparel.service";
 export class EsgPerformanceComponent implements OnInit {
   paramsSubscription!: Subscription;
   @ViewChild('radarChartContainer', {static: false}) radarChartContainer!: ElementRef;
-  report_params!: { year: number | string, id: number };
   environmental_disclosure_rate: number = 0;
   social_disclosure_rate: number = 0;
   governance_disclosure_rate: number = 0;
   nodata: boolean = true;
   radarChart: any;
+  selectedYear: string | number = 'latest';
+  selectedCompany: number = 0;
+  apparelTop100: Company[] = []
 
   constructor(private http: HttpClient,
               private route: ActivatedRoute,
               private apparelService: ApparelService,
               private renderer: Renderer2) {
+    this.apparelTop100 = apparelService.getCompanies();
   }
 
   ngOnInit(): void {
-    this.report_params = {
-      year: this.route.snapshot.params['year'],
-      id: this.route.snapshot.params['id']
+    this.updateSection()
+  }
+
+  updateSection() {
+    if (this.radarChart != null) {
+      this.renderer.removeChild(this.radarChartContainer.nativeElement, this.radarChart);
     }
-    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-      this.report_params.year = params['year'];
-      this.report_params.id = params['id']
-      this.createBarChart();
-      if (this.radarChart != null) {
-        this.renderer.removeChild(this.radarChartContainer.nativeElement, this.radarChart);
-      }
-      this.nodata = true;
-      if (this.report_params.id != 0) {
-        this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Environmental_Disclosure_Rate+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
-          .subscribe(response => {
-            if (response.length > 0) {
-              this.environmental_disclosure_rate = response[0]['value']
-              this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Social_Disclosure_Rate+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
-                .subscribe(response => {
-                  if (response.length > 0) {
-                    this.social_disclosure_rate = response[0]['value']
-                    this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Governance_Disclosure_Rate+~" + this.report_params.id + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
-                      .subscribe(response => {
-                        if (response.length > 0) {
-                          this.governance_disclosure_rate = response[0]['value']
-                          this.nodata = false;
-                          this.radarChart = this.renderer.createElement('div');
-                          this.radarChart.id = "esg-performance"
-                          this.radarChart.class = "radar-chart-container m-2"
-                          this.renderer.appendChild(this.radarChartContainer.nativeElement, this.radarChart);
-                          // @ts-ignore
-                          this.createRadarChart("of " + this.apparelService.getCompany(+this.report_params.id).name);
-                        }
-                      })
-                  }
-                })
-            }
-          })
-      } else {
-        this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Environmental_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
-          .subscribe(response => {
-            this.environmental_disclosure_rate = 0;
-            for (var i = 0; i < response.length; i++) {
-              this.environmental_disclosure_rate += +response[i]['value'];
-            }
-            this.environmental_disclosure_rate = this.environmental_disclosure_rate / response.length;
-            this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Social_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&" + this.report_params.year + "&limit=0&view=answer_list")
+    this.nodata = true;
+    if (this.selectedCompany != 0) {
+      this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Environmental_Disclosure_Rate+~" + this.selectedCompany + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.selectedYear + "&limit=0&view=answer_list")
+        .subscribe(response => {
+          if (response.length > 0) {
+            this.environmental_disclosure_rate = response[0]['value']
+            this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Social_Disclosure_Rate+~" + this.selectedCompany + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.selectedYear + "&limit=0&view=answer_list")
               .subscribe(response => {
-                this.social_disclosure_rate = 0;
-                for (var i = 0; i < response.length; i++) {
-                  this.social_disclosure_rate += +response[i]['value'];
+                if (response.length > 0) {
+                  this.social_disclosure_rate = response[0]['value']
+                  this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Governance_Disclosure_Rate+~" + this.selectedCompany + "+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.selectedYear + "&limit=0&view=answer_list")
+                    .subscribe(response => {
+                      if (response.length > 0) {
+                        this.governance_disclosure_rate = response[0]['value']
+                        this.nodata = false;
+                        this.radarChart = this.renderer.createElement('div');
+                        this.radarChart.id = "esg-performance"
+                        this.radarChart.class = "radar-chart-container m-2"
+                        this.renderer.appendChild(this.radarChartContainer.nativeElement, this.radarChart);
+                        // @ts-ignore
+                        this.updateRadarChart("of " + this.apparelService.getCompany(+this.selectedCompany).name);
+                      }
+                    })
                 }
-                this.social_disclosure_rate = this.social_disclosure_rate / response.length;
-                this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Governance_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&limit=0&view=answer_list")
-                  .subscribe(response => {
-                    this.governance_disclosure_rate = 0;
-                    for (var i = 0; i < response.length; i++) {
-                      this.governance_disclosure_rate += +response[i]['value'];
-                    }
-                    this.governance_disclosure_rate = this.governance_disclosure_rate / response.length;
-                    this.nodata = false;
-                    this.radarChart = this.renderer.createElement('div');
-                    this.radarChart.id = "esg-performance"
-                    this.radarChart.class = "m-2"
-                    this.renderer.appendChild(this.radarChartContainer.nativeElement, this.radarChart);
-                    this.createRadarChart("of Apparel Top 100 (avg Rating)");
-                  })
               })
-          })
-      }
-    })
-
+          }
+        })
+    } else {
+      this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Environmental_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.selectedYear + "&limit=0&view=answer_list")
+        .subscribe(response => {
+          this.environmental_disclosure_rate = 0;
+          for (var i = 0; i < response.length; i++) {
+            this.environmental_disclosure_rate += +response[i]['value'];
+          }
+          this.environmental_disclosure_rate = this.environmental_disclosure_rate / response.length;
+          this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Social_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&" + this.selectedYear + "&limit=0&view=answer_list")
+            .subscribe(response => {
+              this.social_disclosure_rate = 0;
+              for (var i = 0; i < response.length; i++) {
+                this.social_disclosure_rate += +response[i]['value'];
+              }
+              this.social_disclosure_rate = this.social_disclosure_rate / response.length;
+              this.http.get<any>("https://wikirate.org/Apparel_Research_Group+Governance_Disclosure_Rate+Answer.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.selectedYear + "&limit=0&view=answer_list")
+                .subscribe(response => {
+                  this.governance_disclosure_rate = 0;
+                  for (var i = 0; i < response.length; i++) {
+                    this.governance_disclosure_rate += +response[i]['value'];
+                  }
+                  this.governance_disclosure_rate = this.governance_disclosure_rate / response.length;
+                  this.nodata = false;
+                  this.radarChart = this.renderer.createElement('div');
+                  this.radarChart.id = "esg-performance"
+                  this.radarChart.class = "m-2"
+                  this.renderer.appendChild(this.radarChartContainer.nativeElement, this.radarChart);
+                  this.updateRadarChart("of Apparel Top 100 (avg Rating)");
+                })
+            })
+        })
+    }
   }
 
-  createBarChart() {
-    let title = ["ESG Disclosure Rates (" + this.report_params.year + ")"];
-    embed("div#esg-overall-wikirating",
-      {
-        "$schema": "https://vega.github.io/schema/vega/v5.json",
-        "description": "ESG Disclosure Rate",
-        "width": 1080,
-        "height": 400,
-        "padding": 5,
-        "signals": [{
-          "name": "companies", "value": 40,
-          "bind": {"input": "range", "min": 20, "max": 100, "step": 1}
-        },
-          {
-            "name": "order", "value": "descending",
-            "bind": {"input": "select", "options": ["ascending", "descending"]}
-          }],
-        "data": [
-          {
-            "name": "apparel_companies",
-            "url": "../../assets/content/Apparel-100-Companies.json",
-            "format": {"type": "json", "property": "items"}
-          },
-          {
-            "name": "suppplier_info",
-            "url": "https://wikirate.org/Apparel_Research_Group+ESG_Disclosure_Rate+Answers.json?filter[not_ids]=&filter[company_name]=&filter[year]=" + this.report_params.year + "&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0",
-            "format": {"type": "json", "parse": {"value": "number"}},
-            "transform": [
-              {
-                "type": "lookup",
-                "from": "apparel_companies",
-                "key": "id",
-                "fields": ["company"],
-                "values": ["name", "headquarters"],
-                "as": ["company_name", "headquarters"],
-                "default": 0
-              },
-              {
-                "type": "window",
-                "sort": {"field": "value", "order": {"signal": "order"}},
-                "ops": ["row_number"], "as": ["rank"]
-              },
-              {
-                "type": "filter",
-                "expr": "datum.rank <= companies"
-              },
-              {"type": "formula", "as": "rate", "expr": "format(datum.value,',.2f')"}
-            ]
-          }
-        ],
-        "marks": [
-          {
-            "type": "rect",
-            "from": {"data": "suppplier_info"},
-            "encode": {
-              "update": {
-                "y": {"scale": "y", "value": 0},
-                "y2": {"scale": "y", "field": "value"},
-                "x": {"scale": "x", "field": "company_name"},
-                "width": {"scale": "x", "band": 1},
-                "tooltip": {
-                  "signal": "{'Company':datum.company_name, 'Headquarters':datum.headquarters , 'ESG Disclosure Rate':datum.rate}"
-                },
-                "fill": {"scale": "color", "field": "value"},
-                "cornerRadiusTopRight": {"value": 3},
-                "cornerRadiusTopLeft": {"value": 3}
-              },
-              "hover": {"fill": {"value": "black"}}
-            }
-          }
-        ],
-        "scales": [
-          {
-            "name": "y",
-            "type": "linear",
-            "domain": {"data": "suppplier_info", "field": "value"},
-            "range": "height",
-            "nice": true
-          },
-          {
-            "name": "x",
-            "type": "band",
-            "domain": {
-              "data": "suppplier_info",
-              "field": "company_name",
-              "sort": {"op": "max", "field": "value", "order": {"signal": "order"}}
-            },
-            "range": "width",
-            "padding": 0.1
-          },
-          {
-            "name": "color",
-            "type": "linear",
-            "nice": true,
-            "domain": {"data": "suppplier_info", "field": "value"},
-            "range": ["#fef1eb", "#F7733D"]
-          }
-        ],
-        "axes": [
-          {
-            "scale": "y",
-            "orient": "left",
-            "format": ",d",
-            "tickCount": 5,
-            "labelFontSize": {"signal": "10 + 250 / companies"}
-          },
-          {
-            "scale": "x",
-            "orient": "bottom",
-            "labelAngle": 90,
-            "labelAlign": "left",
-            "labelLimit": 90,
-            "labelFontSize": {"signal": "10 + 250 / companies"}
-          }
-        ]
-      }, {
-        renderer: "svg", actions: {
-          source: false,
-          editor: false
-        }
-      });
-  }
-
-  createRadarChart(subtitle: string) {
+  updateRadarChart(subtitle: string) {
     embed("div#esg-performance",
       {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -234,7 +109,7 @@ export class EsgPerformanceComponent implements OnInit {
         "padding": 40,
         "autosize": {"type": "none", "contains": "padding"},
         "title": {
-          "text": "ESG Disclosure Rate (" + this.report_params.year + ")",
+          "text": "ESG Disclosure Rate (" + this.selectedYear + ")",
           "anchor": "middle",
           "dy": -8,
           "dx": {"signal": "-width/4"},

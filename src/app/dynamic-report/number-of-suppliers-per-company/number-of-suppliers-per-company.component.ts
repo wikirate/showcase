@@ -9,50 +9,21 @@ import {ActivatedRoute, Params} from "@angular/router";
   templateUrl: './number-of-suppliers-per-company.component.html',
   styleUrls: ['./number-of-suppliers-per-company.component.scss']
 })
-export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  paramsSubscription!: Subscription;
-  report_params!: { year: number | string };
+export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewInit {
   number_of_reporting_companies: number | string = 'Unknown'
   unique_suppliers: number | string = 'Unknown'
+  selectedYear: string | number = 'latest'
 
   constructor(private http: HttpClient,
               private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.updateSection()
     this.updateChart()
-    this.report_params = {
-      year: this.route.snapshot.params['year']
-    }
-    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-        this.report_params.year = params['year'];
-
-        let url = "https://wikirate.org/Commons+Supplied_By+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0&filter[year]=" + this.report_params.year;
-        this.http.get<any>(url)
-          .subscribe(response => {
-            this.number_of_reporting_companies = 0;
-            for (var i = 0; i < response.length; i++) {
-              if (response[i]['value'] !== "Unknown") {
-                this.number_of_reporting_companies++;
-              }
-            }
-          });
-
-        let num_of_suppliers_url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier%20of%20Apparel%20100&filter[year]=" + this.report_params.year + "&view=answer_list&limit=0"
-        this.http.get<any>(num_of_suppliers_url)
-          .subscribe(response => {
-            this.unique_suppliers = response.length;
-          });
-      }
-    );
   }
 
   ngAfterViewInit(): void {
-  }
-
-  ngOnDestroy(): void {
-    this.paramsSubscription.unsubscribe();
   }
 
   updateChart() {
@@ -140,10 +111,10 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "orient": "left",
           "format": ",d",
           "tickCount": 5,
-          "labelFontSize":14,
+          "labelFontSize": 14,
           "tickColor": "#F7F7F8",
           "labelColor": "#F7F7F8",
-          "domainColor":"#F7F7F8"
+          "domainColor": "#F7F7F8"
         },
         {
           "scale": "x",
@@ -151,13 +122,31 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "labelAngle": 90,
           "labelAlign": "left",
           "labelLimit": 90,
-          "labelFontSize":14,
+          "labelFontSize": 14,
           "tickColor": "#F7F7F8",
           "labelColor": "#F7F7F8",
-          "domainColor":"#F7F7F8"
+          "domainColor": "#F7F7F8"
         }
       ]
-    }, {renderer:"svg"})
+    }, {renderer: "svg", actions: {source: false, editor: false}})
   }
 
+  updateSection() {
+    let url = "https://wikirate.org/Commons+Supplied_By+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Apparel%20100%20Companies&view=answer_list&limit=0&filter[year]=" + this.selectedYear;
+    this.http.get<any>(url)
+      .subscribe(response => {
+        this.number_of_reporting_companies = 0;
+        for (var i = 0; i < response.length; i++) {
+          if (response[i]['value'] !== "Unknown") {
+            this.number_of_reporting_companies++;
+          }
+        }
+      });
+
+    let num_of_suppliers_url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier%20of%20Apparel%20100&filter[year]=" + this.selectedYear + "&view=answer_list&limit=0"
+    this.http.get<any>(num_of_suppliers_url)
+      .subscribe(response => {
+        this.unique_suppliers = response.length;
+      });
+  }
 }

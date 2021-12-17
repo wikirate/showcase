@@ -1,65 +1,30 @@
-<div class="wikirate-box bg-white sticky-top">
+<div class="wikirate-box bg-white">
   <div class="container">
-    <nav class="navbar sticky-top background-white drop-shadow nav navbar-light navbar-expand-lg">
-      <a class="navbar-brand title mr-4" routerLink="apparel_top_100/reports/0/latest">Apparel 100</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <nav class="navbar background-white drop-shadow nav navbar-light navbar-expand-lg">
+      <a class="navbar-brand title mr-3" routerLink="apparel_top_100/home">Apparel 100</a>
         <div class="navbar-nav">
-          <a class="nav-link ml-4 mr-4" routerLink="apparel_top_100/about">ABOUT</a>
+          <a class="nav-link ml-3 mr-3" routerLink="apparel_top_100/about">ABOUT</a>
           <div class="dropdown">
-            <a class="nav-link ml-4 mr-4 dropdown-toggle" type="button" id="share" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link ml-3 mr-3 dropdown-toggle" type="button" id="share" data-toggle="dropdown"
+               aria-expanded="false">
               SHARE <i class="bi bi-arrow-up-right"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="share">
-              <a class="dropdown-item" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://showcase.wikirate.org/"><i class="bi bi-facebook ml-2 mr-2"></i>facebook</a>
-              <a class="dropdown-item" target="_blank" href="https://twitter.com/intent/tweet?url=https://showcase.wikirate.org/&text="><i class="bi bi-twitter ml-2 mr-2"></i>twitter</a>
-              <a class="dropdown-item" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https://showcase.wikirate.org/"><i class="bi bi-linkedin ml-2 mr-2"></i>linkedin</a>
-              <a class="dropdown-item" target="_blank" href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://showcase.wikirate.org/%0A"><i class="bi bi-envelope-fill ml-2 mr-2"></i>mail</a>
+              <a class="dropdown-item" target="_blank"
+                 href="https://www.facebook.com/sharer/sharer.php?u=https://showcase.wikirate.org/"><i
+                class="bi bi-facebook ml-2 mr-2"></i>facebook</a>
+              <a class="dropdown-item" target="_blank"
+                 href="https://twitter.com/intent/tweet?url=https://showcase.wikirate.org/&text="><i
+                class="bi bi-twitter ml-2 mr-2"></i>twitter</a>
+              <a class="dropdown-item" target="_blank"
+                 href="https://www.linkedin.com/shareArticle?mini=true&url=https://showcase.wikirate.org/"><i
+                class="bi bi-linkedin ml-2 mr-2"></i>linkedin</a>
+              <a class="dropdown-item" target="_blank"
+                 href="mailto:info@example.com?&subject=&cc=&bcc=&body=https://showcase.wikirate.org/%0A"><i
+                class="bi bi-envelope-fill ml-2 mr-2"></i>mail</a>
             </div>
           </div>
         </div>
-        <div class="ml-auto">
-        <div class="form-inline m-2 ml-4">
-          <div class="input-group" [class.highlight]="exploreMore">
-            <input id="dropdownMenuButton" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false" class="form-control" type="text" [(ngModel)]="searchText"
-                   placeholder="Search for Company"
-                   aria-label="Search"
-                   [value]="this.report_params.id !== '0' ? selectedCompany: ''"
-                   #search_text/>
-            <div class="input-group-append">
-              <button class="btn-search btn-outline-dark" type="submit"><i class="bi bi-search"></i>
-              </button>
-            </div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <!-- results of ngFor is passed to appFilter with argument searchText -->
-              <a class="dropdown-item" *ngFor="let c of apparelTop100 | companyFilter: searchText" textHighlight
-                 style="cursor:pointer;"
-                 [id]="c.id"
-                 [searchedWord]="searchText"
-                 [content]="c.name"
-                 [classToApply]="'font-weight-bold'"
-                 [setTitle]="true"
-                 (click)="setValue(c);navigateToCompany(c);">
-                {{c.name}}
-              </a>
-            </div>
-          </div>
-        </div>
-        </div>
-        <div class="m-2 ml-4">
-          <select class="form-control" [class.highlight]="exploreMore" [(ngModel)]="report_params.year"
-                  (change)="navigateToYear($event)">
-            <option value="latest" [selected]="this.report_params.year == 'latest'">latest</option>
-            <option value="2020" [selected]="this.report_params.year === 2020">2020</option>
-            <option value="2019" [selected]="this.report_params.year === 2019">2019</option>
-            <option value="2018" [selected]="this.report_params.year === 2018">2018</option>
-          </select>
-        </div>
-
-      </div>
     </nav>
   </div>
 </div>

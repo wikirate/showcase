@@ -26,6 +26,7 @@ import {BigNumberFormatPipe} from "./pipes/big-number-format.pipe";
 import {NumFormatPipe} from "./pipes/num-format.pipe";
 import { EsgPerformanceComponent } from './dynamic-report/esg-performance/esg-performance.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EsgDisclosureRatesComponent } from './dynamic-report/esg-disclosure-rates/esg-disclosure-rates.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BigNumberFormatPipe,
     NumFormatPipe,
     TextHighlightDirective,
-    EsgPerformanceComponent
+    EsgPerformanceComponent,
+    EsgDisclosureRatesComponent
   ],
   imports: [
     FormsModule,

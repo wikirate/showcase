@@ -1,64 +1,52 @@
-import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ActivatedRoute, Params} from "@angular/router";
 import embed from "vega-embed";
 import {ApparelService} from "../../services/apparel.service";
 import {Company} from "../../models/company.model";
-import {delay} from "rxjs/operators";
 
 @Component({
   selector: 'app-suppliers-map',
   templateUrl: './suppliers-map.component.html',
   styleUrls: ['./suppliers-map.component.scss']
 })
-export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
-  paramsSubscription!: Subscription;
+export class SuppliersMapComponent implements OnInit, AfterViewInit {
   // @ts-ignore
   @ViewChild('map', {static: false}) mapElement: ElementRef;
   title = 'were the Apparel Top 100'
-  report_params!: { year: number | string, id: number };
+  apparelTop100: Company[] = [];
   suppliers: [] = [];
   suppliers_map: any;
+  selectedYear: string | number = 'latest'
+  selectedCompany: number = 0
+  // @ts-ignore
+  company: Company;
 
   constructor(private http: HttpClient,
-              private route: ActivatedRoute,
               private apparelService: ApparelService,
               private renderer: Renderer2) {
+    this.apparelTop100 = apparelService.getCompanies();
   }
 
   ngOnInit(): void {
-    this.report_params = {
-      year: this.route.snapshot.params['year'],
-      id: this.route.snapshot.params['id']
+    // @ts-ignore
+    this.company = this.apparelService.getCompany(this.selectedCompany);
+    // @ts-ignore
+    if (this.company.id != 0) {
+      // @ts-ignore
+      this.title = 'was ' + this.company.name
     }
-
-    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
-        this.report_params.year = params['year'];
-        this.report_params.id = params['id']
-        let company = this.apparelService.getCompany(+this.report_params.id);
-        // @ts-ignore
-        if (company.id != 0) {
-          // @ts-ignore
-          this.title = 'was ' + company.name
-        }
-        // @ts-ignore
-        this.updateChart(this.report_params.year, company)
-      }
-    );
+    // @ts-ignore
+    this.updateChart()
   }
 
   ngAfterViewInit(): void {
   }
 
-  ngOnDestroy(): void {
-    this.paramsSubscription.unsubscribe();
-  }
-
-  updateChart(year: number, company: Company) {
-    let url = "https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + year;
-    if (company.id != 0) {
-      url = 'https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_id]=' + company.id + '&filter[year]=' + year;
+  updateChart() {
+    let url = "https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + this.selectedYear;
+    if (this.company.id != 0) {
+      url = 'https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_id]=' + this.company.id + '&filter[year]=' + this.selectedYear;
     }
     this.suppliers = [];
     if (this.suppliers_map != null) {
@@ -76,10 +64,8 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
             embed("div#supplier-map", {
               "$schema": "https://vega.github.io/schema/vega/v5.json",
               "description": "Number of Apparel Top 100 Suppliers per Country",
-              "width": 900,
-              "height": 560,
-              "padding": {"top": 25, "left": 0, "right": 0, "bottom": 0},
-              "autosize": "none",
+              "width": 800,
+              "height": 520,
               "signals": [
                 {"name": "type", "value": "equalEarth"},
                 {"name": "scale", "value": 200},
@@ -940,7 +926,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
                   },
                   "transform": [
-                    { "type": "geoshape", "projection": "projection" }
+                    {"type": "geoshape", "projection": "projection"}
                   ]
                 },
                 {
@@ -998,14 +984,27 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit, OnDestroy {
                   "title": "No. of Suppliers"
                 }
               ]
-            }, {renderer:"svg"});
+            }, {renderer: "svg", actions: {source: false, editor: false}});
           }
         },
         error => {
         }
       )
-
-
   }
 
+  onSelectYear() {
+    this.updateChart()
+  }
+
+  onSelectCompany() {
+    // @ts-ignore
+    this.company = this.apparelService.getCompany(this.selectedCompany);
+    // @ts-ignore
+    if (this.company.id != 0) {
+      // @ts-ignore
+      this.title = 'was ' + this.company.name
+    }
+    // @ts-ignore
+    this.updateChart()
+  }
 }
