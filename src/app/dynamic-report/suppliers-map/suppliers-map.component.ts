@@ -13,7 +13,7 @@ import {Company} from "../../models/company.model";
 export class SuppliersMapComponent implements OnInit, AfterViewInit {
   // @ts-ignore
   @ViewChild('map', {static: false}) mapElement: ElementRef;
-  title = 'were the Apparel Top 100'
+  title = 'The top 100 apparel companies\''
   apparelTop100: Company[] = [];
   suppliers: [] = [];
   suppliers_map: any;
@@ -34,7 +34,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit {
     // @ts-ignore
     if (this.company.id != 0) {
       // @ts-ignore
-      this.title = 'was ' + this.company.name
+      this.title = this.company.name
     }
     // @ts-ignore
     this.updateChart()
@@ -1002,7 +1002,7 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit {
     // @ts-ignore
     if (this.company.id != 0) {
       // @ts-ignore
-      this.title = 'was ' + this.company.name
+      this.title = this.company.name
     }
     // @ts-ignore
     this.updateChart()

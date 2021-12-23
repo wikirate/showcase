@@ -7,12 +7,13 @@
     </div>
     <div class="row">
       <div class="showcase-subtitle">
-        Companies scored on disclosure of environmental, social and governance indicators.
+        Top 100 apparel companies’ combined environmental, social, and governance indicators disclosure score.
       </div>
     </div>
     <div class="row mt-2 justify-content-start mb-2">
       <div class="filter">
-        <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear" (change)="updateBarChart()">
+        <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear"
+                (change)="updateBarChart()">
           <option selected value="latest" [ngValue]="'latest'">latest</option>
           <option value="2020" [ngValue]="2020">2020</option>
           <option value="2019" [ngValue]="2019">2019</option>
@@ -28,8 +29,8 @@
     </div>
     <div class="row">
       <div class="showcase-main-text mt-2">
-        <p>Nearly a third of the top 100 don’t publish a recent report with sustainability information and only half
-          share information about their greenhouse gas (GHG) emissions for example.
+        <p>Nearly a third of the top 100 apparel companies don’t publish a recent report with sustainability
+          information. For example, only half share information about their greenhouse gas (GHG) emissions.
         </p>
         <div class="text-center">
           <button class="btn btn-highlight m-1"

@@ -3,9 +3,9 @@
     <div class="row vertical-center">
       <div class="col-lg-4">
         <div class="row showcase-title text-white">
-          Published supplier lists
+          Companies publishing their suppliers
         </div>
-        <div class="row showcase-subtitle-white">Number of published supplier lists per company</div>
+        <div class="row showcase-subtitle-white">Number of published supplier lists per company.</div>
         <div class="row mt-2 justify-content-start mb-2">
           <div class="filter">
             <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear" (change)="updateSection()">
@@ -18,10 +18,9 @@
         </div>
         <div class="row mt-2 showcase-main-text-white">
           <p><span *ngIf="this.selectedYear !== 'latest'">{{'For ' + this.selectedYear}}</span><span
-            *ngIf="this.selectedYear === 'latest'">{{'For the most recent years'}}</span> WikiRate's researchers managed
-            to retrieve the supplier lists
-            of {{number_of_reporting_companies}} companies out of the top 100 companies, unveiling interesting
-            patterns.
+            *ngIf="this.selectedYear === 'latest'">{{'For the most recent years'}}</span> WikiRate's researchers
+            retrieved the supplier lists
+            of {{number_of_reporting_companies}} companies out of the top 100 companies.
             In total, these {{number_of_reporting_companies}} companies were supplied
             by {{unique_suppliers | numFormat}}
             different suppliers.</p>
