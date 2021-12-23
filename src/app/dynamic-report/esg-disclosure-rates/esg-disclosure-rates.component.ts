@@ -124,7 +124,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
           {
             "scale": "x",
             "orient": "bottom",
-            "labelAngle": 90,
+            "labelAngle": 55,
             "labelAlign": "left",
             "labelLimit": 100,
             "labelFontSize": {"signal": "10 + 300 / companies"}

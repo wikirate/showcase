@@ -119,7 +119,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
         {
           "scale": "x",
           "orient": "bottom",
-          "labelAngle": 90,
+          "labelAngle": 55,
           "labelAlign": "left",
           "labelLimit": 90,
           "labelFontSize": 14,
