@@ -25,7 +25,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
         "height": 400,
         "padding": 5,
         "signals": [{
-          "name": "companies", "value": 30,
+          "name": "companies", "value": 70,
           "bind": {"input": "range", "min": 20, "max": 100, "step": 1}
         },
           {
