@@ -90,7 +90,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
           {
             "name": "y",
             "type": "linear",
-            "domain": {"data": "suppplier_info", "field": "value"},
+            "domain": [0, 10],
             "range": "height",
             "nice": true
           },
