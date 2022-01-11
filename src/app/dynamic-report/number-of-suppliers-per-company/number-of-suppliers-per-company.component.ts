@@ -30,8 +30,8 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
     embed("div#bar-chart", {
       "$schema": "https://vega.github.io/schema/vega/v5.json",
       "description": "Number of Published Supplier Lists",
-      "width": 550,
-      "height": 410,
+      "width": 750,
+      "height": 510,
       "padding": 5,
       "autosize": "fit",
       "data": [
@@ -121,7 +121,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
           "orient": "bottom",
           "labelAngle": 55,
           "labelAlign": "left",
-          "labelLimit": 90,
+          "labelLimit": 100,
           "labelFontSize": 14,
           "tickColor": "#F7F7F8",
           "labelColor": "#F7F7F8",

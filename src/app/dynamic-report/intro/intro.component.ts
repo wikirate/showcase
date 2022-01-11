@@ -1,4 +1,5 @@
 import {Component, ElementRef, ViewChild} from "@angular/core";
+import { ViewportScroller } from '@angular/common';
 import {ApparelService} from "../../services/apparel.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {animate, group, query, stagger, state, style, transition, trigger} from "@angular/animations";
@@ -48,7 +49,7 @@ export class IntroComponent {
   selectedLogos: string[] = [];
 
   // @ts-ignore
-  constructor(private apparelService: ApparelService, private modalService: NgbModal) {
+  constructor(private apparelService: ApparelService, private modalService: NgbModal, private viewportScroller: ViewportScroller) {
   }
 
   ngOnInit(): void {
@@ -72,6 +73,10 @@ export class IntroComponent {
 
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
+  }
+
+  onClick(anchorId: string) {
+    this.viewportScroller.scrollToAnchor(anchorId);
   }
 }
 

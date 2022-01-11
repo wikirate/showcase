@@ -3,10 +3,13 @@
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 576px) {
-  html { font-size: 14px; }
+  html {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -257,7 +260,7 @@ a.showcase-link:hover {
 .showcase-title {
   font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: 400!important;
+  font-weight: 400 !important;
   font-size: 1.75rem;
   color: #1D1E3F;
   line-height: 135%;
@@ -266,7 +269,7 @@ a.showcase-link:hover {
 .showcase-title-white {
   font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: 400!important;
+  font-weight: 400 !important;
   font-size: 1.75rem;
   color: #fff;
   line-height: 135%;
@@ -274,21 +277,21 @@ a.showcase-link:hover {
 
 .showcase-subtitle {
   font-family: IBMPlexSans;
-  font-style: italic;
-  font-weight: 400!important;
+  font-style: normal;
+  font-weight: 400 !important;
   font-size: 1rem;
   color: #1D1E3F;
-  font-weight: 400!important;
+  font-weight: 400 !important;
   line-height: 135%;
 }
 
 .showcase-subtitle-white {
   font-family: IBMPlexSans;
-  font-style: italic;
-  font-weight: 400!important;
+  font-style: normal;
+  font-weight: 400 !important;
   font-size: 1rem;
   color: #F7F7F8;
-  font-weight: 400!important;
+  font-weight: 400 !important;
   line-height: 135%;
 }
 
@@ -301,10 +304,10 @@ a.showcase-link:hover {
   vertical-align: middle;
 }
 
-.secondary-title{
+.secondary-title {
   font-family: IBMPlexSans;
   font-style: normal;
-  font-weight: 400!important;
+  font-weight: 400 !important;
   font-size: 1.4rem;
   color: #1D1E3F;
   line-height: 135%;
@@ -402,13 +405,14 @@ a.showcase-link:hover {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #1D1E3F;
+  color: #fff;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-  color: #484C9D;
+  color: $highlightcolor;
 }
 
 .form-control {
@@ -439,7 +443,7 @@ a.showcase-link:hover {
   font-size: 1.75rem;
   text-align: center;
   letter-spacing: -1px;
-  color: #F7F7F8;
+  color: $highlightcolor;
   //color: #484C9D;
 }
 
@@ -486,7 +490,11 @@ a.showcase-link:hover {
 //  height: 250px !important;
 //}
 
-.carousel-inner-logos{
+.bg-navy {
+  background-color: $navyblue !important
+}
+
+.carousel-inner-logos {
   @extend .carousel-inner;
   height: 150px !important;
 }
@@ -499,24 +507,35 @@ a.showcase-link:hover {
   margin: 0 !important;
 }
 
-.chart-wrapper svg{
+.chart-wrapper svg {
   max-width: 100%;
   height: auto;
 }
 
-.vega-bindings span{
+.chart-container{
+  text-align: center;
+}
+
+
+.vega-bindings span {
   margin: 0.5rem;
 }
 
-.vega-bindings input{
+.vega-bindings input {
   margin-top: 1.7rem;
   margin-bottom: 0;
 }
 
-.vega-bindings{
+.vega-bindings {
   text-align: center;
 }
 
-.filter{
-  padding:0;
+.year-filter {
+  min-width: 80px;
+  padding: 0;
+}
+
+.company-filter{
+  min-width: 110px;
+  padding: 0;
 }

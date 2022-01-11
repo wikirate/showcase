@@ -104,8 +104,8 @@ export class EsgPerformanceComponent implements OnInit {
       {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
         "description": "A radar chart example, showing multiple dimensions in a radial layout.",
-        "width": 410,
-        "height": 360,
+        "width": 510,
+        "height": 460,
         "padding": 40,
         "autosize": {"type": "none", "contains": "padding"},
         "title": {

@@ -1,37 +1,42 @@
 <div class="wikirate-creme-box">
   <div class="wikirate-container">
     <div class="row">
-      <div class="showcase-title">
-        Suppliers per country
+      <div class="col-md-8">
+        <div class="showcase-title">
+          Suppliers per country
+        </div>
+        <div class="showcase-subtitle">
+          {{this.title}} suppliers' locations
+          <span *ngIf="selectedYear !== 'latest'">{{'in ' + selectedYear}}</span><span
+          *ngIf="selectedYear === 'latest'">{{' based on the most recent available data'}}</span>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="showcase-subtitle">
-        {{this.title}} suppliers' locations
-        <span *ngIf="selectedYear !== 'latest'">{{'in ' + selectedYear}}</span><span
-        *ngIf="selectedYear === 'latest'">{{' based on the most recent available data'}}</span>
+      <div class="filters col-md-4">
+        <div class="row justify-content-end">
+          <div class="company-filter mt-1 col-md-7 mr-md-1">
+            <select id="inputCompany" class="form-control form-control-sm" [(ngModel)]="selectedCompany"
+                    (change)="onSelectCompany()">
+              <option *ngFor="let c of apparelTop100" [ngValue]="c.id">{{c.name}}</option>
+            </select>
+          </div>
+          <div class="year-filter mt-1 col-md-4">
+            <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear"
+                    (change)="updateChart()">
+              <option selected [ngValue]="'latest'">latest</option>
+              <option [ngValue]="2020">2020</option>
+              <option [ngValue]="2019">2019</option>
+              <option [ngValue]="2018">2018</option>
+            </select>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row mt-4 justify-content-end mb-2">
-      <div class="filter ml-2 mt-1">
-        <select id="inputCompany" class="form-control form-control-sm" [(ngModel)]="selectedCompany" (change)="onSelectCompany()">
-          <option *ngFor="let c of apparelTop100" [ngValue]="c.id">{{c.name}}</option>
-        </select>
-      </div>
-      <div class="filter ml-2 mt-1">
-        <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear" (change)="updateChart()">
-          <option selected [ngValue]="'latest'">latest</option>
-          <option [ngValue]="2020">2020</option>
-          <option [ngValue]="2019">2019</option>
-          <option [ngValue]="2018">2018</option>
-        </select>
-      </div>
-    </div>
-    <div class="row justify-content-center mb-2 no-gutters" #map>
-      <div id="no_data" class="mt-4 text-center" *ngIf="suppliers && suppliers.length == 0">
-        <img class="mb-1" src="assets/moon.svg" width="60px">
-        <p class="mt-2 showcase-main-text">You explored unresearched areas, no data available.</p>
+      <div class="row mb-2 no-gutters mt-2 col-12" #map>
+        <div class="col-md">
+          <div id="no_data" class="mt-4 text-center" *ngIf="suppliers && suppliers.length == 0">
+            <img class="mb-1" src="assets/moon.svg" width="60px">
+            <p class="mt-2 showcase-main-text">You explored unresearched areas, no data available.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>

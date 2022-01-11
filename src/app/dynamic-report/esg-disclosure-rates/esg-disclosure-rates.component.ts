@@ -22,7 +22,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
         "description": "ESG Disclosure Rate",
         "width": 1080,
-        "height": 400,
+        "height": 510,
         "padding": 5,
         "signals": [{
           "name": "companies", "value": 40,
@@ -126,7 +126,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
             "orient": "bottom",
             "labelAngle": 55,
             "labelAlign": "left",
-            "labelLimit": 100,
+            "labelLimit": 110,
             "labelFontSize": {"signal": "10 + 300 / companies"}
           }
         ]

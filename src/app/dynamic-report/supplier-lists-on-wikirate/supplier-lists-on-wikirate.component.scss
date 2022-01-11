@@ -1,3 +1,16 @@
-.chart-container{
+.explore{
+  font-family: IBMPlexSans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  color: #484C9D;
+  text-transform: uppercase;
   text-align: center;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
