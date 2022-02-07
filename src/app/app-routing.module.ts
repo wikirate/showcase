@@ -23,7 +23,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes, {anchorScrolling: "enabled"}
     )],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

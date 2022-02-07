@@ -1,8 +1,7 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import embed from "vega-embed";
-import {Subscription} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-number-of-suppliers-per-company',

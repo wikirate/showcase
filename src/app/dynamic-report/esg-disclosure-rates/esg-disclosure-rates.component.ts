@@ -8,15 +8,24 @@ import embed from "vega-embed";
 })
 export class EsgDisclosureRatesComponent implements OnInit {
   selectedYear: string | number = 'latest';
+  innerWidth: number = 0;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    console.log(this.innerWidth)
     this.updateBarChart()
   }
 
   updateBarChart() {
+    let initDisplayedCompanies = 20
+    if (this.innerWidth >= 1200) {
+      initDisplayedCompanies = 40
+    } else if (this.innerWidth >= 800) {
+      initDisplayedCompanies = 30
+    }
     embed("div#esg-overall-wikirating",
       {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -25,7 +34,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
         "height": 510,
         "padding": 5,
         "signals": [{
-          "name": "companies", "value": 40,
+          "name": "companies", "value": initDisplayedCompanies,
           "bind": {"input": "range", "min": 20, "max": 100, "step": 1}
         },
           {
@@ -126,7 +135,7 @@ export class EsgDisclosureRatesComponent implements OnInit {
             "orient": "bottom",
             "labelAngle": 55,
             "labelAlign": "left",
-            "labelLimit": 110,
+            "labelLimit": 130,
             "labelFontSize": {"signal": "10 + 300 / companies"}
           }
         ]

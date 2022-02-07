@@ -422,6 +422,20 @@ h3.showcase-subtitle-white {
   border-radius: 5px;
 }
 
+.form-control-navy {
+  @extend .form-control;
+  max-width: 100%;
+  background-color: $navyblue;
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+}
+
+.form-control-navy > option {
+  background-color: $navyblue;
+  color: white;
+}
+
 .showcase-note {
   font-family: IBMPlexSans;
   font-style: normal;
@@ -429,6 +443,14 @@ h3.showcase-subtitle-white {
   font-size: 14px;
   line-height: 160%;
   color: $showcasecolor;
+}
+
+select#inputYear{
+  width: 90px;
+}
+
+select#inputCompany{
+  width: 140px;
 }
 
 .logo {
@@ -496,7 +518,6 @@ h3.showcase-subtitle-white {
 
 .carousel-inner-logos {
   @extend .carousel-inner;
-  height: 150px !important;
 }
 
 .nopadding {
@@ -512,7 +533,7 @@ h3.showcase-subtitle-white {
   height: auto;
 }
 
-.chart-container{
+.chart-container {
   text-align: center;
 }
 
@@ -531,11 +552,25 @@ h3.showcase-subtitle-white {
 }
 
 .year-filter {
-  min-width: 80px;
   padding: 0;
 }
 
-.company-filter{
-  min-width: 110px;
+.company-filter {
   padding: 0;
+}
+
+.tiny-text {
+  font-size: 11px;
+  color: #747485;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tiny-text-nany {
+  font-size: 11px;
+  color: $navyblue;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

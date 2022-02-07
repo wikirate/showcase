@@ -35,6 +35,8 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit {
     if (this.company.id != 0) {
       // @ts-ignore
       this.title = this.company.name
+    } else {
+      this.title = 'The top 100 apparel companies\''
     }
     // @ts-ignore
     this.updateChart()
@@ -1003,6 +1005,8 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit {
     if (this.company.id != 0) {
       // @ts-ignore
       this.title = this.company.name
+    } else {
+      this.title = 'The top 100 apparel companies\''
     }
     // @ts-ignore
     this.updateChart()

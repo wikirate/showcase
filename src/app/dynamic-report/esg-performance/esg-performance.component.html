@@ -13,15 +13,15 @@
         </div>
       </div>
       <div class="filters col-md-4">
-        <div class="row justify-content-end">
-          <div class="company-filter mt-1 col-md-7 mr-md-1">
-            <select id="inputCompany" class="form-control form-control-sm" [(ngModel)]="selectedCompany"
+        <div class="row col justify-content-md-end">
+          <div class="company-filter mt-1 mr-1">
+            <select id="inputCompany" class="form-control-navy form-control-sm" [(ngModel)]="selectedCompany"
                     (change)="updateSection()">
               <option *ngFor="let c of apparelTop100" [ngValue]="c.id">{{c.name}}</option>
             </select>
           </div>
-          <div class="year-filter mt-1 col-md-4">
-            <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear"
+          <div class="year-filter mt-1">
+            <select id="inputYear" class="form-control-navy form-control-sm" [(ngModel)]="selectedYear"
                     (change)="updateSection()">
               <option selected [ngValue]="'latest'">latest</option>
               <option [ngValue]="2020">2020</option>

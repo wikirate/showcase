@@ -8,7 +8,7 @@
       </div>
       <div class="filters col-md-4 mt-1">
         <div class="year-filter col-md-5 ml-auto">
-          <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear"
+          <select id="inputYear" class="form-control-navy form-control-sm" [(ngModel)]="selectedYear"
                   (change)="updateSection()">
             <option selected value="latest" [ngValue]="'latest'">latest</option>
             <option value="2020" [ngValue]="2020">2020</option>
@@ -22,34 +22,34 @@
       <div id="vis" class="mt-2">
       </div>
     </div>
-    <div class="row align-items-end">
-      <div class="mt-5 col-md text-center">
-        <div class="primary-info">USD$ {{total_market_cap | bigNumSuff: 1}}+</div>
+    <div class="row align-items-end mt-4">
+      <div class="mt-1 col-md text-center">
         <div class="secondary-info mt-1">Total Market Cap</div>
+        <div class="primary-info">USD$ {{total_market_cap | bigNumSuff: 1}}+</div>
         <div class="explore mt-1 d-none d-md-block"><a target="_blank"
                                                        href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Market%20Cap&filter%5Byear%5D={{this.selectedYear}}">Dive
           Deeper<i class="bi bi-arrow-right ml-1"></i></a></div>
       </div>
-      <div class="mt-5 col-md text-center">
-        <div class="primary-info">{{total_employees | bigNumSuff: 2}}+</div>
+      <div class="mt-1 col-md text-center">
         <div class="secondary-info mt-1">Employees</div>
+        <div class="primary-info">{{total_employees | bigNumSuff: 2}}+</div>
         <div class="explore mt-1 d-none d-md-block"><a target="_blank"
                                                        href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Employees&filter%5Byear%5D={{this.selectedYear}}">Dive
           Deeper<i class="bi bi-arrow-right ml-1"></i></a></div>
 
       </div>
-      <div class="mt-5 col-md text-center">
-        <div class="primary-info">{{number_of_suppliers | bigNumSuff:2}}+</div>
+      <div class="mt-1 col-md text-center">
         <div class="secondary-info mt-1">Suppliers</div>
+        <div class="primary-info">{{number_of_suppliers | bigNumSuff:2}}+</div>
         <div class="explore mt-1 d-none d-md-block"><a target="_blank"
                                                        href="https://wikirate.org/Apparel_100_Analysis?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bmetric_name%5D=Supplied%20by&filter%5Byear%5D={{this.selectedYear}}">Dive
           Deeper<i class="bi bi-arrow-right ml-1"></i></a></div>
       </div>
-      <div class="mt-5 col-md text-center">
-        <div class="primary-info">{{workers_in_supply_chain | bigNumSuff: 2}}+</div>
+      <div class="mt-1 col-md text-center">
         <div class="secondary-info mt-1">
           Employees in Supply Chain
         </div>
+        <div class="primary-info">{{workers_in_supply_chain | bigNumSuff: 2}}+</div>
         <div class="explore mt-1 d-none d-md-block"><a target="_blank"
                                                        href="https://wikirate.org/Clean_Clothes_Campaign+Number_of_Workers?filter%5Bnot_ids%5D=&filter%5Bcompany_name%5D=&filter%5Bcompany_group%5D%5B%5D=Supplier%20of%20Apparel%20100&filter%5Byear%5D={{this.selectedYear}}">Dive
           Deeper<i class="bi bi-arrow-right ml-1"></i></a></div>

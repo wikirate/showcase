@@ -5,11 +5,11 @@
         <h2 class="showcase-title text-white">
           Published supplier lists
         </h2>
-        <div class="showcase-subtitle-white">Number of published supplier lists per company.</div>
+        <h3 class="showcase-subtitle-white">Number of published supplier lists per company.</h3>
       </div>
       <div class="col-md-4 mt-2 mb-2">
         <div class="year-filter col-md-5 ml-md-auto">
-          <select id="inputYear" class="form-control form-control-sm" [(ngModel)]="selectedYear"
+          <select id="inputYear" class="form-control-navy form-control-sm" [(ngModel)]="selectedYear"
                   (change)="updateSection()">
             <option selected value="latest" [ngValue]="'latest'">latest</option>
             <option value="2020" [ngValue]="2020">2020</option>
@@ -28,13 +28,13 @@
     </div>
     <div class="row mt-2">
       <div class="showcase-main-text-white col-md-9">
-        <span *ngIf="this.selectedYear !== 'latest'">{{'For ' + this.selectedYear}}</span><span
-        *ngIf="this.selectedYear === 'latest'">{{'For the most recent years'}}</span> WikiRate's researchers
+        <span *ngIf="this.selectedYear !== 'latest'"><b>{{'For ' + this.selectedYear}}</b></span><b
+        *ngIf="this.selectedYear === 'latest'">For the most recent years</b> WikiRate's researchers
         retrieved the supplier lists
-        of {{number_of_reporting_companies}} companies out of the top 100 companies.
-        In total, these {{number_of_reporting_companies}} companies were supplied
-        by {{unique_suppliers | numFormat}}
-        different suppliers.
+        of <b>{{number_of_reporting_companies}} companies</b> out of the top 100 companies.
+        In total, these <b>{{number_of_reporting_companies}} companies</b> were supplied
+        by <b>{{unique_suppliers | numFormat}}
+        different suppliers</b>.
       </div>
       <div class="col-md-3 d-flex align-items-end">
         <div class="explore mt-1 d-none d-md-block ml-auto"><a target="_blank"
