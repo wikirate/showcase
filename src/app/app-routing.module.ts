@@ -2,10 +2,9 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DynamicReportComponent} from "./dynamic-report/dynamic-report.component";
 import {AboutComponent} from "./about/about.component";
-import {CompanyResolver} from "./services/company-resolver.service";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 const routes: Routes = [
   {path: 'apparel_top_100/reports/0/latest', redirectTo: '/apparel_top_100/home', pathMatch: 'full'},
@@ -23,7 +22,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes, {anchorScrolling: "enabled"}
     )],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy}],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
