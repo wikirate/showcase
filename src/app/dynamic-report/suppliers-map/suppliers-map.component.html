@@ -6,9 +6,9 @@
           Suppliers per country
         </h2>
         <h3 class="showcase-subtitle">
-          <span [ngStyle]="{'font-weight': (selectedCompany != 0) ? '600' : '400'}">{{this.title}}</span> suppliers'
+          <span [ngStyle]="{'font-style': (selectedCompany != 0) ? 'italic' : 'normal'}">{{this.title}}</span> suppliers'
           locations
-          <b *ngIf="selectedYear !== 'latest'">{{'in ' + selectedYear}}</b><span
+          <i *ngIf="selectedYear !== 'latest'">{{'in ' + selectedYear}}</i><span
           *ngIf="selectedYear === 'latest'">{{' based on the most recent available data'}}</span>
         </h3>
       </div>
