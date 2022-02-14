@@ -17,11 +17,15 @@ export class DynamicReportComponent implements OnInit {
     meta.addTags([
       {
         name: 'keywords',
-        content: 'wikirate, esg data,apparel supply chain,apparel company esg ratings,manufacturing supply chain,supply chain,supply transparency,apparel esg data,fashion esg data,esg company,esg companies,esg company rating,esg rating,esg ratings,esg ranking,esg rankings,esg data ranking,esg data rating,environmental,environmental concerns,social concerns,environmental social corporate governance,adidas esg data,data visualizations,data infographics'
+        content: 'wikirate, esg data,apparel supply chain,apparel company esg ratings,manufacturing supply chain,supply chain,supply transparency,apparel esg data,fashion esg data,esg company,esg companies,esg company rating,esg rating,esg ratings,esg ranking,esg rankings,esg data ranking,esg data rating,environmental,environmental concerns,social concerns,environmental social corporate governance,adidas esg data,data visualizations,data infographics, Laureen van Breen'
       },
       {
         name: 'description',
         content: 'Discover ESG data disclosure ratings and supplier transparency of the biggest 100 apparel companies in infographics, charts, and maps by Wikirate.'
+      },
+      {
+        name:'author',
+        content:'Theresa Heithaus, Tom Howie, Laureen van Breen'
       }
     ])
   }
