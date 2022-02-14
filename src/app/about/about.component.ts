@@ -114,15 +114,15 @@ export class AboutComponent implements OnInit {
     }];
 
   constructor(private scroll: ViewportScroller, private meta: Meta, private titleService: Title) {
-    titleService.setTitle("Behind Apparel 100");
+    titleService.setTitle("Who made Apparel 100 and why?");
     meta.addTags([
       {
         name: 'keywords',
-        content: 'wikirate, esg data,apparel supply chain,apparel company esg ratings,manufacturing supply chain,supply chain,supply transparency,apparel esg data,fashion esg data,esg company,esg companies,esg company rating,esg rating,esg ratings,esg ranking,esg rankings,esg data ranking,esg data rating,environmental,environmental concerns,social concerns,environmental social corporate governance,adidas esg data,data visualizations,data infographics'
+        content: 'wikirate, esg data,apparel supply chain,apparel company esg ratings,manufacturing supply chain,supply chain,supply transparency,apparel esg data,fashion esg data,esg company,esg companies,esg company rating,esg rating,esg ratings,esg ranking,esg rankings,esg data ranking,esg data rating,environmental,environmental concerns,social concerns,environmental social corporate governance,adidas esg data,data visualizations,data infographics, Laureen van Breen'
       },
       {
         name: 'description',
-        content: 'Apparel 100 was made by Wikirate.org to showcase our supply chain transparency and ESG data in an engaging and accessible way. These maps and infographics show how much and which type of supply chain and ESG data to share. This apparel company transparency and ESG data research came together with the support of the WikiRate community.'
+        content: 'Apparel 100 was made by WikiRate to showcase supply chain transparency and ESG data in an engaging and accessible way. These maps and infographics create a sector snapshot that tells a story the world deserves to know.'
       }
     ])
     meta.updateTag({
