@@ -25,7 +25,7 @@ export class DynamicReportComponent implements OnInit {
       },
       {
         name:'author',
-        content:'Theresa Heithaus, Tom Howie, Laureen van Breen'
+        content:'Theresa Heithaus, Tom Howie, Laureen van Breen, Melanie Twele, Vasiliki Gkatziaki'
       }
     ])
   }

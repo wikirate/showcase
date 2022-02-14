@@ -109,7 +109,7 @@ export class AboutComponent implements OnInit {
     },
     {"contributor": "ShareAction", "logo": "https://dq06ugkuram52.cloudfront.net/files/3763173/15057247-medium.png"},
     {
-      "contributor": "SastainoMetric",
+      "contributor": "SustainoMetric",
       "logo": "https://dq06ugkuram52.cloudfront.net/files/8126858/26084088-medium.png"
     }];
 
@@ -123,9 +123,6 @@ export class AboutComponent implements OnInit {
       {
         name: 'description',
         content: 'Apparel 100 was made by Wikirate.org to showcase our supply chain transparency and ESG data in an engaging and accessible way. These maps and infographics show how much and which type of supply chain and ESG data to share. This apparel company transparency and ESG data research came together with the support of the WikiRate community.'
-      }, {
-        name: 'author',
-        content: 'Theresa Heithaus, Tom Howie, Laureen van Breen'
       }
     ])
     meta.updateTag({
