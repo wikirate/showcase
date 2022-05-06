@@ -487,7 +487,7 @@ export class MarketCapMapComponent implements OnInit, AfterViewInit {
   private getSum(response: []) {
     let sum = 0;
     for (var i = 0; i < response.length; i++) {
-      if (response[i]['value'] !== "Unknown")
+      if (response[i]['value'] !== "Unknown" && !Number.isNaN(Number(response[i]['value'])))
         sum += Number(response[i]['value']);
     }
     if (sum == 0) {

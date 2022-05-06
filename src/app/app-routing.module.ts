@@ -17,8 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    FormsModule,
-    BrowserModule,
     RouterModule.forRoot(
       routes, {anchorScrolling: "enabled"}
     )],
