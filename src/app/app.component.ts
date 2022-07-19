@@ -33,11 +33,6 @@ export class AppComponent implements OnInit{
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       // @ts-ignore
       .subscribe((event: NavigationEnd) => {
-        // gtag('config', 'G-KP6VMMHLSE',
-        //   {
-        //     'page_path': event.urlAfterRedirects
-        //   }
-        // );
         gtag('config', 'UA-34941429-8',
           {
             'page_path': event.urlAfterRedirects

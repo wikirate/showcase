@@ -2,8 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DynamicReportComponent} from "./dynamic-report/dynamic-report.component";
 import {AboutComponent} from "./about/about.component";
-import {FormsModule} from "@angular/forms";
-import {BrowserModule} from "@angular/platform-browser";
 import { LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 const routes: Routes = [
