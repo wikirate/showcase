@@ -17,8 +17,8 @@ export class AboutComponent implements OnInit {
     "logo": "https://dq06ugkuram52.cloudfront.net/files/3765463/22301376-medium.jpg"
   },
     {
-      "contributor": "Open Apparel Registry",
-      "logo": "https://dq06ugkuram52.cloudfront.net/files/5661929/21257596-medium.jpg"
+      "contributor": "Open Supply Hub",
+      "logo": "https://dq06ugkuram52.cloudfront.net/files/5661929/40040943-medium.jpeg"
     },
     {
       "contributor": "AMD Akademie Mode & Design Berlin",
