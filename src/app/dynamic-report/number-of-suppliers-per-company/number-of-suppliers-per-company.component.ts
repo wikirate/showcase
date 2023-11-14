@@ -142,7 +142,7 @@ export class NumberOfSuppliersPerCompanyComponent implements OnInit, AfterViewIn
         }
       });
 
-    let num_of_suppliers_url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[not_ids]=&filter[company_name]=&filter[company_group][]=Supplier%20of%20Apparel%20100&filter[year]=" + this.selectedYear + "&view=answer_list&limit=0"
+    let num_of_suppliers_url = "https://wikirate.org/Commons+Supplier_of+Answer.json?filter[company_group][]=Supplier%20of%20Apparel%20100&filter[year]=" + this.selectedYear + "&view=answer_list&limit=0"
     this.http.get<any>(num_of_suppliers_url)
       .subscribe(response => {
         this.unique_suppliers = response.length;
