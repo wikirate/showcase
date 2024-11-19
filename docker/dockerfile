@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Copy your static site files to the Nginx default directory
-COPY ../dist/showcase/browser /usr/share/nginx/html
+COPY ../dist/showcase /usr/share/nginx/html
 
 # Expose port 80 to allow traffic
 EXPOSE 80
