@@ -8,7 +8,6 @@ import {IntroComponent} from './dynamic-report/intro/intro.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {SuppliersMapComponent} from './dynamic-report/suppliers-map/suppliers-map.component';
-import {NetworkGraphComponent} from './dynamic-report/network-graph/network-graph.component';
 import {DynamicReportComponent} from './dynamic-report/dynamic-report.component';
 import { MarketCapMapComponent } from './dynamic-report/market-cap-map/market-cap-map.component';
 import { SupplierListsOnWikirateComponent } from './dynamic-report/supplier-lists-on-wikirate/supplier-lists-on-wikirate.component';
@@ -34,7 +33,6 @@ import { EsgDisclosureRatesComponent } from './dynamic-report/esg-disclosure-rat
     HeaderComponent,
     IntroComponent,
     SuppliersMapComponent,
-    NetworkGraphComponent,
     DynamicReportComponent,
     MarketCapMapComponent,
     SupplierListsOnWikirateComponent,

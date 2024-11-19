@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "apparel-top100-showcase"
+  "cli": {
+    "analytics": false
+  }
 }
