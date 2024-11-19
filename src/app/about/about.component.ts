@@ -154,16 +154,6 @@ export class AboutComponent implements OnInit {
     this.scrollToTop();
   }
 
-  prev() {
-    this.carousel.nativeElement.carousel('prev')
-  }
-
-  next() {
-    this.carousel.nativeElement.on('slid.bs.carousel', () => {
-      this.carousel.nativeElement.carousel('2')
-    })
-  }
-
   scrollToTop() {
     this.scroll.scrollToPosition([0, 0]);
   }

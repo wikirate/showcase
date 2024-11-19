@@ -75,7 +75,7 @@
 </div>
 <div class="wikirate-creme-box">
   <div class=" wikirate-container">
-    <div id="quotes" class="carousel slide" data-ride="carousel">
+    <div id="quotes" class="carousel slide pointer-event" data-ride="carousel">
       <!-- The slides to show -->
       <div class="carousel-inner">
         <div class="carousel-item mt-4 mb-4 active">
@@ -209,14 +209,14 @@
         </div>
       </div>
       <!--  Controls (Left and right) -->
-      <a class="carousel-control-prev mt-4 mr-4" role="button" data-slide="prev" href="#quotes">
+      <button class="carousel-control-prev" type="button" data-bs-target="#quotes" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next mt-4 mr-4" role="button" data-slide="next" href="#quotes">
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#quotes" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
 </div>
