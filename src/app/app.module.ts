@@ -5,10 +5,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from "./header/header.component";
 import {IntroComponent} from './dynamic-report/intro/intro.component';
-import {HttpClientModule} from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {SuppliersMapComponent} from './dynamic-report/suppliers-map/suppliers-map.component';
-import {NetworkGraphComponent} from './dynamic-report/network-graph/network-graph.component';
 import {DynamicReportComponent} from './dynamic-report/dynamic-report.component';
 import { MarketCapMapComponent } from './dynamic-report/market-cap-map/market-cap-map.component';
 import { SupplierListsOnWikirateComponent } from './dynamic-report/supplier-lists-on-wikirate/supplier-lists-on-wikirate.component';
@@ -28,38 +27,33 @@ import { EsgPerformanceComponent } from './dynamic-report/esg-performance/esg-pe
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EsgDisclosureRatesComponent } from './dynamic-report/esg-disclosure-rates/esg-disclosure-rates.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    IntroComponent,
-    SuppliersMapComponent,
-    NetworkGraphComponent,
-    DynamicReportComponent,
-    MarketCapMapComponent,
-    SupplierListsOnWikirateComponent,
-    NumberOfSuppliersPerCompanyComponent,
-    FooterComponent,
-    MoreDataComponent,
-    AboutComponent,
-    FilterPipe,
-    BigNumberFormatPipe,
-    NumFormatPipe,
-    TextHighlightDirective,
-    EsgPerformanceComponent,
-    EsgDisclosureRatesComponent
-  ],
-  imports: [
-    FormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    RouterModule,
-    NgbModule,
-    BrowserAnimationsModule
-  ],
-  providers: [ApparelService, CompanyResolver],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        IntroComponent,
+        SuppliersMapComponent,
+        DynamicReportComponent,
+        MarketCapMapComponent,
+        SupplierListsOnWikirateComponent,
+        NumberOfSuppliersPerCompanyComponent,
+        FooterComponent,
+        MoreDataComponent,
+        AboutComponent,
+        FilterPipe,
+        BigNumberFormatPipe,
+        NumFormatPipe,
+        TextHighlightDirective,
+        EsgPerformanceComponent,
+        EsgDisclosureRatesComponent
+    ],
+    bootstrap: [AppComponent], 
+    imports: [FormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule,
+        NgbModule,
+        BrowserAnimationsModule
+    ], 
+    providers: [ApparelService, CompanyResolver, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {
 }

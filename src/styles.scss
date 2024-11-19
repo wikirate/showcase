@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 html {
   font-size: 16px;
@@ -106,7 +108,6 @@ body {
   font-family: IBMPlexSans;
 }
 
-@import "~bootstrap";
 /* ------- customize primary buttons -------- */
 $showcasecolor: #484C9D;
 $navyblue: #1D1E3F;

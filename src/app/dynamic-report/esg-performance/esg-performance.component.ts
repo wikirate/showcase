@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import embed from "vega-embed";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subscription} from "rxjs";
 import {ApparelService} from "../../services/apparel.service";
