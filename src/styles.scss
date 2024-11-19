@@ -121,7 +121,7 @@ $highlightcolor: #F7733D;
 }
 
 .btn-highlight {
-  @include button-variant($highlightcolor, $highlightcolor, #912E06, lighten($highlightcolor, 5%), lighten($highlightcolor, 10%), darken(#fff, 15%));
+  @include button-variant($highlightcolor, $highlightcolor, $navyblue, lighten($highlightcolor, 5%), lighten($highlightcolor, 10%), #fff);
   letter-spacing: 0.3px !important;
   border-radius: 5px !important;
 }
