@@ -1,11 +1,11 @@
 import {Company} from "../models/company.model";
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import {Observable} from "rxjs";
 import {ApparelService} from "./apparel.service";
 import {Injectable} from "@angular/core";
 
 @Injectable()
-export class CompanyResolver implements Resolve<Company> {
+export class CompanyResolver  {
   constructor(private apparelService: ApparelService) {
   }
 
