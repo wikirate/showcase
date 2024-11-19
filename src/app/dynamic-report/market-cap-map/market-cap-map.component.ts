@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Params} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import embed from "vega-embed";
 
 @Component({
