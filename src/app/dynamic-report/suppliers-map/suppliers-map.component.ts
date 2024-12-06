@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import embed from "vega-embed";
 import {ApparelService} from "../../services/apparel.service";
 import {Company} from "../../models/company.model";
