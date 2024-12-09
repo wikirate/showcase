@@ -122,7 +122,7 @@ export class AboutComponent implements OnInit {
       },
       {
         name: 'description',
-        content: 'Apparel 100 was made by WikiRate to showcase supply chain transparency and ESG data in an engaging and accessible way. These maps and infographics create a sector snapshot that tells a story the world deserves to know.'
+        content: 'Apparel 100 was made by Wikirate to showcase supply chain transparency and ESG data in an engaging and accessible way. These maps and infographics create a sector snapshot that tells a story the world deserves to know.'
       }
     ])
     meta.updateTag({
@@ -152,16 +152,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.scrollToTop();
-  }
-
-  prev() {
-    this.carousel.nativeElement.carousel('prev')
-  }
-
-  next() {
-    this.carousel.nativeElement.on('slid.bs.carousel', () => {
-      this.carousel.nativeElement.carousel('2')
-    })
   }
 
   scrollToTop() {
