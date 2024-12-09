@@ -46,9 +46,9 @@ export class SuppliersMapComponent implements OnInit, AfterViewInit {
   }
 
   updateChart() {
-    let url = "https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + this.selectedYear+"&limit=0";
+    let url = "https://wikirate.org/Commons+Supplied_By+Relationships/answer_list.json?filter[company_group]=Apparel%20100%20Companies&filter[year]=" + this.selectedYear+"&limit=0";
     if (this.company.id != 0) {
-      url = 'https://wikirate.org/Commons+Supplied_By+RelationshipAnswer/answer_list.json?filter[subject_company_id]=' + this.company.id + '&filter[year]=' + this.selectedYear+"&limit=0";
+      url = 'https://wikirate.org/Commons+Supplied_By+Relationships/answer_list.json?filter[subject_company_id]=' + this.company.id + '&filter[year]=' + this.selectedYear+"&limit=0";
     }
     this.suppliers = [];
     if (this.suppliers_map != null) {
